@@ -1,4 +1,9 @@
 ﻿$(document).ready(function () {
+    // Límite de Tiempo 15 min = 900000ms
+    /*setTimeout(function () {
+        $('#Submit').click();
+    } ,60000);*/
+
     $('#Siguiente').click(function () {
         //Obtengo la Respuesta Elegida
         var $Letra_elegida = $("input[type=radio][name=opcion]:checked").val();
