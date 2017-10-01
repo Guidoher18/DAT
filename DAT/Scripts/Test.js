@@ -11,6 +11,7 @@
             //Función que Setea la Respuesta en el Input Oculto y pasa al Prox. #Ejercicio e #Imagen img
             var $Cambio = (function (a, b) {
                 $('#' + a + $Ejercicio).val($Letra_elegida);
+                $("input[type=radio][name=opcion]:checked").prop("checked", false);
                 $('#Ejercicio').replaceWith('<h2 id="Ejercicio">' + b + $Resultado + '</h2>');
                 $('#Imagen img').replaceWith('<img src="../../dat_img/RA/' + b + $Resultado + '.jpg"/>');
             });
