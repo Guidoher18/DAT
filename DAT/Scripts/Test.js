@@ -2,7 +2,7 @@
     // Límite de Tiempo 15 min = 900000ms
     /*setTimeout(function () {
         $('#Submit').click();
-    } ,60000);*/
+    } ,900000);*/
 
     $('#Siguiente').click(function () {
         //Obtengo la Respuesta Elegida

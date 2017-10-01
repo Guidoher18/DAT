@@ -10,11 +10,12 @@ namespace DAT.Controllers
     {
         public ActionResult Index()
         {
-            return View("~/Views/Home/Test.cshtml");
+            return View("~/Views/Home/Consentimiento.cshtml");
         }
 
         public ActionResult Consignas()
         {
+            //llamar a Home Manager Crear para conectar con BBDD 
             return View();
         }
 

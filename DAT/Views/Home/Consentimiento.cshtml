@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Consentimiento";
+    Layout = "~/Views/Shared/Layout_Consentimiento.cshtml";
+}
+
+<h2>Consentimiento Informado</h2>
+<p>
+    Esta es una investigación ......
+    etc (...)
+</p>
+
+<form action="@Url.Action("Consignas","Home")">
+    <input type="email" class="form-control" name="Mail" placeholder="mail@homail.com"/>
+    <div>
+        <label>Masculino</label>
+        <input type="radio" name="Sexo" value="M" />
+        <label>Femenino</label>
+        <input type="radio" name="Sexo" value="F" />
+    </div>
+    <div>
+        <label>Edad</label>
+        <input type="number" name="Edad" min="01" max="99"/>
+    </div>
+    <input type="submit" class="btn btn-success" name="Submit_Email" value="Acepto" /> 
+</form>
+
