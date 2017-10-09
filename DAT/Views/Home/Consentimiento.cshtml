@@ -4,14 +4,25 @@
     Layout = "~/Views/Shared/Layout_Consentimiento.cshtml";
 }
 
+@section Styles{
+    <link type="text/css" rel="stylesheet" href="~/Content/Consentimiento.css" />
+}
+
 <h2>Consentimiento Informado</h2>
 <p>
     Esta es una investigación ......
     etc (...)
 </p>
 
-<form action="@Url.Action("Consignas","Home")">
-    <input type="email" class="form-control" name="Mail" placeholder="mail@homail.com"/>
+<form action="@Url.Action("CrearSujeto","Home")" method="post">
+    <div class="col-md-6">
+        <label>Apellido</label>
+        <input type="text" class="form-control" name="Apellido" />
+        <label>Nombre</label>
+        <input type="text" class="form-control" name="Nombre" />
+        <label>Mail</label>
+        <input type="email" class="form-control" name="Mail" placeholder="mail@homail.com" />
+    </div><br />    
     <div>
         <label>Masculino</label>
         <input type="radio" name="Sexo" value="M" />
@@ -25,3 +36,6 @@
     <input type="submit" class="btn btn-success" name="Submit_Email" value="Acepto" /> 
 </form>
 
+@section Scripts{
+    <script src="~/Scripts/Consentimiento.js"></script>
+}

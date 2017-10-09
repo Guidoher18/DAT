@@ -167,16 +167,17 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\HomeManager.cs" />
     <Compile Include="Controllers\Para Borrar\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Para Borrar\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\HomeManager.cs" />
+    <Compile Include="Models\Para Borrar\AccountViewModels.cs" />
+    <Compile Include="Models\Para Borrar\IdentityModels.cs" />
+    <Compile Include="Models\HomeModels.cs" />
+    <Compile Include="Models\Para Borrar\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
