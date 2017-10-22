@@ -32,26 +32,6 @@ namespace DAT.Models
         public string RA_17 { get; set; }
     }
 
-    public class Abstracto {
-        public string E01 { get; set; }
-        public string E02 { get; set; }
-        public string E03 { get; set; }
-        public string E04 { get; set; }
-        public string E05 { get; set; }
-        public string E06 { get; set; }
-        public string E07 { get; set; }
-        public string E08 { get; set; }
-        public string E09 { get; set; }
-        public string E10 { get; set; }
-        public string E11 { get; set; }
-        public string E12 { get; set; }
-        public string E13 { get; set; }
-        public string E14 { get; set; }
-        public string E15 { get; set; }
-        public string E16 { get; set; }
-        public string E17 { get; set; }
-    }
-
     /*public class IndexViewModel
     {
         public bool HasPassword { get; set; }

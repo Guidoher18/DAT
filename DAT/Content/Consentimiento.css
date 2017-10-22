@@ -1,2 +1,50 @@
 ﻿body {
+    width: 100vw;
+}
+
+body>div{
+    margin-left: 16.66vw;
+    margin-right: 16.66vw;
+    display: inline-block;
+}
+
+h2, p {
+    text-align:center;
+}
+
+form>div>input[type="text"] {
+    text-transform: uppercase;
+}
+
+#Edad, #Sexo {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin:auto;
+    text-align:center;
+}
+
+#Edad > input {
+    width:50%;
+}
+
+#Sexo {
+    margin-left: 16.66vw;
+}
+
+/*Botón Acepto*/
+#Sea>input[type="submit"]{
+    margin: 0 16.66vw !important;
+}
+
+.col-md-2 {
+    width: 16.66vw !important;
+}
+
+.col-md-4 {
+    width: 33.33vw !important;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }

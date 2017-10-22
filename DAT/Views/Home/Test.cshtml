@@ -16,7 +16,7 @@
     <img src="~/dat_img/RA/01.jpg"/>
 </div>
 <!-- Panel de Selección de Opciones-->
-<div> 
+<div id="Panel"> 
     <label>A</label>
     <input type="radio" name="opcion" value="A" />
     <label>B</label>
@@ -29,7 +29,7 @@
     <input type="radio" name="opcion" value="E" /> 
 </div>
 <!-- Formulario con Respuestas Acumuladas-->
-<form action="@Url.Action("CargarRespuestas","Home")" id="Formulario">
+<form action="@Url.Action("CargarRespuestas","Home")" id="Formulario" method="post">
     <input type="text" class="hide" id="01" name="E01"/>
     <input type="text" class="hide" id="02" name="E02" />
     <input type="text" class="hide" id="03" name="E03" />
@@ -49,7 +49,7 @@
     <input type="text" class="hide" id="17" name="E17" />
     <br/>
     <br/>
-    <input type="button" class="btn btn-success" value="Siguiente" id="Siguiente"/>
+    <input type="button" class="btn btn-success col-md-4" value="Siguiente" id="Siguiente"/>
     <input type="submit" name="Submit" class="hide" id="Submit"/>
 </form>
 

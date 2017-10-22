@@ -58,6 +58,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -167,23 +168,17 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\Para Borrar\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Para Borrar\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeManager.cs" />
-    <Compile Include="Models\Para Borrar\AccountViewModels.cs" />
-    <Compile Include="Models\Para Borrar\IdentityModels.cs" />
     <Compile Include="Models\HomeModels.cs" />
-    <Compile Include="Models\Para Borrar\ManageViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Test.css" />
     <Content Include="Content\Consentimiento.css" />
     <Content Include="dat_img\RA\01.jpg" />
@@ -208,23 +203,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Para Borrar\Site.css" />
-    <Content Include="Scripts\Otros\bootstrap.js" />
-    <Content Include="Scripts\Otros\bootstrap.min.js" />
-    <None Include="Scripts\Otros\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Consentimiento.js" />
-    <Content Include="Scripts\Otros\jquery-1.10.2.js" />
-    <Content Include="Scripts\Otros\jquery-1.10.2.min.js" />
-    <None Include="Scripts\Otros\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\Otros\jquery.validate.js" />
-    <Content Include="Scripts\Otros\jquery.validate.min.js" />
-    <Content Include="Scripts\Otros\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\Otros\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Otros\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Otros\respond.js" />
-    <Content Include="Scripts\Otros\respond.min.js" />
     <Content Include="Scripts\Test.js" />
-    <Content Include="Scripts\Otros\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -233,32 +213,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\Para Borar\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Para Borar\Error.cshtml" />
-    <Content Include="Views\Shared\Para Borar\_Layout.cshtml" />
-    <Content Include="Views\Home\Para Borrar\About.cshtml" />
-    <Content Include="Views\Home\Para Borrar\Contact.cshtml" />
-    <Content Include="Views\Home\Para Borrar\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Para Borar\Lockout.cshtml" />
-    <Content Include="Views\Shared\Para Borar\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Layout_test.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Final.cshtml" />
@@ -268,7 +222,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\HomeManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -276,7 +229,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\Otros\jquery-1.10.2.min.map" />
+    <None Include="Properties\PublishProfiles\Otro.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

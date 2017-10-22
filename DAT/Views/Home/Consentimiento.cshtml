@@ -15,25 +15,31 @@
 </p>
 
 <form action="@Url.Action("CrearSujeto","Home")" method="post">
-    <div class="col-md-6">
+    <div>
         <label>Apellido</label>
-        <input type="text" class="form-control" name="Apellido" />
+        <input type="text" class="form-control" name="Apellido" required/>
         <label>Nombre</label>
-        <input type="text" class="form-control" name="Nombre" />
+        <input type="text" class="form-control" name="Nombre" required/>
         <label>Mail</label>
-        <input type="email" class="form-control" name="Mail" placeholder="mail@homail.com" />
-    </div><br />    
-    <div>
-        <label>Masculino</label>
-        <input type="radio" name="Sexo" value="M" />
-        <label>Femenino</label>
-        <input type="radio" name="Sexo" value="F" />
+        <input type="email" class="form-control" name="Mail" placeholder="mail@homail.com" required/>
+    </div><br /><br />     
+    <div id="Sea">
+        <div id="Sexo" class="col-md-2">
+            <div class="row">
+                <label>Masculino</label>
+                <input type="radio" name="Sexo" value="M" required />
+            </div>
+            <div class="row">
+                <label>Femenino</label>
+                <input type="radio" name="Sexo" value="F" required />
+            </div>
+        </div>
+        <div class="col-md-2" id="Edad">
+            <label>Edad</label><br />
+            <input type="number" name="Edad" min="01" max="99" />
+        </div> <br />
+        <input type="submit" class="btn btn-success col-md-4" name="Submit_Email" value="Acepto" />
     </div>
-    <div>
-        <label>Edad</label>
-        <input type="number" name="Edad" min="01" max="99"/>
-    </div>
-    <input type="submit" class="btn btn-success" name="Submit_Email" value="Acepto" /> 
 </form>
 
 @section Scripts{

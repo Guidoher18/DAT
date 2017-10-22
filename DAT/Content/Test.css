@@ -1,2 +1,30 @@
-﻿body {
+﻿body>div{
+    display: inline-block;
 }
+
+img {
+    display:inline-block;
+    text-align:center;
+}
+
+h1{
+    text-align:center;
+}
+
+#Panel {
+    text-align:center;
+    font-size: 2em;
+}
+
+#Panel>input[type=radio] {
+    border: 0;
+    width: 0.7em;
+    height: 0.7em;
+}
+
+#Siguiente {
+    margin: auto 25vw;
+}
+
+
+
