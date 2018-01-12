@@ -179,6 +179,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Mobile.css" />
     <Content Include="Content\Test.css" />
     <Content Include="Content\Consentimiento.css" />
     <Content Include="dat_img\RA\01.jpg" />
@@ -204,6 +205,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Consentimiento.js" />
+    <Content Include="Scripts\Mobile.js" />
     <Content Include="Scripts\Test.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -230,6 +232,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Otro.pubxml" />
+    <Content Include="Views\Home\Mobile.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

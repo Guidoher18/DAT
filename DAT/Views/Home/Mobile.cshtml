@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Mobile";
+    Layout = "~/Views/Shared/Layout_test.cshtml";
+}
+
+@section Styles{
+    <link type="text/css" rel="stylesheet" href="~/Content/Mobile.css" />
+}
+
+<h2>¡Gracias por Ingresar!</h2>
+
+<p> Para poder participar de la investigación, es necesario que ingrese a la página desde una Computadora de Escritorio o Portatil</p>
+
+<h3> Reciba el Link por mail</h3>
+<form action="@Url.Action("EnviarMail","Home")" method="post">
+    <input type="email" placeholder="tuemail@mail.com" name="MailMobile"/>
+    <input type="submit" class="btn btn-primary"/>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/Mobile.js"></script>
+}

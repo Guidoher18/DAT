@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
@@ -13,7 +16,54 @@ namespace DAT.Controllers
     {
         public ActionResult Index()
         {
-            return View("~/Views/Home/Consentimiento.cshtml");
+            if (Request.Browser.IsMobileDevice) 
+            {
+                return View("~/Views/Home/Mobile.cshtml");
+            }
+            else
+            {
+                return View("~/Views/Home/Consentimiento.cshtml");
+            }
+                
+        }
+
+        [HttpPost]
+        public ActionResult EnviarMail(string MailMobile)
+        {
+            string MyName = "Procesos Básicos";
+            string MyMail = "guidoh181193@gmail.com";
+            string MyPassword = "mglmcp1521805187";
+            string TheirMail = MailMobile;
+            string Subject = "Investigación sobre Razonamiento Mecánico";
+            string Message = "El Link para participar de la Investigación es: https://goo.gl/gdpExZ. Recuerde ingresar desde una Computadora de Escritorio o Portatill. Desde ya, Muchas Gracias.";
+            try
+            {
+                var smtp = new SmtpClient();
+                smtp.Host = "Smtp.Gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.Timeout = 10000;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential(MyMail, MyPassword);
+                
+                MailAddress from = new MailAddress(MyMail, MyName);
+                MailAddress to = new MailAddress(TheirMail);
+                MailMessage message = new MailMessage(from, to);
+                message.Body = Message;
+                message.BodyEncoding = Encoding.UTF8;
+                message.Subject = Subject;
+
+                smtp.Send(message);
+                //Si todo sale bien configuro un mensaje
+                MessageBox.Show("Email has been sent successfully.");
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
+            return Redirect("http://www.google.com"); 
         }
 
         /// <summary>
@@ -67,7 +117,7 @@ namespace DAT.Controllers
         }
 
         /// <summary>
-        /// Toma las Respuestas del Sujeto con sus Datos previamente almacenados en session y los pasa por el Método Insertar [en BBDD]
+        /// Toma las Respuestas del Sujeto con sus Datos almacenados en session y los pasa por el Método Insertar [en BBDD]
         /// </summary>
         /// <param name="E01"></param>
         /// <param name="E02"></param>
