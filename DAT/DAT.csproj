@@ -216,14 +216,16 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Layout_test.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\Test_RA.cshtml" />
     <Content Include="Views\Home\Final.cshtml" />
     <Content Include="Views\Shared\Layout_Consentimiento.cshtml" />
     <Content Include="Views\Home\Consentimiento.cshtml" />
-    <Content Include="Views\Home\Consignas.cshtml" />
+    <Content Include="Views\Home\Consignas_RA.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="dat_img\RM\" />
+    <Folder Include="dat_img\RV\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

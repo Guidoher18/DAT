@@ -90,7 +90,7 @@ namespace DAT.Controllers
 
                 Session["Sujeto"] = Sujeto; 
             
-                return View("~/Views/Home/Consignas.cshtml"); 
+                return View("~/Views/Home/Consignas_RA.cshtml"); 
             }
             else{
                 //MessageBox.Show("Error Message", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -100,7 +100,7 @@ namespace DAT.Controllers
             }
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Consulta Duplicado permite chequear en BBDD si el mail ya existe
         /// </summary>
         /// <param name="Mail"></param>
@@ -109,11 +109,21 @@ namespace DAT.Controllers
             HomeManager Manager = new HomeManager();
             var Consulta = Manager.Consultar(Mail);
             return Consulta; 
+        }*/
+
+        public ActionResult Test_RA()
+        {
+            return View("~/Views/Home/Test_RA.cshtml");
         }
 
-        public ActionResult Test()
+        public ActionResult Test_RV()
         {
-            return View("~/Views/Home/Test.cshtml");
+            return View("~/Views/Home/Test_RV.cshtml");
+        }
+
+        public ActionResult Test_RM()
+        {
+            return View("~/Views/Home/Test_RM.cshtml");
         }
 
         /// <summary>
