@@ -62,7 +62,11 @@ namespace DAT.Models
 
             return Sujeto;
         }
-
+        /// <summary>
+        /// Consulta si el Email ya fue insertado en la BBDD
+        /// </summary>
+        /// <param name="Mail"></param>
+        /// <returns></returns>
         [HttpPost]
         public string Consultar(string Mail) {
             var Email = Mail;

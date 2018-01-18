@@ -13,6 +13,8 @@ namespace DAT.Models
         public string Mail { get; set; }
         public string Sexo { get; set; }
         public int Edad { get; set; }
+        public string Carrera { get; set; }
+        public string Universidad { get; set; }
         public string RA_1 { get; set; }
         public string RA_2 { get; set; }
         public string RA_3 { get; set; }

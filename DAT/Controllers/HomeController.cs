@@ -27,6 +27,11 @@ namespace DAT.Controllers
                 
         }
 
+        /// <summary>
+        /// Envía un Mail con el Link para participar de la Investigación
+        /// </summary>
+        /// <param name="MailMobile"></param>
+        /// <returns> Redirige a Google </returns>
         [HttpPost]
         public ActionResult EnviarMail(string MailMobile)
         {
@@ -76,7 +81,7 @@ namespace DAT.Controllers
         /// <param name="Edad"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CrearSujeto(string Apellido, string Nombre, string Mail, string Sexo, int Edad)
+        public ActionResult CrearSujeto(string Apellido, string Nombre, string Mail, string Sexo, int Edad, string Carrera, string Universidad)
         {
             HomeManager Manager = new HomeManager();
 
@@ -87,13 +92,15 @@ namespace DAT.Controllers
                 Sujeto.Mail = Mail;
                 Sujeto.Sexo = Sexo;
                 Sujeto.Edad = Edad;
+                Sujeto.Carrera = Carrera;
+                Sujeto.Universidad = Universidad;
 
                 Session["Sujeto"] = Sujeto; 
             
-                return View("~/Views/Home/Consignas_RA.cshtml"); 
+                return View("~/Views/Home/Consigna_RA.cshtml"); 
             }
             else{
-                //MessageBox.Show("Error Message", "Error Title", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 //MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo");
                 //ScriptManager.RegisterClientScriptBlock(Page '' ,typeof(Page), "ClientScript", "alert('El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo')", true);
                 return View("~/Views/Home/Consentimiento.cshtml"); 

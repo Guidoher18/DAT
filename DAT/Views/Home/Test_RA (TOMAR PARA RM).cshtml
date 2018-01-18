@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Evaluación Razonamiento Mecánico";
+    Layout = "~/Views/Shared/Layout_test.cshtml";
+}
+
+@section Styles{
+    <link type="text/css" rel="stylesheet" href="~/Content/Test.css" />
+}
+
+<h1>Razonamiento Abstracto</h1>
+<h2 id="Ejercicio">01</h2>
+
+<!-- Ejercicio-->
+<div id="Imagen">
+    <img src="~/dat_img/RA/01.jpg"/>
+</div>
+<!-- Panel de Selección de Opciones-->
+<div id="Panel"> 
+    <label>A</label>
+    <input type="radio" name="opcion" value="A" />
+    <label>B</label>
+    <input type="radio" name="opcion" value="B" />
+    <label>C</label>
+    <input type="radio" name="opcion" value="C" />
+    <label>D</label>
+    <input type="radio" name="opcion" value="D" />
+    <label>E</label>
+    <input type="radio" name="opcion" value="E" /> 
+</div>
+<!-- Formulario con Respuestas Acumuladas-->
+<form action="@Url.Action("CargarRespuestas","Home")" id="Formulario" method="post">
+    <input type="text" class="hide" id="01" name="E01"/>
+    <input type="text" class="hide" id="02" name="E02" />
+    <input type="text" class="hide" id="03" name="E03" />
+    <input type="text" class="hide" id="04" name="E04" />
+    <input type="text" class="hide" id="05" name="E05" />
+    <input type="text" class="hide" id="06" name="E06" />
+    <input type="text" class="hide" id="07" name="E07" />
+    <input type="text" class="hide" id="08" name="E08" />
+    <input type="text" class="hide" id="09" name="E09" />
+    <input type="text" class="hide" id="10" name="E10" />
+    <input type="text" class="hide" id="11" name="E11" />
+    <input type="text" class="hide" id="12" name="E12" />
+    <input type="text" class="hide" id="13" name="E13" />
+    <input type="text" class="hide" id="14" name="E14" />
+    <input type="text" class="hide" id="15" name="E15" />
+    <input type="text" class="hide" id="16" name="E16" />
+    <input type="text" class="hide" id="17" name="E17" />
+    <br/>
+    <br/>
+    <input type="button" class="btn btn-success col-md-4" value="Siguiente" id="Siguiente"/>
+    <input type="submit" name="Submit" class="hide" id="Submit"/>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/Test.js"></script>
+}
+

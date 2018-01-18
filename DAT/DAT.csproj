@@ -180,7 +180,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Mobile.css" />
-    <Content Include="Content\Test.css" />
+    <Content Include="Content\Test_RA -%28TOMAR PARA RM%29.css" />
+    <Content Include="Content\Test_RA.css" />
     <Content Include="Content\Consentimiento.css" />
     <Content Include="dat_img\RA\01.jpg" />
     <Content Include="dat_img\RA\02.jpg" />
@@ -206,7 +207,8 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Consentimiento.js" />
     <Content Include="Scripts\Mobile.js" />
-    <Content Include="Scripts\Test.js" />
+    <Content Include="Scripts\Test_RA - %28TOMAR PARA RM%29.js" />
+    <Content Include="Scripts\Test_RA.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,11 +218,11 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Layout_test.cshtml" />
-    <Content Include="Views\Home\Test_RA.cshtml" />
+    <Content Include="Views\Home\Test_RA %28TOMAR PARA RM%29.cshtml" />
     <Content Include="Views\Home\Final.cshtml" />
     <Content Include="Views\Shared\Layout_Consentimiento.cshtml" />
     <Content Include="Views\Home\Consentimiento.cshtml" />
-    <Content Include="Views\Home\Consignas_RA.cshtml" />
+    <Content Include="Views\Home\Consigna_RA.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -235,6 +237,7 @@
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Otro.pubxml" />
     <Content Include="Views\Home\Mobile.cshtml" />
+    <Content Include="Views\Home\Test_RA.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

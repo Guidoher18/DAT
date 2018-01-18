@@ -1,59 +1,261 @@
 ﻿
 @{
-    ViewBag.Title = "Evaluación Razonamiento Mecánico";
+    ViewBag.Title = "DAT - RA [Breve]";
     Layout = "~/Views/Shared/Layout_test.cshtml";
 }
 
 @section Styles{
-    <link type="text/css" rel="stylesheet" href="~/Content/Test.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/Test_RA.css" />
 }
 
-<h1>Razonamiento Abstracto</h1>
-<h2 id="Ejercicio">01</h2>
+<!-- Tabla con Problemas y Select para elegir la Solución A, B, C, D o E -->
 
-<!-- Ejercicio-->
-<div id="Imagen">
-    <img src="~/dat_img/RA/01.jpg"/>
-</div>
-<!-- Panel de Selección de Opciones-->
-<div id="Panel"> 
-    <label>A</label>
-    <input type="radio" name="opcion" value="A" />
-    <label>B</label>
-    <input type="radio" name="opcion" value="B" />
-    <label>C</label>
-    <input type="radio" name="opcion" value="C" />
-    <label>D</label>
-    <input type="radio" name="opcion" value="D" />
-    <label>E</label>
-    <input type="radio" name="opcion" value="E" /> 
-</div>
-<!-- Formulario con Respuestas Acumuladas-->
 <form action="@Url.Action("CargarRespuestas","Home")" id="Formulario" method="post">
-    <input type="text" class="hide" id="01" name="E01"/>
-    <input type="text" class="hide" id="02" name="E02" />
-    <input type="text" class="hide" id="03" name="E03" />
-    <input type="text" class="hide" id="04" name="E04" />
-    <input type="text" class="hide" id="05" name="E05" />
-    <input type="text" class="hide" id="06" name="E06" />
-    <input type="text" class="hide" id="07" name="E07" />
-    <input type="text" class="hide" id="08" name="E08" />
-    <input type="text" class="hide" id="09" name="E09" />
-    <input type="text" class="hide" id="10" name="E10" />
-    <input type="text" class="hide" id="11" name="E11" />
-    <input type="text" class="hide" id="12" name="E12" />
-    <input type="text" class="hide" id="13" name="E13" />
-    <input type="text" class="hide" id="14" name="E14" />
-    <input type="text" class="hide" id="15" name="E15" />
-    <input type="text" class="hide" id="16" name="E16" />
-    <input type="text" class="hide" id="17" name="E17" />
-    <br/>
-    <br/>
+    <table>
+        <!-- 01 -->
+        <tr> 
+            <td>01</td>
+            <td><img src="~/dat_img/RA/01.jpg"/></td>
+            <td>
+                <select id="01" name="E01">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 02 -->
+        <tr>
+            <td>02</td>
+            <td><img src="~/dat_img/RA/02.jpg" /></td>
+            <td>
+                <select id="02" name="E02">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 03 -->
+        <tr>
+            <td>03</td>
+            <td><img src="~/dat_img/RA/03.jpg" /></td>
+            <td>
+                <select id="03" name="E03">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 04 -->
+        <tr>
+            <td>04</td>
+            <td><img src="~/dat_img/RA/04.jpg" /></td>
+            <td>
+                <select id="04" name="E04">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 05 -->
+        <tr>
+            <td>05</td>
+            <td><img src="~/dat_img/RA/05.jpg" /></td>
+            <td>
+                <select id="05" name="E05">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 06 -->
+        <tr>
+            <td>06</td>
+            <td><img src="~/dat_img/RA/06.jpg" /></td>
+            <td>
+                <select id="06" name="E06">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 07 -->
+        <tr>
+            <td>07</td>
+            <td><img src="~/dat_img/RA/07.jpg" /></td>
+            <td>
+                <select id="07" name="E07">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 08 -->
+        <tr>
+            <td>08</td>
+            <td><img src="~/dat_img/RA/08.jpg" /></td>
+            <td>
+                <select id="08" name="E08">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 09 -->
+        <tr>
+            <td>09</td>
+            <td><img src="~/dat_img/RA/09.jpg" /></td>
+            <td>
+                <select id="09" name="E09">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 10 -->
+        <tr>
+            <td>10</td>
+            <td><img src="~/dat_img/RA/10.jpg" /></td>
+            <td>
+                <select id="10" name="E10">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 11 -->
+        <tr>
+            <td>11</td>
+            <td><img src="~/dat_img/RA/11.jpg" /></td>
+            <td>
+                <select id="11" name="E11">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 12 -->
+        <tr>
+            <td>12</td>
+            <td><img src="~/dat_img/RA/12.jpg" /></td>
+            <td>
+                <select id="12" name="E12">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 13 -->
+        <tr>
+            <td>13</td>
+            <td><img src="~/dat_img/RA/13.jpg" /></td>
+            <td>
+                <select id="13" name="E13">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 14 -->
+        <tr>
+            <td>14</td>
+            <td><img src="~/dat_img/RA/14.jpg" /></td>
+            <td>
+                <select id="14" name="E14">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 15 -->
+        <tr>
+            <td>15</td>
+            <td><img src="~/dat_img/RA/15.jpg" /></td>
+            <td>
+                <select id="15" name="E15">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 16 -->
+        <tr>
+            <td>16</td>
+            <td><img src="~/dat_img/RA/16.jpg" /></td>
+            <td>
+                <select id="16" name="E16">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 17 -->
+        <tr>
+            <td>17</td>
+            <td><img src="~/dat_img/RA/17.jpg" /></td>
+            <td>
+                <select id="17" name="E17">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+    </table>
     <input type="button" class="btn btn-success col-md-4" value="Siguiente" id="Siguiente"/>
     <input type="submit" name="Submit" class="hide" id="Submit"/>
 </form>
 
 @section Scripts{
-    <script src="~/Scripts/Test.js"></script>
+    <script src="~/Scripts/Test_RA.js"></script>
 }
 
