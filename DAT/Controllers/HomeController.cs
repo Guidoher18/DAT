@@ -107,25 +107,61 @@ namespace DAT.Controllers
             }
         }
 
-        /*/// <summary>
-        /// Consulta Duplicado permite chequear en BBDD si el mail ya existe
-        /// </summary>
-        /// <param name="Mail"></param>
-        /// <returns></returns>
-        public string ConsultaDuplicado(string Mail) {
-            HomeManager Manager = new HomeManager();
-            var Consulta = Manager.Consultar(Mail);
-            return Consulta; 
-        }*/
-
         public ActionResult Test_RA()
         {
             return View("~/Views/Home/Test_RA.cshtml");
         }
 
-        public ActionResult Test_RV()
+        /// <summary>
+        /// Toma las Respuestas de RA con los Datos del sujeto almacenados en session y los pasa por el Método Insertar [en BBDD]
+        /// </summary>
+        /// <param name="A01"></param>
+        /// <param name="A02"></param>
+        /// <param name="A03"></param>
+        /// <param name="A04"></param>
+        /// <param name="A05"></param>
+        /// <param name="A06"></param>
+        /// <param name="A07"></param>
+        /// <param name="A08"></param>
+        /// <param name="A09"></param>
+        /// <param name="A10"></param>
+        /// <param name="A11"></param>
+        /// <param name="A12"></param>
+        /// <param name="A13"></param>
+        /// <param name="A14"></param>
+        /// <param name="A15"></param>
+        /// <param name="A16"></param>
+        /// <param name="A17"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CargarRespuestas_RA(string A01, string A02, string A03, string A04, string A05, string A06, string A07, string A08, string A09, string A10, string A11, string A12, string A13, string A14, string A15, string A16, string A17)
         {
-            return View("~/Views/Home/Test_RV.cshtml");
+            var Sujeto = Session["Sujeto"] as Sujeto;
+
+            Sujeto.RA_1 = A01;
+            Sujeto.RA_2 = A02;
+            Sujeto.RA_3 = A03;
+            Sujeto.RA_4 = A04;
+            Sujeto.RA_5 = A05;
+            Sujeto.RA_6 = A06;
+            Sujeto.RA_7 = A07;
+            Sujeto.RA_8 = A08;
+            Sujeto.RA_9 = A09;
+            Sujeto.RA_10 = A10;
+            Sujeto.RA_11 = A11;
+            Sujeto.RA_12 = A12;
+            Sujeto.RA_13 = A13;
+            Sujeto.RA_14 = A14;
+            Sujeto.RA_15 = A15;
+            Sujeto.RA_16 = A16;
+            Sujeto.RA_17 = A17;
+
+            HomeManager Manager = new HomeManager();
+            Manager.Insertar(Sujeto);
+
+            Session["ID_Sujeto"] = Sujeto.ID;
+
+            return View("~/Views/Home/Consigna_RM.cshtml");
         }
 
         public ActionResult Test_RM()
@@ -134,53 +170,127 @@ namespace DAT.Controllers
         }
 
         /// <summary>
-        /// Toma las Respuestas del Sujeto con sus Datos almacenados en session y los pasa por el Método Insertar [en BBDD]
+        /// Toma las Respuestas de RM y los pasa por el Método Insertar [en BBDD]
         /// </summary>
-        /// <param name="E01"></param>
-        /// <param name="E02"></param>
-        /// <param name="E03"></param>
-        /// <param name="E04"></param>
-        /// <param name="E05"></param>
-        /// <param name="E06"></param>
-        /// <param name="E07"></param>
-        /// <param name="E08"></param>
-        /// <param name="E09"></param>
-        /// <param name="E10"></param>
-        /// <param name="E11"></param>
-        /// <param name="E12"></param>
-        /// <param name="E13"></param>
-        /// <param name="E14"></param>
-        /// <param name="E15"></param>
-        /// <param name="E16"></param>
-        /// <param name="E17"></param>
+        /// <param name="M01"></param>
+        /// <param name="M02"></param>
+        /// <param name="M03"></param>
+        /// <param name="M04"></param>
+        /// <param name="M05"></param>
+        /// <param name="M06"></param>
+        /// <param name="M07"></param>
+        /// <param name="M08"></param>
+        /// <param name="M09"></param>
+        /// <param name="M10"></param>
+        /// <param name="M11"></param>
+        /// <param name="M12"></param>
+        /// <param name="M13"></param>
+        /// <param name="M14"></param>
+        /// <param name="M15"></param>
+        /// <param name="M16"></param>
+        /// <param name="M17"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas(string E01, string E02, string E03, string E04, string E05, string E06, string E07, string E08, string E09, string E10, string E11, string E12, string E13, string E14, string E15, string E16, string E17)
+        public ActionResult CargarRespuestas_RM(string M01, string M02, string M03, string M04, string M05, string M06, string M07, string M08, string M09, string M10, string M11, string M12, string M13, string M14, string M15, string M16, string M17, string M18, string M19, string M20, string M21, string M22, string M23, string M24, string M25, string M26, string M27, string M28, string M29, string M30)
         {
-            var Sujeto = Session["Sujeto"] as Sujeto;
-            Sujeto.RA_1 = E01;
-            Sujeto.RA_2 = E02;
-            Sujeto.RA_3 = E03;
-            Sujeto.RA_4 = E04;
-            Sujeto.RA_5 = E05;
-            Sujeto.RA_6 = E06;
-            Sujeto.RA_7 = E07;
-            Sujeto.RA_8 = E08;
-            Sujeto.RA_9 = E09;
-            Sujeto.RA_10 = E10;
-            Sujeto.RA_11 = E11;
-            Sujeto.RA_12 = E12;
-            Sujeto.RA_13 = E13;
-            Sujeto.RA_14 = E14;
-            Sujeto.RA_15 = E15;
-            Sujeto.RA_16 = E16;
-            Sujeto.RA_17 = E17;
+            Sujeto Sujeto = new Sujeto();
+
+            Sujeto.ID = Session["ID_Sujeto"] as string;
+            Sujeto.RM_1 = M01;
+            Sujeto.RM_2 = M02;
+            Sujeto.RM_3 = M03;
+            Sujeto.RM_4 = M04;
+            Sujeto.RM_5 = M05;
+            Sujeto.RM_6 = M06;
+            Sujeto.RM_7 = M07;
+            Sujeto.RM_8 = M08;
+            Sujeto.RM_9 = M09;
+            Sujeto.RM_10 = M10;
+            Sujeto.RM_11 = M11;
+            Sujeto.RM_12 = M12;
+            Sujeto.RM_13 = M13;
+            Sujeto.RM_14 = M14;
+            Sujeto.RM_15 = M15;
+            Sujeto.RM_16 = M16;
+            Sujeto.RM_17 = M17;
+            Sujeto.RM_18 = M18;
+            Sujeto.RM_19 = M19;
+            Sujeto.RM_20 = M20;
+            Sujeto.RM_21 = M21;
+            Sujeto.RM_22 = M22;
+            Sujeto.RM_23 = M23;
+            Sujeto.RM_24 = M24;
+            Sujeto.RM_25 = M25;
+            Sujeto.RM_26 = M26;
+            Sujeto.RM_27 = M27;
+            Sujeto.RM_28 = M28;
+            Sujeto.RM_29 = M29;
+            Sujeto.RM_30 = M30;
             
             HomeManager Manager = new HomeManager();
-            Manager.Insertar(Sujeto);
+            Manager.ActualizarRM(Sujeto);
+
+            return View("~/Views/Home/Consigna_RV.cshtml");
+        }
+
+        public ActionResult Test_RV()
+        {
+            return View("~/Views/Home/Test_RV.cshtml");
+        }
+
+        /// <summary>
+        /// Toma las Respuestas de RV y los pasa por el Método Insertar [en BBDD]
+        /// </summary>
+        /// <param name="V01"></param>
+        /// <param name="V02"></param>
+        /// <param name="V03"></param>
+        /// <param name="V04"></param>
+        /// <param name="V05"></param>
+        /// <param name="V06"></param>
+        /// <param name="V07"></param>
+        /// <param name="V08"></param>
+        /// <param name="V09"></param>
+        /// <param name="V10"></param>
+        /// <param name="V11"></param>
+        /// <param name="V12"></param>
+        /// <param name="V13"></param>
+        /// <param name="V14"></param>
+        /// <param name="V15"></param>
+        /// <param name="V16"></param>
+        /// <param name="V17"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CargarRespuestas_RV(string V01, string V02, string V03, string V04, string V05, string V06, string V07, string V08, string V09, string V10, string V11, string V12, string V13, string V14, string V15, string V16, string V17)
+        {
+            Sujeto Sujeto = new Sujeto();
+
+            Sujeto.ID = Session["ID_Sujeto"] as string;
+            Sujeto.RV_1 = V01;
+            Sujeto.RV_2 = V02;
+            Sujeto.RV_3 = V03;
+            Sujeto.RV_4 = V04;
+            Sujeto.RV_5 = V05;
+            Sujeto.RV_6 = V06;
+            Sujeto.RV_7 = V07;
+            Sujeto.RV_8 = V08;
+            Sujeto.RV_9 = V09;
+            Sujeto.RV_10 = V10;
+            Sujeto.RV_11 = V11;
+            Sujeto.RV_12 = V12;
+            Sujeto.RV_13 = V13;
+            Sujeto.RV_14 = V14;
+            Sujeto.RV_15 = V15;
+            Sujeto.RV_16 = V16;
+            Sujeto.RV_17 = V17;
+
+            HomeManager Manager = new HomeManager();
+            Manager.ActualizarRV(Sujeto);
 
             return View("~/Views/Home/Final.cshtml");
         }
+
+
+ 
 
     }
 }

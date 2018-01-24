@@ -14,6 +14,6 @@
     // Límite de Tiempo 10 min = 600000ms
     setTimeout(function () {
         $('#Submit').click();
-    } ,600000);
+    }, 600000);
 
 });

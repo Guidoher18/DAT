@@ -1,0 +1,473 @@
+﻿
+@{
+    ViewBag.Title = "DAT - RM [Breve]";
+    Layout = "~/Views/Shared/Layout_test.cshtml";
+}
+
+@section Styles{
+    <link type="text/css" rel="stylesheet" href="~/Content/Test_RM.css" />
+}
+
+<!-- Tabla con Problemas y Select para elegir la Solución A, B, C, D o E -->
+
+<form action="@Url.Action("CargarRespuestas_RM","Home")" id="Formulario" method="post">
+    <table>
+        <!-- 01 -->
+        <tr> 
+            <td>01</td>
+            <td><img src="~/dat_img/RM/01.jpg"/></td>
+            <td>
+                <select id="1" name="M01">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 02 -->
+        <tr>
+            <td>02</td>
+            <td><img src="~/dat_img/RM/02.jpg" /></td>
+            <td>
+                <select id="2" name="M02">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 03 -->
+        <tr>
+            <td>03</td>
+            <td><img src="~/dat_img/RM/03.jpg" /></td>
+            <td>
+                <select id="3" name="M03">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 04 -->
+        <tr>
+            <td>04</td>
+            <td><img src="~/dat_img/RM/04.jpg" /></td>
+            <td>
+                <select id="4" name="M04">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 05 -->
+        <tr>
+            <td>05</td>
+            <td><img src="~/dat_img/RM/05.jpg" /></td>
+            <td>
+                <select id="5" name="M05">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 06 -->
+        <tr>
+            <td>06</td>
+            <td><img src="~/dat_img/RM/06.jpg" /></td>
+            <td>
+                <select id="6" name="M06">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 07 -->
+        <tr>
+            <td>07</td>
+            <td><img src="~/dat_img/RM/07.jpg" /></td>
+            <td>
+                <select id="7" name="M07">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 08 -->
+        <tr>
+            <td>08</td>
+            <td><img src="~/dat_img/RM/08.jpg" /></td>
+            <td>
+                <select id="8" name="M08">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 09 -->
+        <tr>
+            <td>09</td>
+            <td><img src="~/dat_img/RM/09.jpg" /></td>
+            <td>
+                <select id="9" name="M09">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 10 -->
+        <tr>
+            <td>10</td>
+            <td><img src="~/dat_img/RM/10.jpg" /></td>
+            <td>
+                <select id="10" name="M10">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 11 -->
+        <tr>
+            <td>11</td>
+            <td><img src="~/dat_img/RM/11.jpg" /></td>
+            <td>
+                <select id="11" name="M11">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 12 -->
+        <tr>
+            <td>12</td>
+            <td><img src="~/dat_img/RM/12.jpg" /></td>
+            <td>
+                <select id="12" name="M12">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 13 -->
+        <tr>
+            <td>13</td>
+            <td><img src="~/dat_img/RM/13.jpg" /></td>
+            <td>
+                <select id="13" name="M13">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 14 -->
+        <tr>
+            <td>14</td>
+            <td><img src="~/dat_img/RM/14.jpg" /></td>
+            <td>
+                <select id="14" name="M14">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 15 -->
+        <tr>
+            <td>15</td>
+            <td><img src="~/dat_img/RM/15.jpg" /></td>
+            <td>
+                <select id="15" name="M15">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 16 -->
+        <tr>
+            <td>16</td>
+            <td><img src="~/dat_img/RM/16.jpg" /></td>
+            <td>
+                <select id="16" name="M16">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 17 -->
+        <tr>
+            <td>17</td>
+            <td><img src="~/dat_img/RM/17.jpg" /></td>
+            <td>
+                <select id="17" name="M17">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 18 -->
+        <tr>
+            <td>18</td>
+            <td><img src="~/dat_img/RM/18.jpg" /></td>
+            <td>
+                <select id="18" name="M18">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>    
+        <!-- 19 -->
+        <tr>
+            <td>19</td>
+            <td><img src="~/dat_img/RM/19.jpg" /></td>
+            <td>
+                <select id="19" name="M19">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>    
+        <!-- 20 -->
+        <tr>
+            <td>20</td>
+            <td><img src="~/dat_img/RM/20.jpg" /></td>
+            <td>
+                <select id="20" name="M20">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 21 -->
+        <tr>
+            <td>21</td>
+            <td><img src="~/dat_img/RM/21.jpg" /></td>
+            <td>
+                <select id="21" name="M21">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 22 -->
+        <tr>
+            <td>22</td>
+            <td><img src="~/dat_img/RM/22.jpg" /></td>
+            <td>
+                <select id="22" name="M22">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 23 -->
+        <tr>
+            <td>23</td>
+            <td><img src="~/dat_img/RM/23.jpg" /></td>
+            <td>
+                <select id="23" name="M23">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 24 -->
+        <tr>
+            <td>24</td>
+            <td><img src="~/dat_img/RM/24.jpg" /></td>
+            <td>
+                <select id="24" name="M24">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 25 -->
+        <tr>
+            <td>25</td>
+            <td><img src="~/dat_img/RM/25.jpg" /></td>
+            <td>
+                <select id="25" name="M25">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 26 -->
+        <tr>
+            <td>26</td>
+            <td><img src="~/dat_img/RM/26.jpg" /></td>
+            <td>
+                <select id="26" name="M26">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 27 -->
+        <tr>
+            <td>27</td>
+            <td><img src="~/dat_img/RM/27.jpg" /></td>
+            <td>
+                <select id="27" name="M27">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 28 -->
+        <tr>
+            <td>28</td>
+            <td><img src="~/dat_img/RM/28.jpg" /></td>
+            <td>
+                <select id="28" name="M28">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>        
+        <!-- 29 -->
+        <tr>
+            <td>29</td>
+            <td><img src="~/dat_img/RM/29.jpg" /></td>
+            <td>
+                <select id="29" name="M29">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>   
+        <!-- 30 -->
+        <tr>
+            <td>30</td>
+            <td><img src="~/dat_img/RM/30.jpg" /></td>
+            <td>
+                <select id="30" name="M30">
+                    <option value="" selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>                    
+    
+    </table>
+    <input type="submit" name="Submit" class="btn btn-success" id="Submit" value="Siguiente"/>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/Test_RM.js"></script>
+}
+

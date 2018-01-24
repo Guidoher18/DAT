@@ -32,7 +32,7 @@ form>div>input[type="text"] {
 }
 
 /*Botón Acepto*/
-#Sea>input[type="submit"]{
+input[type="submit"]{
     margin: 0 16.66vw !important;
 }
 

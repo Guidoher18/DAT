@@ -183,6 +183,8 @@
     <Content Include="Content\Test_RA -%28TOMAR PARA RM%29.css" />
     <Content Include="Content\Test_RA.css" />
     <Content Include="Content\Consentimiento.css" />
+    <Content Include="Content\Test_RV.css" />
+    <Content Include="Content\Test_RM.css" />
     <Content Include="dat_img\RA\01.jpg" />
     <Content Include="dat_img\RA\02.jpg" />
     <Content Include="dat_img\RA\03.jpg" />
@@ -200,8 +202,8 @@
     <Content Include="dat_img\RA\15.jpg" />
     <Content Include="dat_img\RA\16.jpg" />
     <Content Include="dat_img\RA\17.jpg" />
-    <Content Include="dat_img\RA\Ejemplo #1.jpg" />
-    <Content Include="dat_img\RA\Ejemplo #2.jpg" />
+    <Content Include="dat_img\RA\Ejemplo_1.jpg" />
+    <Content Include="dat_img\RA\Ejemplo_2.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -209,6 +211,8 @@
     <Content Include="Scripts\Mobile.js" />
     <Content Include="Scripts\Test_RA - %28TOMAR PARA RM%29.js" />
     <Content Include="Scripts\Test_RA.js" />
+    <Content Include="Scripts\Test_RM.js" />
+    <Content Include="Scripts\Test_RV.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -227,7 +231,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="dat_img\RM\" />
-    <Folder Include="dat_img\RV\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -238,6 +241,10 @@
     <None Include="Properties\PublishProfiles\Otro.pubxml" />
     <Content Include="Views\Home\Mobile.cshtml" />
     <Content Include="Views\Home\Test_RA.cshtml" />
+    <Content Include="Views\Home\Test_RM.cshtml" />
+    <Content Include="Views\Home\Test_RV.cshtml" />
+    <Content Include="Views\Home\Consigna_RM.cshtml" />
+    <Content Include="Views\Home\Consigna_RV.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
