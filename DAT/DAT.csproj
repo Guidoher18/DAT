@@ -204,6 +204,38 @@
     <Content Include="dat_img\RA\17.jpg" />
     <Content Include="dat_img\RA\Ejemplo_1.jpg" />
     <Content Include="dat_img\RA\Ejemplo_2.jpg" />
+    <Content Include="dat_img\RM\01.jpg" />
+    <Content Include="dat_img\RM\02.jpg" />
+    <Content Include="dat_img\RM\03.jpg" />
+    <Content Include="dat_img\RM\04.jpg" />
+    <Content Include="dat_img\RM\05.jpg" />
+    <Content Include="dat_img\RM\06.jpg" />
+    <Content Include="dat_img\RM\07.jpg" />
+    <Content Include="dat_img\RM\08.jpg" />
+    <Content Include="dat_img\RM\10.jpg" />
+    <Content Include="dat_img\RM\11.jpg" />
+    <Content Include="dat_img\RM\12.jpg" />
+    <Content Include="dat_img\RM\13.jpg" />
+    <Content Include="dat_img\RM\14.jpg" />
+    <Content Include="dat_img\RM\15.jpg" />
+    <Content Include="dat_img\RM\16.jpg" />
+    <Content Include="dat_img\RM\17.jpg" />
+    <Content Include="dat_img\RM\18.jpg" />
+    <Content Include="dat_img\RM\19.jpg" />
+    <Content Include="dat_img\RM\20.jpg" />
+    <Content Include="dat_img\RM\21.jpg" />
+    <Content Include="dat_img\RM\22.jpg" />
+    <Content Include="dat_img\RM\23.jpg" />
+    <Content Include="dat_img\RM\24.jpg" />
+    <Content Include="dat_img\RM\25.jpg" />
+    <Content Include="dat_img\RM\26.jpg" />
+    <Content Include="dat_img\RM\27.jpg" />
+    <Content Include="dat_img\RM\28.jpg" />
+    <Content Include="dat_img\RM\29.jpg" />
+    <Content Include="dat_img\RM\30.jpg" />
+    <Content Include="dat_img\RM\09.jpg" />
+    <Content Include="dat_img\RM\Ejemplo_1.jpg" />
+    <Content Include="dat_img\RM\Ejemplo_2.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -230,7 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="dat_img\RM\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
