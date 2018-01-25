@@ -26,7 +26,7 @@ namespace DAT.Models
                 SqlConnection Conexion = new SqlConnection(ConfigurationManager.AppSettings["ConexionBase"]);
                 Conexion.Open();
                 SqlCommand Sentencia = Conexion.CreateCommand();
-                Sentencia.CommandText = "SELECT * FROM DAT_RA WHERE (Mail = " + Email + ")";
+                Sentencia.CommandText = "SELECT * FROM DAT_RA WHERE Mail = '" + Email + "'";
                 string Consulta = Sentencia.ExecuteScalar().ToString();
                 Conexion.Close();
                 return Consulta;
