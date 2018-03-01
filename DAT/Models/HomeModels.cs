@@ -7,6 +7,7 @@ namespace DAT.Models
 {
     public class Sujeto
     {
+        public string FechayHora { get; set; }
         public string ID { get; set; }
         public string Apellido { get; set; }
         public string Nombre { get; set; }
@@ -15,7 +16,7 @@ namespace DAT.Models
         public int Edad { get; set; }
         public string Carrera { get; set; }
         public string Universidad { get; set; }
-        
+
         /* Respuestas de Razonamiento Abstracto */
 
         public string RA_1 { get; set; }
@@ -88,8 +89,16 @@ namespace DAT.Models
         public string RV_15 { get; set; }
         public string RV_16 { get; set; }
         public string RV_17 { get; set; }
+
+        public string RA_TR { get; set; }
+        public string RM_TR { get; set; }
+        public string RV_TR { get; set; }
+
+        public string Abandono { get; set; }
+
     }
 
+}
     /*public class IndexViewModel
     {
         public bool HasPassword { get; set; }
@@ -167,5 +176,5 @@ namespace DAT.Models
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
-    }*/
-}
+    }
+}*/

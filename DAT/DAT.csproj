@@ -44,14 +44,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SpreadsheetLight, Version=3.4.9.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpreadsheetLight.3.4.9\lib\SpreadsheetLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -212,6 +221,7 @@
     <Content Include="dat_img\RM\06.jpg" />
     <Content Include="dat_img\RM\07.jpg" />
     <Content Include="dat_img\RM\08.jpg" />
+    <Content Include="dat_img\RM\09.jpg" />
     <Content Include="dat_img\RM\10.jpg" />
     <Content Include="dat_img\RM\11.jpg" />
     <Content Include="dat_img\RM\12.jpg" />
@@ -233,7 +243,6 @@
     <Content Include="dat_img\RM\28.jpg" />
     <Content Include="dat_img\RM\29.jpg" />
     <Content Include="dat_img\RM\30.jpg" />
-    <Content Include="dat_img\RM\09.jpg" />
     <Content Include="dat_img\RM\Ejemplo_1.jpg" />
     <Content Include="dat_img\RM\Ejemplo_2.jpg" />
     <Content Include="favicon.ico" />
@@ -267,7 +276,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Exportar\Documento_Modelo\Base_de_Datos.xlsx" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\Otro.pubxml" />
     <Content Include="Views\Home\Mobile.cshtml" />
@@ -276,6 +288,20 @@
     <Content Include="Views\Home\Test_RV.cshtml" />
     <Content Include="Views\Home\Consigna_RM.cshtml" />
     <Content Include="Views\Home\Consigna_RV.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
