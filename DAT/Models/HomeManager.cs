@@ -119,10 +119,6 @@ namespace DAT.Models
             var ID = int.Parse(a);
 
             //Vinculo las variables con los parámetros
-            /*Sentencia.Parameters.Add("@ID", SqlDbType.Int).Value = ID;;
-            Sentencia.Parameters.Add("@RM_1", SqlDbType.Char).Value = Sujeto.RM_1;
-            Sentencia.Parameters.Add("@RM_2", SqlDbType.Char).Value = Sujeto.RM_2;
-            */
             Sentencia.Parameters.AddWithValue("@ID", ID);
             Sentencia.Parameters.AddWithValue("@RM_1", Sujeto.RM_1);
             Sentencia.Parameters.AddWithValue("@RM_2", Sujeto.RM_2);

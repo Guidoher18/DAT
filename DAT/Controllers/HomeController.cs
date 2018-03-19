@@ -13,6 +13,8 @@ using SpreadsheetLight;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Reflection;
+using System.IO;
+using System.Diagnostics;
 
 namespace DAT.Controllers
 {
@@ -293,40 +295,26 @@ namespace DAT.Controllers
             return View("~/Views/Home/Final.cshtml");
         }
 
-        public ActionResult Exportar() {
+        public ActionResult Exportar()
+        {
             HomeManager Leer = new HomeManager();
             Procesar(Leer.LeerRegistros());
             return View("~/Views/Home/Consentimiento.cshtml");
         }
 
-        public void Procesar (Dictionary<int, Sujeto> SujetosBase)
+        public void Procesar(Dictionary<int, Sujeto> SujetosBase)
         {
-            /*string[] Letras = new string[] {
-                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-                "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS", "AT", "AU", "AV", "AW", "AX", "AY", "AZ",
-                "BA", "BB", "BC", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BK", "BL", "BM", "BN", "BO", "BP", "BQ", "BR", "BS", "BT", "BU", "BV", "BW", "BX", "BY" };
-
-            string[] Campos = {
-                "FechayHora", "ID", "Apellido", "Nombre", "Mail", "Sexo", "Edad", "Carrera", "Universidad",
-                "RA_1", "RA_2", "RA_3", "RA_4", "RA_5", "RA_6", "RA_7", "RA_8", "RA_9", "RA_10", "RA_11", "RA_12", "RA_13", "RA_14", "RA_15", "RA_16", "RA_17",
-                "RM_1", "RM_2", "RM_3", "RM_4", "RM_5", "RM_6", "RM_7", "RM_8", "RM_9", "RM_10", "RM_11", "RM_12", "RM_13", "RM_14", "RM_15", "RM_16", "RM_17", "RM_18", "RM_19", "RM_20", "RM_21", "RM_22", "RM_23", "RM_24", "RM_25", "RM_26", "RM_27", "RM_28", "RM_29", "RM_30",
-                "RV_1", "RV_2", "RV_3", "RV_4", "RV_5", "RV_6", "RV_7", "RV_8", "RV_9", "RV_10", "RV_11", "RV_12", "RV_13", "RV_14", "RV_15", "RV_16", "RV_17",
-                "RA_TR", "RM_TR", "RV_TR", "Abandono"
-                 };*/
-
             SLDocument Libro = new SLDocument("C:/Users/Guido/Documents/Visual Studio 2015/Projects/DAT2/DAT/Exportar/Documento_Modelo/Base_de_Datos.xlsx");
             Libro.SelectWorksheet("Original");
             int Cant_Diccionario = SujetosBase.Count() + 1;
 
-            for (int i= 1; i<Cant_Diccionario; i++)
+            //Setea los datos de cada Sujeto en una fila
+            for (int i = 1; i != Cant_Diccionario; i++)
             {
                 Sujeto Caso = SujetosBase[i];
                 int Fila = i + 1;
-                Libro.InsertRow(Fila,1);
-
+                Libro.InsertRow(Fila, 1);
                 Fila.ToString();
-
-                
 
                 //DATOS SOCIODEMOGRÁFICOS
                 Libro.SetCellValue("A" + Fila, Caso.FechayHora);
@@ -334,11 +322,11 @@ namespace DAT.Controllers
                 Libro.SetCellValue("C" + Fila, Caso.Apellido);
                 Libro.SetCellValue("D" + Fila, Caso.Nombre);
                 Libro.SetCellValue("E" + Fila, Caso.Mail);
-                Libro.SetCellValue("F" + Fila, Caso.Sexo);
+                Libro.SetCellValue("F" + Fila, Caso.Sexo.Trim());
                 Libro.SetCellValueNumeric("G" + Fila, Caso.Edad.ToString());
                 Libro.SetCellValue("H" + Fila, Caso.Carrera);
                 Libro.SetCellValue("I" + Fila, Caso.Universidad);
-                
+
                 //RAZONAMIENTO ABSTRACTO
                 Libro.SetCellValue("J" + Fila, Caso.RA_1);
                 Libro.SetCellValue("K" + Fila, Caso.RA_2);
@@ -410,195 +398,68 @@ namespace DAT.Controllers
                 Libro.SetCellValue("BU" + Fila, Caso.RV_17);
 
                 //TIEMPOS DE REACCIÓN
-                Libro.SetCellValueNumeric("BV" + Fila, Caso.RA_TR);
-                Libro.SetCellValueNumeric("BW" + Fila, Caso.RM_TR);
-                Libro.SetCellValueNumeric("BX" + Fila, Caso.RV_TR);
+                Libro.SetCellValueNumeric("BV" + Fila, Caso.RA_TR.Trim());
+                Libro.SetCellValueNumeric("BW" + Fila, Caso.RM_TR.Trim());
+                Libro.SetCellValueNumeric("BX" + Fila, Caso.RV_TR.Trim());
                 Libro.SetCellValue("BY" + Fila, Caso.Abandono);
 
             };
+
             Libro.DeleteRow(Cant_Diccionario + 1, 2);
 
-            string Fecha = DateTime.Now.ToString();
-            Fecha = Fecha.Replace("/", "-"); 
-            Fecha = Fecha.Replace(":", ".");
-            Fecha = Fecha.Remove(15,3);
+            //Corrección (Hoja 2 del xls)
+            Libro.SelectWorksheet("Corrección");
+            Libro.InsertRow(4, Cant_Diccionario - 3);
+            Libro.CopyCellFromWorksheet("Original", 2, 1, Cant_Diccionario, 9, 3, 1, 0); //    Copio A:I
+            Libro.CopyCellFromWorksheet("Original", 2, 74, Cant_Diccionario, 74, 3, 75, 0); //       RA_TR
+            Libro.CopyCellFromWorksheet("Original", 2, 75, Cant_Diccionario, 75, 3, 77, 0); //       RM_TR
+            Libro.CopyCellFromWorksheet("Original", 2, 76, Cant_Diccionario, 76, 3, 79, 0); //       RV_TR
+            Libro.CopyCellFromWorksheet("Original", 2, 77, Cant_Diccionario, 77, 3, 80, 0); //       Abandonó
 
-            Libro.SaveAs("C:/Users/Guido/Documents/Visual Studio 2015/Projects/DAT2/DAT/Exportar/Base_de_Datos" + Fecha + ".xlsx");
-
-
-            /*for (int i = 1; i == 2; ++i) 
+            //Autocompletar a partir de la fila 3 hasta el final
+            for (int Columna = 10; Columna < 80; Columna++)
             {
-                Libro.SetCellValue(6, 1, "BUCLEEEE");
-                Sujeto Caso = SujetosBase[i];
-                int Fila = i + 1;
-                string Fila_String = Fila.ToString();
+                if (Columna != 75 || Columna != 77 || Columna != 79)
+                {
+                    for (int Fila = 3; Fila < Cant_Diccionario + 1; Fila++)
+                    {
+                        Libro.CopyCell(Fila, Columna, Fila + 1, Columna);
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
 
-                
-                Libro.SetCellValue(2,1,(string)Caso.Apellido);//("A" + Fila_String) , Caso.FechayHora);
-                Libro.SetCellValue(6,1, "BUCLEEEE");
-                /*Libro.SetCellValue(Fila_String + "B", Caso.ID);
-                    Libro.SetCellValue(Fila_String + "C", Caso.Apellido);
-                    Libro.SetCellValue(Fila_String + "D", Caso.Nombre);
-                    Libro.SetCellValue(Fila_String + "E", Caso.Mail);
-                    Libro.SetCellValue(Fila_String + "F", Caso.Sexo);
-                    Libro.SetCellNumber(Fila_String + "G", Caso.Edad);
-                    Libro.SetCellValue(Fila_String + "H", Caso.Carrera);
-                    Libro.SetCellValue(Fila_String + "I", Caso.Universidad);
-                
-                    Libro.SetCellValue(Fila_String + "J", Caso.RA_1);
-                    Libro.SetCellValue(Fila_String + "K", Caso.RA_2);
-                    Libro.SetCellValue(Fila_String + "L", Caso.RA_3);
-                    Libro.SetCellValue(Fila_String + "M", Caso.RA_4);
-                    Libro.SetCellValue(Fila_String + "N", Caso.RA_5);
-                    Libro.SetCellValue(Fila_String + "O", Caso.RA_6);
-                    Libro.SetCellValue(Fila_String + "P", Caso.RA_7);
-                    Libro.SetCellValue(Fila_String + "Q", Caso.RA_8);
-                    Libro.SetCellValue(Fila_String + "R", Caso.RA_9);
-                    Libro.SetCellValue(Fila_String + "S", Caso.RA_10);
-                    Libro.SetCellValue(Fila_String + "T", Caso.RA_11);
-                    Libro.SetCellValue(Fila_String + "U", Caso.RA_12);
-                    Libro.SetCellValue(Fila_String + "V", Caso.RA_13);
-                    Libro.SetCellValue(Fila_String + "W", Caso.RA_14);
-                    Libro.SetCellValue(Fila_String + "X", Caso.RA_15);
-                    Libro.SetCellValue(Fila_String + "Y", Caso.RA_16);
-                    Libro.SetCellValue(Fila_String + "Z", Caso.RA_17);
+            string Fecha = DateTime.Now.ToString();
+            Fecha = Fecha.Replace("/", "-");
+            Fecha = Fecha.Replace(":", ".");
+            Fecha = Fecha.Remove(15, 3);
 
-                    Libro.SetCellValue(Fila_String + "AA", Caso.RM_1);
-                    Libro.SetCellValue(Fila_String + "AB", Caso.RM_2);
-                    Libro.SetCellValue(Fila_String + "AC", Caso.RM_3);
-                    Libro.SetCellValue(Fila_String + "AD", Caso.RM_4);
-                    Libro.SetCellValue(Fila_String + "AE", Caso.RM_5);
-                    Libro.SetCellValue(Fila_String + "AF", Caso.RM_6);
-                    Libro.SetCellValue(Fila_String + "AG", Caso.RM_7);
-                    Libro.SetCellValue(Fila_String + "AH", Caso.RM_8);
-                    Libro.SetCellValue(Fila_String + "AI", Caso.RM_9);
-                    Libro.SetCellValue(Fila_String + "AJ", Caso.RM_10);
-                    Libro.SetCellValue(Fila_String + "AK", Caso.RM_11);
-                    Libro.SetCellValue(Fila_String + "AL", Caso.RM_12);
-                    Libro.SetCellValue(Fila_String + "AM", Caso.RM_13);
-                    Libro.SetCellValue(Fila_String + "AN", Caso.RM_14);
-                    Libro.SetCellValue(Fila_String + "AO", Caso.RM_15);
-                    Libro.SetCellValue(Fila_String + "AP", Caso.RM_16);
-                    Libro.SetCellValue(Fila_String + "AQ", Caso.RM_17);
-                    Libro.SetCellValue(Fila_String + "AR", Caso.RM_18);
-                    Libro.SetCellValue(Fila_String + "AS", Caso.RM_19);
-                    Libro.SetCellValue(Fila_String + "AT", Caso.RM_20);
-                    Libro.SetCellValue(Fila_String + "AU", Caso.RM_21);
-                    Libro.SetCellValue(Fila_String + "AV", Caso.RM_22);
-                    Libro.SetCellValue(Fila_String + "AW", Caso.RM_23);
-                    Libro.SetCellValue(Fila_String + "AX", Caso.RM_24);
-                    Libro.SetCellValue(Fila_String + "AY", Caso.RM_25);
-                    Libro.SetCellValue(Fila_String + "AZ", Caso.RM_26);
-                    Libro.SetCellValue(Fila_String + "BA", Caso.RM_27);
-                    Libro.SetCellValue(Fila_String + "BB", Caso.RM_28);
-                    Libro.SetCellValue(Fila_String + "BC", Caso.RM_29);
-                    Libro.SetCellValue(Fila_String + "BD", Caso.RM_30);
-                    
-                    Libro.SetCellValue(Fila_String + "BE", Caso.RV_1);
-                    Libro.SetCellValue(Fila_String + "BF", Caso.RV_2);
-                    Libro.SetCellValue(Fila_String + "BG", Caso.RV_3);
-                    Libro.SetCellValue(Fila_String + "BH", Caso.RV_4);
-                    Libro.SetCellValue(Fila_String + "BI", Caso.RV_5);
-                    Libro.SetCellValue(Fila_String + "BJ", Caso.RV_6);
-                    Libro.SetCellValue(Fila_String + "BK", Caso.RV_7);
-                    Libro.SetCellValue(Fila_String + "BL", Caso.RV_8);
-                    Libro.SetCellValue(Fila_String + "BM", Caso.RV_9);
-                    Libro.SetCellValue(Fila_String + "BN", Caso.RV_10);
-                    Libro.SetCellValue(Fila_String + "BO", Caso.RV_11);
-                    Libro.SetCellValue(Fila_String + "BP", Caso.RV_12);
-                    Libro.SetCellValue(Fila_String + "BQ", Caso.RV_13);
-                    Libro.SetCellValue(Fila_String + "BR", Caso.RV_14);
-                    Libro.SetCellValue(Fila_String + "BS", Caso.RV_15);
-                    Libro.SetCellValue(Fila_String + "BT", Caso.RV_16);
-                    Libro.SetCellValue(Fila_String + "BU", Caso.RV_17);
+            string Ruta = "C:/Users/Guido/Documents/Visual Studio 2015/Projects/DAT2/DAT/Exportar/Base_de_Datos " + Fecha + ".xlsx";
+            Libro.SaveAs(Ruta);
 
-                    Libro.SetCellValue(Fila_String + "BV", Caso.RA_TR);
-                    Libro.SetCellValue(Fila_String + "BW", Caso.RM_TR);
-                    Libro.SetCellValue(Fila_String + "BX", Caso.RV_TR);
-                    Libro.SetCellValue(Fila_String + "BY", Caso.Abandono);
+            Session["Ruta"] = Ruta;
+            //Session["Nombre_Archivo"] = Nombre_Archivo;
+        }
 
-                    Libro.SetCellValue("A" + Fila.ToString(), Caso.FechayHora);
-                    Libro.SetCellValue("B" + Fila.ToString(), Caso.ID);
-                    Libro.SetCellValue("C" + Fila.ToString(), Caso.Apellido);
-                    Libro.SetCellValue("D" + Fila.ToString(), Caso.Nombre);
-                    Libro.SetCellValue("E" + Fila.ToString(), Caso.Mail);
-                    Libro.SetCellValue("F" + Fila.ToString(), Caso.Sexo);
-                    Libro.SetCellValue("G" + Fila.ToString(), Caso.Edad);
-                    Libro.SetCellValue("H" + Fila.ToString(), Caso.Carrera);
-                    Libro.SetCellValue("I" + Fila.ToString(), Caso.Universidad);
-                
-                    Libro.SetCellValue("J" + Fila.ToString(), Caso.RA_1);
-                    Libro.SetCellValue("K" + Fila.ToString(), Caso.RA_2);
-                    Libro.SetCellValue("L" + Fila.ToString(), Caso.RA_3);
-                    Libro.SetCellValue("M" + Fila.ToString(), Caso.RA_4);
-                    Libro.SetCellValue("N" + Fila.ToString(), Caso.RA_5);
-                    Libro.SetCellValue("O" + Fila.ToString(), Caso.RA_6);
-                    Libro.SetCellValue("P" + Fila.ToString(), Caso.RA_7);
-                    Libro.SetCellValue("Q" + Fila.ToString(), Caso.RA_8);
-                    Libro.SetCellValue("R" + Fila.ToString(), Caso.RA_9);
-                    Libro.SetCellValue("S" + Fila.ToString(), Caso.RA_10);
-                    Libro.SetCellValue("T" + Fila.ToString(), Caso.RA_11);
-                    Libro.SetCellValue("U" + Fila.ToString(), Caso.RA_12);
-                    Libro.SetCellValue("V" + Fila.ToString(), Caso.RA_13);
-                    Libro.SetCellValue("W" + Fila.ToString(), Caso.RA_14);
-                    Libro.SetCellValue("X" + Fila.ToString(), Caso.RA_15);
-                    Libro.SetCellValue("Y" + Fila.ToString(), Caso.RA_16);
-                    Libro.SetCellValue("Z" + Fila.ToString(), Caso.RA_17);
+        public void Descargar()
+        {
+            string Ruta = (string)Session["Ruta"];
+            WebClient MyWebClient = new WebClient();
+            MyWebClient.DownloadFile(Ruta, Ruta);
 
-                    Libro.SetCellValue("AA" + Fila.ToString(), Caso.RM_1);
-                    Libro.SetCellValue("AB" + Fila.ToString(), Caso.RM_2);
-                    Libro.SetCellValue("AC" + Fila.ToString(), Caso.RM_3);
-                    Libro.SetCellValue("AD" + Fila.ToString(), Caso.RM_4);
-                    Libro.SetCellValue("AE" + Fila.ToString(), Caso.RM_5);
-                    Libro.SetCellValue("AF" + Fila.ToString(), Caso.RM_6);
-                    Libro.SetCellValue("AG" + Fila.ToString(), Caso.RM_7);
-                    Libro.SetCellValue("AH" + Fila.ToString(), Caso.RM_8);
-                    Libro.SetCellValue("AI" + Fila.ToString(), Caso.RM_9);
-                    Libro.SetCellValue("AJ" + Fila.ToString(), Caso.RM_10);
-                    Libro.SetCellValue("AK" + Fila.ToString(), Caso.RM_11);
-                    Libro.SetCellValue("AL" + Fila.ToString(), Caso.RM_12);
-                    Libro.SetCellValue("AM" + Fila.ToString(), Caso.RM_13);
-                    Libro.SetCellValue("AN" + Fila.ToString(), Caso.RM_14);
-                    Libro.SetCellValue("AO" + Fila.ToString(), Caso.RM_15);
-                    Libro.SetCellValue("AP" + Fila.ToString(), Caso.RM_16);
-                    Libro.SetCellValue("AQ" + Fila.ToString(), Caso.RM_17);
-                    Libro.SetCellValue("AR" + Fila.ToString(), Caso.RM_18);
-                    Libro.SetCellValue("AS" + Fila.ToString(), Caso.RM_19);
-                    Libro.SetCellValue("AT" + Fila.ToString(), Caso.RM_20);
-                    Libro.SetCellValue("AU" + Fila.ToString(), Caso.RM_21);
-                    Libro.SetCellValue("AV" + Fila.ToString(), Caso.RM_22);
-                    Libro.SetCellValue("AW" + Fila.ToString(), Caso.RM_23);
-                    Libro.SetCellValue("AX" + Fila.ToString(), Caso.RM_24);
-                    Libro.SetCellValue("AY" + Fila.ToString(), Caso.RM_25);
-                    Libro.SetCellValue("AZ" + Fila.ToString(), Caso.RM_26);
-                    Libro.SetCellValue("BA" + Fila.ToString(), Caso.RM_27);
-                    Libro.SetCellValue("BB" + Fila.ToString(), Caso.RM_28);
-                    Libro.SetCellValue("BC" + Fila.ToString(), Caso.RM_29);
-                    Libro.SetCellValue("BD" + Fila.ToString(), Caso.RM_30);
-                    
-                    Libro.SetCellValue("BE" + Fila.ToString(), Caso.RV_1);
-                    Libro.SetCellValue("BF" + Fila.ToString(), Caso.RV_2);
-                    Libro.SetCellValue("BG" + Fila.ToString(), Caso.RV_3);
-                    Libro.SetCellValue("BH" + Fila.ToString(), Caso.RV_4);
-                    Libro.SetCellValue("BI" + Fila.ToString(), Caso.RV_5);
-                    Libro.SetCellValue("BJ" + Fila.ToString(), Caso.RV_6);
-                    Libro.SetCellValue("BK" + Fila.ToString(), Caso.RV_7);
-                    Libro.SetCellValue("BL" + Fila.ToString(), Caso.RV_8);
-                    Libro.SetCellValue("BM" + Fila.ToString(), Caso.RV_9);
-                    Libro.SetCellValue("BN" + Fila.ToString(), Caso.RV_10);
-                    Libro.SetCellValue("BO" + Fila.ToString(), Caso.RV_11);
-                    Libro.SetCellValue("BP" + Fila.ToString(), Caso.RV_12);
-                    Libro.SetCellValue("BQ" + Fila.ToString(), Caso.RV_13);
-                    Libro.SetCellValue("BR" + Fila.ToString(), Caso.RV_14);
-                    Libro.SetCellValue("BS" + Fila.ToString(), Caso.RV_15);
-                    Libro.SetCellValue("BT" + Fila.ToString(), Caso.RV_16);
-                    Libro.SetCellValue("BU" + Fila.ToString(), Caso.RV_17);
+            try
+            {
+                WebClient webClient = new WebClient();
+                webClient.DownloadFile(Ruta, "data.zip");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Problem: " + ex.Message);
+            }
 
-                    Libro.SetCellValue("BV" + Fila.ToString(), Caso.RA_TR);
-                    Libro.SetCellValue("BW" + Fila.ToString(), Caso.RM_TR);
-                    Libro.SetCellValue("BX" + Fila.ToString(), Caso.RV_TR);
-                    Libro.SetCellValue("BY" + Fila.ToString(), Caso.Abandono);*/
-        
         }
     }
 }
