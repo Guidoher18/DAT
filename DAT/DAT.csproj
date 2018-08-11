@@ -250,6 +250,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Consentimiento.js" />
     <Content Include="Scripts\Mobile.js" />
+    <Content Include="Scripts\PrevenirCierre.js" />
     <Content Include="Scripts\Test_RA - %28TOMAR PARA RM%29.js" />
     <Content Include="Scripts\Test_RA.js" />
     <Content Include="Scripts\Test_RM.js" />
@@ -288,6 +289,7 @@
     <Content Include="Views\Home\Test_RV.cshtml" />
     <Content Include="Views\Home\Consigna_RM.cshtml" />
     <Content Include="Views\Home\Consigna_RV.cshtml" />
+    <Content Include="Views\Home\Descarga.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="VBIDE">

@@ -90,6 +90,7 @@ namespace DAT.Models
         public string RV_16 { get; set; }
         public string RV_17 { get; set; }
 
+        /* Tiempos de Reacción */
         public string RA_TR { get; set; }
         public string RM_TR { get; set; }
         public string RV_TR { get; set; }

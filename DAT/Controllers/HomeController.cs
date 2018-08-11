@@ -107,8 +107,6 @@ namespace DAT.Controllers
             }
             else{
                 MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo");
-                //ScriptManager.RegisterClientScriptBlock(Page '' ,typeof(Page), "ClientScript", "alert('El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo')", true);
                 return View("~/Views/Home/Consentimiento.cshtml"); 
             }
         }
@@ -140,7 +138,7 @@ namespace DAT.Controllers
         /// <param name="A17"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas_RA(string A01, string A02, string A03, string A04, string A05, string A06, string A07, string A08, string A09, string A10, string A11, string A12, string A13, string A14, string A15, string A16, string A17)
+        public ActionResult CargarRespuestas_RA(string A01, string A02, string A03, string A04, string A05, string A06, string A07, string A08, string A09, string A10, string A11, string A12, string A13, string A14, string A15, string A16, string A17, string RA_TR)
         {
             var Sujeto = Session["Sujeto"] as Sujeto;
 
@@ -161,6 +159,7 @@ namespace DAT.Controllers
             Sujeto.RA_15 = A15;
             Sujeto.RA_16 = A16;
             Sujeto.RA_17 = A17;
+            Sujeto.RA_TR = RA_TR;
 
             HomeManager Manager = new HomeManager();
             Manager.Insertar(Sujeto);
@@ -197,7 +196,7 @@ namespace DAT.Controllers
         /// <param name="M17"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas_RM(string M01, string M02, string M03, string M04, string M05, string M06, string M07, string M08, string M09, string M10, string M11, string M12, string M13, string M14, string M15, string M16, string M17, string M18, string M19, string M20, string M21, string M22, string M23, string M24, string M25, string M26, string M27, string M28, string M29, string M30)
+        public ActionResult CargarRespuestas_RM(string M01, string M02, string M03, string M04, string M05, string M06, string M07, string M08, string M09, string M10, string M11, string M12, string M13, string M14, string M15, string M16, string M17, string M18, string M19, string M20, string M21, string M22, string M23, string M24, string M25, string M26, string M27, string M28, string M29, string M30, string RM_TR)
         {
             Sujeto Sujeto = new Sujeto();
 
@@ -232,6 +231,7 @@ namespace DAT.Controllers
             Sujeto.RM_28 = M28;
             Sujeto.RM_29 = M29;
             Sujeto.RM_30 = M30;
+            Sujeto.RM_TR = RM_TR;
             
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRM(Sujeto);
@@ -266,7 +266,7 @@ namespace DAT.Controllers
         /// <param name="V17"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas_RV(string V01, string V02, string V03, string V04, string V05, string V06, string V07, string V08, string V09, string V10, string V11, string V12, string V13, string V14, string V15, string V16, string V17)
+        public ActionResult CargarRespuestas_RV(string V01, string V02, string V03, string V04, string V05, string V06, string V07, string V08, string V09, string V10, string V11, string V12, string V13, string V14, string V15, string V16, string V17, string RV_TR)
         {
             Sujeto Sujeto = new Sujeto();
 
@@ -288,6 +288,7 @@ namespace DAT.Controllers
             Sujeto.RV_15 = V15;
             Sujeto.RV_16 = V16;
             Sujeto.RV_17 = V17;
+            Sujeto.RV_TR = RV_TR;
 
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRV(Sujeto);
@@ -295,13 +296,21 @@ namespace DAT.Controllers
             return View("~/Views/Home/Final.cshtml");
         }
 
+        /// <summary>
+        /// Permite Exportar los datos cargados en la BBDD
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Exportar()
         {
             HomeManager Leer = new HomeManager();
             Procesar(Leer.LeerRegistros());
-            return View("~/Views/Home/Consentimiento.cshtml");
+            return View("~/Views/Home/Descarga.cshtml");
         }
 
+        /// <summary>
+        /// Toma los datos de la BBDD y los transfiere a un .xls
+        /// </summary>
+        /// <param name="SujetosBase"></param>
         public void Procesar(Dictionary<int, Sujeto> SujetosBase)
         {
             SLDocument Libro = new SLDocument("C:/Users/Guido/Documents/Visual Studio 2015/Projects/DAT2/DAT/Exportar/Documento_Modelo/Base_de_Datos.xlsx");
@@ -410,25 +419,44 @@ namespace DAT.Controllers
             //Corrección (Hoja 2 del xls)
             Libro.SelectWorksheet("Corrección");
             Libro.InsertRow(4, Cant_Diccionario - 3);
-            Libro.CopyCellFromWorksheet("Original", 2, 1, Cant_Diccionario, 9, 3, 1, 0); //    Copio A:I
+            Libro.CopyCellFromWorksheet("Original", 2, 1, Cant_Diccionario, 9, 3, 1, 0);    //       Copio A:I
             Libro.CopyCellFromWorksheet("Original", 2, 74, Cant_Diccionario, 74, 3, 75, 0); //       RA_TR
             Libro.CopyCellFromWorksheet("Original", 2, 75, Cant_Diccionario, 75, 3, 77, 0); //       RM_TR
             Libro.CopyCellFromWorksheet("Original", 2, 76, Cant_Diccionario, 76, 3, 79, 0); //       RV_TR
             Libro.CopyCellFromWorksheet("Original", 2, 77, Cant_Diccionario, 77, 3, 80, 0); //       Abandonó
 
             //Autocompletar a partir de la fila 3 hasta el final
-            for (int Columna = 10; Columna < 80; Columna++)
+            for (int Columna = 10; Columna < 81; Columna++)
             {
-                if (Columna != 75 || Columna != 77 || Columna != 79)
+                if (Columna < 75)
                 {
                     for (int Fila = 3; Fila < Cant_Diccionario + 1; Fila++)
                     {
                         Libro.CopyCell(Fila, Columna, Fila + 1, Columna);
                     }
                 }
+
                 else
-                {
-                    continue;
+                { 
+                    if (Columna == 75)
+                    {
+                        continue;
+                    }
+
+                    else if (Columna == 77)
+                    {
+                        continue;
+                    }
+
+                    else if (Columna == 79)
+                    {
+                        continue;
+                    }
+
+                    else if (Columna == 80)
+                    {
+                        continue;
+                    }
                 }
             }
 
@@ -436,30 +464,16 @@ namespace DAT.Controllers
             Fecha = Fecha.Replace("/", "-");
             Fecha = Fecha.Replace(":", ".");
             Fecha = Fecha.Remove(15, 3);
+            Fecha = Fecha.Replace(" ", "_");
 
-            string Ruta = "C:/Users/Guido/Documents/Visual Studio 2015/Projects/DAT2/DAT/Exportar/Base_de_Datos " + Fecha + ".xlsx";
+            string Nombre_Archivo = "Base_de_Datos_" + Fecha + ".xlsx";
+            string Ruta = Server.MapPath("~/Exportar/" + Nombre_Archivo);
+             
+
             Libro.SaveAs(Ruta);
 
-            Session["Ruta"] = Ruta;
-            //Session["Nombre_Archivo"] = Nombre_Archivo;
-        }
-
-        public void Descargar()
-        {
-            string Ruta = (string)Session["Ruta"];
-            WebClient MyWebClient = new WebClient();
-            MyWebClient.DownloadFile(Ruta, Ruta);
-
-            try
-            {
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile(Ruta, "data.zip");
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine("Problem: " + ex.Message);
-            }
-
+            ViewBag.Ruta = Ruta;
+            ViewBag.Nombre_Archivo = Nombre_Archivo;
         }
     }
 }
