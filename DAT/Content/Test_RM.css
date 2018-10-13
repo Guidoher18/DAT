@@ -1,2 +1,28 @@
-﻿body {
+﻿body>div {
+    padding: 0 !important;
+}
+
+.Hide {
+    display: none; 
+}
+td:nth-child(2), table{
+    text-align:center;
+}
+
+td:nth-child(3) {
+    text-align:left;
+}
+
+#Submit {
+    font-size:1em !important;
+    margin-top:10px;
+}
+
+td {
+    padding-top:10px;
+    border-bottom-style:solid;
+}
+
+.SinBorde {
+    border-bottom-style:none !important;
 }

@@ -1,7 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Consigna";
-    Layout = "~/Views/Shared/Layout_consentimiento.cshtml";
+    Layout = "~/Views/Shared/Layout_Consigna.cshtml";
+}
+
+@section Styles{ 
+    <link type="text/css" href="~/Content/Test_RV.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="~/Content/Consignas.css" />
 }
 
 <h2>DAT - RV [Breve]</h2>
@@ -14,46 +19,173 @@
 </p>
 
 <h3>Ejemplo 1</h3>
+<table>
+    <tr>
+        <td rowspan="6" class="negrita">01 &nbsp;</td>
+        <td></td>
+        <td class="negrita col1">..........</td>
+        <td class="centrado">es a agua como comer es a</td>
+        <td class="negrita col2">..........</td>
+        <td rowspan="6">
+            &nbsp; <select id="1" name="V01">
+                <option value="" selected></option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+        </td>
+    </tr>
 
-<p>
-    ............... es a agua como comer es a ...............
-    A- continuar ............................... empujar
-    B- pie ..................................... enemigo
-    C- beber ................................... alimento
-    D- muchacha ................................ industria
-    E- beber ................................... enemigo
-</p>
+    <tr>
+        <td>A &nbsp;</td>
+        <td class="col1">continuar</td>
+        <td class="punteado"></td>
+        <td class="col2">empujar</td>
+    </tr>
+
+    <tr>
+        <td>B</td>
+        <td class="col1">pie</td>
+        <td class="punteado"></td>
+        <td class="col2">enemigo</td>
+    </tr>
+
+    <tr>
+        <td>C</td>
+        <td class="col1">beber</td>
+        <td class="punteado"></td>
+        <td class="col2">alimento</td>
+    </tr>
+
+    <tr>
+        <td>D</td>
+        <td class="col1">muchacha</td>
+        <td class="punteado"></td>
+        <td class="col2">industria</td>
+    </tr>
+
+    <tr>
+        <td>E</td>
+        <td class="col1">beber</td>
+        <td class="punteado"></td>
+        <td class="col2">enemigo</td>
+    </tr>
+</table>
+<br /> <br />
 
 <p> La frase bien completada sería: Beber es a agua como comer es a alimento. Beber
     es la primera palabra del par C, y alimento es la segunda palabra del par C.
 </p>
 
 <h3>Ejemplo 2</h3>
-
-<p>
-    ........... es a noche como desayuno es a ...........
-    A- cena .................................... esquina
-    B- suave ................................... mañana
-    C- puerta .................................. esquina
-    D- flujo ................................... disfrutar
-    E- cena..................................... mañana
-</p>
-
+<table>
+    <tr>
+        <td rowspan="6" class="negrita">02&nbsp;</td>
+        <td></td>
+        <td class="negrita col1">..........</td>
+        <td class="centrado">es a noche como desayuno es a</td>
+        <td class="negrita col2">..........</td>
+        <td rowspan="6">
+            &nbsp; <select id="2" name="V02">
+                <option value="" selected></option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>A&nbsp;</td>
+        <td class="col1">cena</td>
+        <td class="punteado"></td>
+        <td class="col2">esquina</td>
+    </tr>
+    <tr>
+        <td>B&nbsp;</td>
+        <td class="col1">suave</td>
+        <td class="punteado"></td>
+        <td class="col2">mañana</td>
+    </tr>
+    <tr>
+        <td>C&nbsp;</td>
+        <td class="col1">puerta</td>
+        <td class="punteado"></td>
+        <td class="col2">esquina</td>
+    </tr>
+    <tr>
+        <td>D&nbsp;</td>
+        <td class="col1">flujo</td>
+        <td class="punteado"></td>
+        <td class="col2">disfrutar</td>
+    </tr>
+    <tr>
+        <td>E&nbsp;</td>
+        <td class="col1">cena</td>
+        <td class="punteado"></td>
+        <td class="col2">mañana</td>
+    </tr>
+</table>
+<br /><br />
 <p> La frase bien completada sería: Cena es a noche como desayuno es a mañana.
     Cena va en el vacío del principio de la oración y mañana en el vacío final. La
     opción correcta es la E.
 </p>
 
 <h3>Ejemplo 3</h3>
-
-<p>
-    ............... es a uno como segundo es a ...............
-    A- dos ....................................... medio
-    B- primero ................................... fuego
-    C- reina ..................................... colina
-    D- primero ................................... dos
-    E- lluvia..................................... fuego
-</p>
+<table>
+    <tr>
+        <td rowspan="6" class="negrita">03&nbsp;</td>
+        <td></td>
+        <td class="negrita col1">..........</td>
+        <td class="centrado">es a uno como segundo es a</td>
+        <td class="negrita col2">..........</td>
+        <td rowspan="6">
+            &nbsp; <select id="2" name="V02">
+                <option value="" selected></option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>A&nbsp;</td>
+        <td class="col1">dos</td>
+        <td class="punteado"></td>
+        <td class="col2">medio</td>
+    </tr>
+    <tr>
+        <td>B&nbsp;</td>
+        <td class="col1">primero</td>
+        <td class="punteado"></td>
+        <td class="col2">fuego</td>
+    </tr>
+    <tr>
+        <td>C&nbsp;</td>
+        <td class="col1">reina</td>
+        <td class="punteado"></td>
+        <td class="col2">colina</td>
+    </tr>
+    <tr>
+        <td>D&nbsp;</td>
+        <td class="col1">primero</td>
+        <td class="punteado"></td>
+        <td class="col2">dos</td>
+    </tr>
+    <tr>
+        <td>E&nbsp;</td>
+        <td class="col1">lluvia </td>
+        <td class="punteado"></td>
+        <td class="col2">fuego</td>
+    </tr>
+</table>
+<br /><br />
 
 <p>
     Primero es a uno como segundo es a dos. Primero tiene que ir en el espacio en blanco del principio de la oración, y dos en el espacio en blanco del final. La
@@ -67,6 +199,10 @@
 </p>
 
 
-<a class="btn btn-info" id="Entendido" href="~/Home/Test_RV">Entendido</a> 
+<a class="btn btn-info col-md-4" id="Entendido" href="~/Home/Test_RV">Entendido</a> 
+
+@section Scripts{
+    <script src="~/Scripts/Consignas.js"></script>
+}
 
 

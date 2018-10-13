@@ -83,20 +83,21 @@ namespace DAT.Controllers
         /// <param name="Apellido"></param>
         /// <param name="Nombre"></param>
         /// <param name="Mail"></param>
-        /// <param name="Sexo"></param>
+        /// <param name="Genero"></param>
         /// <param name="Edad"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CrearSujeto(string Apellido, string Nombre, string Mail, string Sexo, int Edad, string Carrera, string Universidad)
+        public ActionResult CrearSujeto(string Apellido, string Nombre, string Mail, string Genero, int Edad, string Carrera, string Universidad)
         {
             HomeManager Manager = new HomeManager();
 
             if (Manager.Consultar(Mail) == null) {
                 Sujeto Sujeto = new Sujeto ();
+                Sujeto.FechayHora = DateTime.Now.ToString(); //Fecha y Hora al momento de Aceptar el Concentimiento Informado
                 Sujeto.Apellido = Apellido;
                 Sujeto.Nombre = Nombre;
                 Sujeto.Mail = Mail;
-                Sujeto.Sexo = Sexo;
+                Sujeto.Genero = Genero;
                 Sujeto.Edad = Edad;
                 Sujeto.Carrera = Carrera;
                 Sujeto.Universidad = Universidad;
@@ -296,6 +297,11 @@ namespace DAT.Controllers
             return View("~/Views/Home/Final.cshtml");
         }
 
+        public ActionResult Corsi_Simple()
+        {
+            return View("~/Views/Home/Corsi_Simple.cshtml");
+        }
+
         /// <summary>
         /// Permite Exportar los datos cargados en la BBDD
         /// </summary>
@@ -331,7 +337,7 @@ namespace DAT.Controllers
                 Libro.SetCellValue("C" + Fila, Caso.Apellido);
                 Libro.SetCellValue("D" + Fila, Caso.Nombre);
                 Libro.SetCellValue("E" + Fila, Caso.Mail);
-                Libro.SetCellValue("F" + Fila, Caso.Sexo.Trim());
+                Libro.SetCellValue("F" + Fila, Caso.Genero.Trim());
                 Libro.SetCellValueNumeric("G" + Fila, Caso.Edad.ToString());
                 Libro.SetCellValue("H" + Fila, Caso.Carrera);
                 Libro.SetCellValue("I" + Fila, Caso.Universidad);

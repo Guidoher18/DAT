@@ -1,5 +1,6 @@
 ﻿body>div{
     display: inline-block;
+    padding: 0 !important;
 }
 
 img {
@@ -7,8 +8,20 @@ img {
     text-align:center;
 }
 
+.Hide {
+    display: none; 
+}
 
 
+td:nth-child(2) {
+    text-align:center;
+}
 
+td:nth-child(1) {
+    vertical-align:top;
+}
 
-
+#Submit {
+    text-align:center;
+    font-size:1em;
+}

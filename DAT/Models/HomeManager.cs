@@ -57,13 +57,14 @@ namespace DAT.Models
             SqlCommand Sentencia = Conexion.CreateCommand();
 
             //Escribo la Sentencia SQL
-            Sentencia.CommandText = "INSERT INTO DAT_RA (Apellido, Nombre, Mail, Sexo, Edad, Carrera, Universidad, RA_1, RA_2, RA_3, RA_4, RA_5, RA_6, RA_7, RA_8, RA_9, RA_10, RA_11, RA_12, RA_13, RA_14, RA_15, RA_16, RA_17, RA_TR) OUTPUT INSERTED.ID VALUES(@Apellido, @Nombre, @Mail, @Sexo, @Edad, @Carrera, @Universidad, @RA_1, @RA_2, @RA_3, @RA_4, @RA_5, @RA_6, @RA_7, @RA_8, @RA_9, @RA_10, @RA_11, @RA_12, @RA_13, @RA_14, @RA_15, @RA_16, @RA_17, @RA_TR)";
+            Sentencia.CommandText = "INSERT INTO DAT_RA (FechayHora, Apellido, Nombre, Mail, Genero, Edad, Carrera, Universidad, RA_1, RA_2, RA_3, RA_4, RA_5, RA_6, RA_7, RA_8, RA_9, RA_10, RA_11, RA_12, RA_13, RA_14, RA_15, RA_16, RA_17, RA_TR) OUTPUT INSERTED.ID VALUES(@FechayHora, @Apellido, @Nombre, @Mail, @Genero, @Edad, @Carrera, @Universidad, @RA_1, @RA_2, @RA_3, @RA_4, @RA_5, @RA_6, @RA_7, @RA_8, @RA_9, @RA_10, @RA_11, @RA_12, @RA_13, @RA_14, @RA_15, @RA_16, @RA_17, @RA_TR)";
 
             //Vinculo las variables con los parámetros
+            Sentencia.Parameters.AddWithValue("@FechayHora", Sujeto.FechayHora);
             Sentencia.Parameters.AddWithValue("@Apellido", Sujeto.Apellido);
             Sentencia.Parameters.AddWithValue("@Nombre", Sujeto.Nombre);
             Sentencia.Parameters.AddWithValue("@Mail", Sujeto.Mail);
-            Sentencia.Parameters.AddWithValue("@Sexo", Sujeto.Sexo);
+            Sentencia.Parameters.AddWithValue("@Genero", Sujeto.Genero);
             Sentencia.Parameters.AddWithValue("@Edad", Sujeto.Edad);
             Sentencia.Parameters.AddWithValue("@Carrera", Sujeto.Carrera);
             Sentencia.Parameters.AddWithValue("@Universidad", Sujeto.Universidad);
@@ -269,7 +270,7 @@ namespace DAT.Models
                     Sujeto.Apellido = (string)reader["Apellido"];
                     Sujeto.Nombre = (string)reader["Nombre"];
                     Sujeto.Mail = (string)reader["Mail"];
-                    Sujeto.Sexo = (string)reader["Sexo"];
+                    Sujeto.Genero = (string)reader["Genero"];
                     Sujeto.Edad = (int)reader["Edad"];
                     Sujeto.Carrera = (string)reader["Carrera"];
                     Sujeto.Universidad = (string)reader["Universidad"];

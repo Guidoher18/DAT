@@ -188,12 +188,14 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Consignas.css" />
+    <Content Include="Content\Corsi_Simple.css" />
+    <Content Include="Content\General.css" />
     <Content Include="Content\Mobile.css" />
-    <Content Include="Content\Test_RA -%28TOMAR PARA RM%29.css" />
     <Content Include="Content\Test_RA.css" />
     <Content Include="Content\Consentimiento.css" />
-    <Content Include="Content\Test_RV.css" />
     <Content Include="Content\Test_RM.css" />
+    <Content Include="Content\Test_RV.css" />
     <Content Include="dat_img\RA\01.jpg" />
     <Content Include="dat_img\RA\02.jpg" />
     <Content Include="dat_img\RA\03.jpg" />
@@ -243,18 +245,22 @@
     <Content Include="dat_img\RM\28.jpg" />
     <Content Include="dat_img\RM\29.jpg" />
     <Content Include="dat_img\RM\30.jpg" />
-    <Content Include="dat_img\RM\Ejemplo_1.jpg" />
     <Content Include="dat_img\RM\Ejemplo_2.jpg" />
+    <Content Include="dat_img\RM\Ejemplo_1.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Consignas.js" />
+    <Content Include="Scripts\Corsi_Simple.js" />
     <Content Include="Scripts\Consentimiento.js" />
     <Content Include="Scripts\Mobile.js" />
+    <Content Include="Scripts\Moment-Timer.js" />
+    <Content Include="Scripts\Moment.js" />
     <Content Include="Scripts\PrevenirCierre.js" />
-    <Content Include="Scripts\Test_RA - %28TOMAR PARA RM%29.js" />
     <Content Include="Scripts\Test_RA.js" />
     <Content Include="Scripts\Test_RM.js" />
     <Content Include="Scripts\Test_RV.js" />
+    <None Include="Views\Home\Corsi_Simple.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -263,10 +269,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\Layout_test.cshtml" />
-    <Content Include="Views\Home\Test_RA %28TOMAR PARA RM%29.cshtml" />
+    <Content Include="Views\Shared\Layout_Test.cshtml" />
     <Content Include="Views\Home\Final.cshtml" />
-    <Content Include="Views\Shared\Layout_Consentimiento.cshtml" />
+    <Content Include="Views\Shared\Layout_Consigna.cshtml" />
     <Content Include="Views\Home\Consentimiento.cshtml" />
     <Content Include="Views\Home\Consigna_RA.cshtml" />
   </ItemGroup>

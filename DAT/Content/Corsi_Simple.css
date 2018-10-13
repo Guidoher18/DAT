@@ -1,0 +1,75 @@
+#Marco
+{
+    width:118.62vh;
+    height:98vh;
+    position:absolute;
+    top:1vh;
+    left:calc((100vw - 118.62vh)/2);
+    display:inline-block;
+    border: 2.14px solid #000;
+}
+
+.bloques{
+    width: 15.78vh;
+    height: 15.78vh;
+    border: 2.14px solid #000;
+    background-color: #FFF;  
+}
+
+.rojo{
+    background-color:#FF0000;
+}
+
+.Instruccion {
+    text-align:center;
+    font-size: 32px;
+}
+
+#Instruccion {
+    margin-top:calc((98vh - 422px)/2);
+}
+
+
+p{
+    text-align:center;
+    vertical-align:middle;
+    color:#000;
+}
+
+/*Posición de cada bloque en particular*/
+#b1{
+    top:  6.57%;  right: 72.84%; bottom: 77.65%; left: 14.12%; 
+    position: absolute;
+}
+#b2{
+    top:  30.24%;  right: 66.32%; bottom: 53.91%; left: 20.64%; 
+    position: absolute; 
+}
+#b3{
+    top:  55.23%;  right: 80.39%; bottom: 28.93%; left: 6.52%; 
+    position: absolute; 
+}
+#b4{
+    top:  77.65%;  right: 61.92%; bottom: 6.57%; left: 24.99%; 
+    position: absolute; 
+}
+#b5{
+    top:  13.15%;  right: 35.85%; bottom: 71.01%; left: 51.06%; 
+    position: absolute; 
+}
+#b6{
+    top:  43.39%;  right: 31.5%; bottom: 40.76%; left: 55.4%; 
+    position: absolute; 
+}
+#b7{
+    top:  71.01%;  right: 39.11%; bottom: 13.15%; left: 47.8%; 
+    position: absolute; 
+}
+#b8{
+    top:  21.04%;  right: 9.78%; bottom: 63.12%; left: 77.13%; 
+    position: absolute;    
+}
+#b9{
+    top:  60.49%;  right: 6.52%; bottom: 23.67%; left: 80.39%; 
+    position: absolute; 
+}

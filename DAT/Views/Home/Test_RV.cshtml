@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "DAT - RV [Breve]";
-    Layout = "~/Views/Shared/Layout_test.cshtml";
+    Layout = "~/Views/Shared/Layout_Test.cshtml";
 }
 
 @section Styles{
@@ -11,359 +11,886 @@
 <!-- Tabla con Problemas y Select para elegir la Solución A, B, C, D o E -->
 
 <form action="@Url.Action("CargarRespuestas_RV","Home")" id="Formulario" method="post">
-    <table>
-        <!-- 01 -->
-        <tr> 
-            <th>01</th>
-            <th> </th>
-            <th>.......... es a manteca como café es a ..........</th>
-            <th> </th>
-            <th> </th>
-        </tr>
-        <tr>    
-            <td> </td> 
-            <td>    
-                A- pan <br />
-                B- vaca <br />
-                C- pan <br />
-                D- pan <br />
-                E- engordar
-            </td>
-            <td>                 
-                .................................<br />
-                .................................<br />
-                .................................<br />
-                .................................<br />
-                .................................
-            </td>
-            <td>                 
-                verter <br />
-                leche <br />
-                leche <br />
-                caliente <br />
-                crema
-            </td>
-            <td>
-                <select id="1" name="V01">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 02 -->
-        <tr>
-            <td>02</td>
-            <td>
-                <p>
-                    ___________ es a colmillo como ciervo es a __________ <br />
-                    A- elefante ______________________________ gacela <br />
-                    B- marfil   ______________________________ gacela <br />
-                    C- elefante ______________________________ cornamenta <br />
-                    D- marfil   ______________________________ cornamenta <br />
-                    E- marfil   ______________________________ cazar
-                </p>
-            </td>
-            <td>
-                <select id="2" name="V02">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 03 -->
-        <tr>
-            <td>03</td>
-            <td>
-                <p style="text-align:justify">
-                    .......... es a carrera como lentitud es a .......... <br />
-                    A- profesión .............................. trabajo <br />
-                    B- ligero ................................. tardío <br />
-                    C- correr ................................. tardío <br />
-                    D- rápido ................................. detención <br />
-                    E- velocidad............................... paseo  
-                </p>
-            </td>
-            <td>
-                <select id="3" name="V03">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 04 -->
-        <tr>
-            <td>04</td>
-            <td>
-                <p>
-                    .......... es a segundo como día es a .......... <br />
-                    A- primero ............................ hora <br />
-                    B- primero ............................ luz <br />
-                    C- minuto ............................. diario <br />
-                    D- minuto ............................. hora <br />
-                    E- reloj............................... diana
-                </p>
-            </td>
-            <td>
-                <select id="4" name="V04">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 05 -->
-        <tr>
-            <td>05</td>
-            <td>
-                <p>
-                    .......... es a bife como cerdo es a .......... <br />
-                    A- novillo .......................... chiquero <br />
-                    B- vaca ............................. jamón <br />
-                    C- toro ............................. lechón <br />
-                    D- costilla ......................... fiambre <br />
-                    E- vaca.............................. chiquero
-                </p>
-            </td>
-            <td>
-                <select id="5" name="V05">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 06 -->
-        <tr>
-            <td>06</td>
-            <td>
-                <p>
-                    .......... es a pie como sombrero es a .......... <br />
-                    A- dedo ................................. cabeza <br />
-                    B- tobillo .............................. cabeza <br />
-                    C- zapato ............................... ala <br />
-                    D- zapato ............................... cabeza <br />
-                    E- dedo.................................. ala 
-                </p>
-            </td>
-            <td>
-                <select id="6" name="V06">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 07 -->
-        <tr>
-            <td>07</td>
-            <td>
-                <p>
-                    .......... es a ostra como diamante es a .......... <br />
-                    A- almeja ................................ gema <br />
-                    B- sopa .................................. gema <br />
-                    C- perla ................................. mina <br />
-                    D- almeja ................................ mina <br />
-                    E- concha................................. perla
-                </p>
-            </td>
-            <td>
-                <select id="7" name="V07">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 08 -->
-        <tr>
-            <td>08</td>
-            <td>
-                <p>
-                    .......... es a vela como madera es a .......... <br />
-                    A- cera ................................ vegetal <br />
-                    B- cera ................................ palo <br />
-                    C- viento .............................. bote <br />
-                    D- dormir .............................. papel <br />
-                    E- bote................................. vegetal 
-                </p>
-            </td>
-            <td>
-                <select id="8" name="V08">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 09 -->
-        <tr>
-            <td>09</td>
-            <td>
-                <p>
-                    .......... es a bandera como poste es a .......... <br />
-                    A- saludo ............................... madera <br />
-                    B- saludo ............................... alambrado <br />
-                    C- franjas .............................. alambrado <br />
-                    D- franjas .............................. luz <br />
-                    E- mástil ............................... farol
-                </p>
-            </td>
-            <td>
-                <select id="9" name="V09">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 10 -->
-        <tr>
-            <td>10</td>
-            <td>
-                <select id="10" name="V10">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 11 -->
-        <tr>
-            <td>11</td>
-            <td>
-                <select id="11" name="V11">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 12 -->
-        <tr>
-            <td>12</td>
-            <td>
-                <select id="12" name="V12">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 13 -->
-        <tr>
-            <td>13</td>
-            <td>
-                <select id="13" name="V13">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 14 -->
-        <tr>
-            <td>14</td>
-            <td>
-                <select id="14" name="V14">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 15 -->
-        <tr>
-            <td>15</td>
-            <td>
-                <select id="15" name="V15">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 16 -->
-        <tr>
-            <td>16</td>
-            <td>
-                <select id="16" name="V16">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- 17 -->
-        <tr>
-            <td>17</td>
-            <td>
-                <select id="17" name="V17">
-                    <option value="" selected></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                </select>
-            </td>
-        </tr>
-        <!-- TR_Rv -->
-        <tr>
-            <td><input type="text" class="hide" name="RV_TR" id="RV_TR" /></td>
-        </tr>  
+    <!-- 01 -->
+    <table> 
+            <tr>
+                <td rowspan="6" class="negrita">01 &nbsp;</td>        
+                <td></td>
+                <td class="negrita col1">..........</td>
+                <td class="centrado">es a manteca como café es a</td>                   
+                <td class="negrita col2">..........</td>
+                <td rowspan="6"> &nbsp; <select id="1" name="V01">
+                        <option value="" selected></option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>A &nbsp;</td>
+                <td class="col1">pan</td>                     
+                <td class="punteado"></td>
+                <td class="col2">verter</td>                  
+            </tr>
+
+            <tr>
+                <td>B</td>
+                <td class="col1">vaca</td>                    
+                <td class="punteado"></td>
+                <td class="col2">leche</td>                   
+            </tr>
+
+            <tr>
+                <td>C</td>
+                <td class="col1">pan</td>                     
+                <td class="punteado"></td>
+                <td class="col2">leche</td>                   
+            </tr>
+
+            <tr>
+                <td>D</td>
+                <td class="col1">pan</td>                     
+                <td class="punteado"></td>
+                <td class="col2">caliente</td>                
+            </tr>
+
+            <tr>
+                <td>E</td>
+                <td class="col1">engordar</td>                
+                <td class="punteado"></td>
+                <td class="col2">crema</td>                   
+            </tr>              
     </table>
-    <input type="submit" name="Submit" class="btn btn-success" id="Submit" value="Siguiente"/>
+    <br/> <br/>
+    <!-- 02 -->
+    <table> 
+        <tr>
+            <td rowspan="6" class="negrita">02&nbsp;</td>            
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a colmillo como ciervo es a</td>                  
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="2" name="V02">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">elefante</td>                    
+            <td class="punteado"></td>
+            <td class="col2">gacela</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">marfil</td>                     
+            <td class="punteado"></td>
+            <td class="col2">gacela</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">elefante</td>                     
+            <td class="punteado"></td>
+            <td class="col2">cornamenta</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">marfil</td>                     
+            <td class="punteado"></td>
+            <td class="col2">cornamenta</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">marfil </td>                     
+            <td class="punteado"></td>
+            <td class="col2">cazar</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 03 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">03&nbsp;</td>        
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a carrera como lentitud es a</td>               
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="3" name="V03">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">profesión</td>                     
+            <td class="punteado"></td>
+            <td class="col2">trabajo</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">ligero</td>                     
+            <td class="punteado"></td>
+            <td class="col2">tardío</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">correr</td>                     
+            <td class="punteado"></td>
+            <td class="col2">tardío</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">rápido</td>                     
+            <td class="punteado"></td>
+            <td class="col2">detención</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">velocidad </td>                     
+            <td class="punteado"></td>
+            <td class="col2">paseo</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 04 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">04&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a segundo como día es a</td>                   
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="4" name="V04">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">primero</td>                    
+            <td class="punteado"></td>
+            <td class="col2">hora</td>                 
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">primero</td>                    
+            <td class="punteado"></td>
+            <td class="col2">luz</td>                 
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">minuto</td>                    
+            <td class="punteado"></td>
+            <td class="col2">diario</td>                 
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">minuto</td>                    
+            <td class="punteado"></td>
+            <td class="col2">hora</td>                 
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">reloj </td>                    
+            <td class="punteado"></td>
+            <td class="col2">diana</td>                 
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 05 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">05&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a bife como cerdo es a</td>                   
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="5" name="V05">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">novillo</td>                     
+            <td class="punteado"></td>
+            <td class="col2">chiquero</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">vaca</td>                     
+            <td class="punteado"></td>
+            <td class="col2">jamón</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">toro</td>                     
+            <td class="punteado"></td>
+            <td class="col2">lechón</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">costilla</td>                     
+            <td class="punteado"></td>
+            <td class="col2">fiambre</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">vaca </td>                     
+            <td class="punteado"></td>
+            <td class="col2">chiquero</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 06 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">06&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a pie como sombrero es a</td>                    
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="6" name="V06">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">dedo</td>                     
+            <td class="punteado"></td>
+            <td class="col2">cabeza</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">tobillo</td>                     
+            <td class="punteado"></td>
+            <td class="col2">cabeza</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">zapato</td>                     
+            <td class="punteado"></td>
+            <td class="col2">ala</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">zapato</td>                     
+            <td class="punteado"></td>
+            <td class="col2">cabeza</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">dedo</td>                     
+            <td class="punteado"></td>
+            <td class="col2">ala</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 07 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">07&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a ostra como diamante es a</td>              
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="7" name="V07">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">almeja</td>                     
+            <td class="punteado"></td>
+            <td class="col2">gema</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">sopa</td>                     
+            <td class="punteado"></td>
+            <td class="col2">gema</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">perla</td>                     
+            <td class="punteado"></td>
+            <td class="col2">mina</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">almeja</td>                     
+            <td class="punteado"></td>
+            <td class="col2">mina</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">concha </td>                     
+            <td class="punteado"></td>
+            <td class="col2">perla</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 08 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">08&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a vela como madera es a</td>              
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="8" name="V08">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">cera</td>                     
+            <td class="punteado"></td>
+            <td class="col2">vegetal</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">cera</td>                     
+            <td class="punteado"></td>
+            <td class="col2">palo</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">viento</td>                     
+            <td class="punteado"></td>
+            <td class="col2">bote</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">dormir</td>                     
+            <td class="punteado"></td>
+            <td class="col2">papel</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">bote </td>                     
+            <td class="punteado"></td>
+            <td class="col2">vegetal</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 09 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">09&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a bandera como poste es a</td>                   
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="9" name="V09">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">saludo</td>                      
+            <td class="punteado"></td>
+            <td class="col2">madera</td>                   
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">saludo</td>                      
+            <td class="punteado"></td>
+            <td class="col2">alambrado</td>                   
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">franjas</td>                      
+            <td class="punteado"></td>
+            <td class="col2">alambrado</td>                   
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">franjas</td>                      
+            <td class="punteado"></td>
+            <td class="col2">luz</td>                   
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">mástil</td>                     
+            <td class="punteado"></td>
+            <td class="col2">farol</td>                   
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 10 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">10&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a médico como secretaria es a</td>                   
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="10" name="V10">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">hospital</td>                     
+            <td class="punteado"></td>
+            <td class="col2">oficina</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">enfermera</td>                     
+            <td class="punteado"></td>
+            <td class="col2">gerente</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">curación</td>                     
+            <td class="punteado"></td>
+            <td class="col2">dactilógrafa</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">medicina</td>                     
+            <td class="punteado"></td>
+            <td class="col2">oficina</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">medicina</td>                     
+            <td class="punteado"></td>
+            <td class="col2">gerente</td>                  
+        </tr>
+     </table>
+    <br /> <br />
+    <!-- 11 -->
+    <table>
+        <tr>
+            <td rowspan="6"class="negrita">11&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a pantera como perro es a</td>                 
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="11"name="V11">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">selva</td>                    
+            <td class="punteado"></td>
+            <td class="col2">casa</td>                 
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">gato</td>                    
+            <td class="punteado"></td>
+            <td class="col2">ladrido</td>                 
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">gato</td>                    
+            <td class="punteado"></td>
+            <td class="col2">lobo</td>                 
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">selva</td>                    
+            <td class="punteado"></td>
+            <td class="col2">jardín</td>                 
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">presa</td>                    
+            <td class="punteado"></td>
+            <td class="col2">ladrido</td>                 
+        </tr>
+     </table>
+    <br /> <br />
+    <!-- 12 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">12&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a perder como triunfar es a</td>               
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="12" name="V12">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">fallar</td>                     
+            <td class="punteado"></td>
+            <td class="col2">fracasar</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">ganar</td>                     
+            <td class="punteado"></td>
+            <td class="col2">fracasar</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">ganar</td>                     
+            <td class="punteado"></td>
+            <td class="col2">adelantar</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">lograr</td>                     
+            <td class="punteado"></td>
+            <td class="col2">aprobar</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">ganar</td>                     
+            <td class="punteado"></td>
+            <td class="col2">aprobar</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 13 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">13&nbsp;</td>        
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a franco como cumplidor es a</td>               
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="13" name="V13">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">sincero</td>                      
+            <td class="punteado"></td>
+            <td class="col2">responsable</td>                   
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">locuaz</td>                      
+            <td class="punteado"></td>
+            <td class="col2">serio</td>                   
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">libre</td>                      
+            <td class="punteado"></td>
+            <td class="col2">jugador</td>                   
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">dinero</td>                      
+            <td class="punteado"></td>
+            <td class="col2">pagador</td>                   
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">dinero </td>                      
+            <td class="punteado"></td>
+            <td class="col2">puntual</td>                   
+        </tr> 
+    </table>
+    <br /> <br />
+    <!-- 14 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">14&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a castigar como olvidar es a</td>                
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="14" name="V14">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">juzgar</td>                    
+            <td class="punteado"></td>
+            <td class="col2">perdonar</td>                 
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">encarcelar</td>                    
+            <td class="punteado"></td>
+            <td class="col2">memorizar</td>                 
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">juzgar</td>                    
+            <td class="punteado"></td>
+            <td class="col2">perder</td>                 
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">azotar</td>                    
+            <td class="punteado"></td>
+            <td class="col2">recordar</td>                 
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">indultar </td>                    
+            <td class="punteado"></td>
+            <td class="col2">recordar</td>                 
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 15 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">15&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a ciudad como nacional es a</td>                 
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="15" name="V15">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">intendente</td>                     
+            <td class="punteado"></td>
+            <td class="col2">gobierno</td>                  
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">municipal</td>                     
+            <td class="punteado"></td>
+            <td class="col2">país</td>                  
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">Córdoba</td>                     
+            <td class="punteado"></td>
+            <td class="col2">gobierno</td>                  
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">intendente</td>                     
+            <td class="punteado"></td>
+            <td class="col2">país</td>                  
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">Córdoba</td>                     
+            <td class="punteado"></td>
+            <td class="col2">internacional</td>                  
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 16 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">16&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a tierra como nudo es a</td>                  
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="16" name="V16">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">hectárea</td>                      
+            <td class="punteado"></td>
+            <td class="col2">cuerda</td>                   
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">km/hora</td>                      
+            <td class="punteado"></td>
+            <td class="col2">mar</td>                   
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">desierto</td>                      
+            <td class="punteado"></td>
+            <td class="col2">cuerda</td>                   
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">km/hora</td>                      
+            <td class="punteado"></td>
+            <td class="col2">metro</td>                   
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">granja</td>                      
+            <td class="punteado"></td>
+            <td class="col2">cuerda</td>                   
+        </tr>
+    </table>
+    <br /> <br />
+    <!-- 17 -->
+    <table>
+        <tr>
+            <td rowspan="6" class="negrita">17&nbsp;</td>         
+            <td></td>
+            <td class="negrita col1">..........</td>
+            <td class="centrado">es a prisión como Louvre es a</td>                 
+            <td class="negrita col2">..........</td>
+            <td rowspan="6">
+                &nbsp; <select id="17" name="V17">
+                    <option value=""selected></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>A&nbsp;</td>
+            <td class="col1">guardián</td>                      
+            <td class="punteado"></td>
+            <td class="col2">cita</td>                   
+        </tr>
+        <tr>
+            <td>B&nbsp;</td>
+            <td class="col1">guardián</td>                      
+            <td class="punteado"></td>
+            <td class="col2">museo</td>                   
+        </tr>
+        <tr>
+            <td>C&nbsp;</td>
+            <td class="col1">guardián</td>                      
+            <td class="punteado"></td>
+            <td class="col2">Francia</td>                   
+        </tr>
+        <tr>
+            <td>D&nbsp;</td>
+            <td class="col1">lograr</td>                      
+            <td class="punteado"></td>
+            <td class="col2">museo</td>                   
+        </tr>
+        <tr>
+            <td>E&nbsp;</td>
+            <td class="col1">crimen </td>                      
+            <td class="punteado"></td>
+            <td class="col2">artista</td>                   
+        </tr>
+        <tr>
+            <td class="text-center" colspan="6"><input type="submit" name="Submit" class="btn btn-success col-md-4" id="Submit" value="Siguiente" /></td>
+        </tr>
+    </table>
+
+    <!-- TR_RV -->
+    <table> 
+        <tr class="Hide">
+            <td><input type="text" class="Hide" name="RV_TR" id="RV_TR" /></td>
+        </tr>
+    </table>
 </form>
 
 @section Scripts{

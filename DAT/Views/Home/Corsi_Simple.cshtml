@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Bloques de Corsi";
+    Layout = "~/Views/Shared/Layout_Test.cshtml";
+}
+
+@section Styles{
+    <link rel="Stylesheet" type="text/css" href="../../Content/Corsi_Simple.css" />
+}
+
+    <div id="Marco">
+        <div id="Instructivo"></div>
+        <div class="bloques" id="b1"><p>1</p></div>
+        <div class="bloques" id="b2"><p>2</p></div>
+        <div class="bloques" id="b3"><p>3</p></div>
+        <div class="bloques" id="b4"><p>4</p></div>
+        <div class="bloques" id="b5"><p>5</p></div>
+        <div class="bloques" id="b6"><p>6</p></div>
+        <div class="bloques" id="b7"><p>7</p></div>
+        <div class="bloques" id="b8"><p>8</p></div>
+        <div class="bloques" id="b9"><p>9</p></div>
+    </div>
+    <input type="text" id="Respuesta"/>
+    <div id="clock" class="clock">loading ...</div>
+    <audio id="audio">
+        <source type="audio/wav" src="beep2.wav">
+    </audio>
+
+@section Scripts {
+    <script type="text/javascript" src="../../Scripts/moment.js"></script>
+    <script type="text/javascript" src="../../Scripts/moment-timer.js"></script>
+    <script type="text/javascript" src="../../Scripts/Corsi_Simple.js"></script>
+}
+

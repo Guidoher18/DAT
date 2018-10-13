@@ -1,7 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "Consentimiento";
-    Layout = "~/Views/Shared/Layout_Consentimiento.cshtml";
+    ViewBag.Title = "Consentimiento Informado";
+    Layout = "~/Views/Shared/Layout_Consigna.cshtml";
 }
 
 @section Styles{
@@ -22,32 +22,25 @@
         <input type="text" class="form-control" name="Nombre" required/>
         <label>Mail</label>
         <input type="email" class="form-control" name="Mail" placeholder="mail@homail.com" required/>
-    </div><br /><br />     
-    <div id="Sea">
-        <div id="Sexo" class="col-md-2">
-            <div class="row">
-                <label>Masculino</label>
-                <input type="radio" name="Sexo" value="M" required />
-            </div>
-            <div class="row">
-                <label>Femenino</label>
-                <input type="radio" name="Sexo" value="F" required />
-            </div>
+        <br /><br />     
+        <div id="Genero" class="col-md-2">
+            <label>Género</label>
+            <input type="text" name="Genero" class="form-control" maxlength="20" required/>
         </div>
         <div class="col-md-2" id="Edad">
             <label>Edad</label><br />
-            <input type="number" name="Edad" max="99" required/>
-        </div> <br />
-        <br />
+            <input type="number" name="Edad" max="99" class="form-control" required/>
+        </div> 
+        <br /><br />
     </div>
     
     <div class="col-md-4" id="Carrera">
         <label>Carrera</label><br />
-        <input type="text" name="Carrera" required/>
+        <input type="text" name="Carrera" class="form-control" required/>
     </div>
     <div class="col-md-4" id="Universidad">
         <label>Universidad</label><br />
-        <input type="text" name="Universidad" required/>
+        <input type="text" name="Universidad" class="form-control" required/>
     </div> 
     <input type="submit" class="btn btn-success col-md-4" value="Acepto" />
 

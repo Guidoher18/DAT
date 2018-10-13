@@ -1,2 +1,56 @@
-﻿body {
+﻿.negrita {
+  font-weight: bold;
+}
+
+.col1{
+  text-align: right;
+  width: 10vw;
+}
+
+.col2{
+  text-align: left;
+  width: 10vw;
+}
+
+.punteado{
+  border-bottom: 2px dotted #000;
+  width:250px;
+}
+
+.Hide {
+    display: none; 
+}
+
+.centrado{
+  text-align:center;
+}
+
+.Hide {
+    display: none; 
+}
+
+table>tbody>tr:first-child>td:nth-child(4){
+    width:30vw;
+}
+
+table>tbody>tr:first-child>td:first-child{
+  width:5vw;
+  text-align: left;  
+}
+
+table>tbody>tr:first-child>td:nth-child(2){
+  text-align: center;
+  color:red;  
+}
+
+body {
+    margin: 0 !important;
+}
+body > div {
+    padding:0 !important;
+}
+
+#Submit {
+    font-size:1em !important;
+    margin-top:30px;
 }

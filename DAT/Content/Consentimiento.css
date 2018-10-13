@@ -8,32 +8,23 @@ body>div{
     display: inline-block;
 }
 
-h2, p {
+.form-control {
+    font-family: 'Arial', 'sans-serif';
+}
+
+input[type="email"] {
     text-align:center;
 }
 
-form>div>input[type="text"] {
+input[type="text"], input[type="number"]{
     text-transform: uppercase;
-}
-
-#Edad, #Sexo {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin:auto;
     text-align:center;
-}
-
-#Edad > input {
-    width:50%;
-}
-
-#Sexo {
-    margin-left: 16.66vw;
 }
 
 /*Botón Acepto*/
 input[type="submit"]{
     margin: 0 16.66vw !important;
+    font-size:1em;
 }
 
 .col-md-2 {
