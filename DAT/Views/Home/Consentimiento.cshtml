@@ -8,49 +8,49 @@
     <link type="text/css" rel="stylesheet" href="~/Content/Consentimiento.css" />
 }
 
-<div id="Container_1" class="col-md-4">
-    <form action="@Url.Action("CrearSujeto","Home")" method="post">
-        <div id="ApellidoyNombre" class="form-row">
-            <div class="col">
-                <label>Apellido</label>
-                <input type="text" class="form-control" name="Apellido" required />
+<div class="form-row">
+    <div id="Container_1" class="col col-md-4">
+        <form action="@Url.Action("CrearSujeto","Home")" method="post">
+            <div id="ApellidoyNombre" class="form-row">
+                <div class="col">
+                    <label>Apellido</label>
+                    <input type="text" class="form-control" name="Apellido" required />
+                </div>
+                <div class="col">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" name="Nombre" required />
+                </div>
             </div>
-            <div class="col">
-                <label>Nombre</label>
-                <input type="text" class="form-control" name="Nombre" required />
+            <label>Mail</label>
+            <input type="email" class="form-control" name="Mail" placeholder="mail@hotmail.com" required />
+            <div class="form-row">
+                <div class="col">
+                    <label>Género</label>
+                    <input type="text" name="Genero" class="form-control" maxlength="20" required />
+                </div>
+                <div class="col">
+                    <label>Edad</label>
+                    <input type="number" name="Edad" max="99" class="form-control" required />
+                </div>
             </div>
-        </div>
-        <label>Mail</label>
-        <input type="email" class="form-control" name="Mail" placeholder="mail@hotmail.com" required />
-        <div class="form-row">
-            <div class="col">
-                <label>Género</label>
-                <input type="text" name="Genero" class="form-control" maxlength="20" required />
+            <div id="Carrera">
+                <label>Carrera</label>
+                <input type="text" name="Carrera" class="form-control" required />
             </div>
-            <div class="col">
-                <label>Edad</label>
-                <input type="number" name="Edad" max="99" class="form-control" required />
+            <div id="Universidad">
+                <label>Universidad</label>
+                <input type="text" name="Universidad" class="form-control" required />
             </div>
-        </div>
-        <div id="Carrera">
-            <label>Carrera</label>
-            <input type="text" name="Carrera" class="form-control" required />
-        </div>
-        <div id="Universidad">
-            <label>Universidad</label>
-            <input type="text" name="Universidad" class="form-control" required />
-        </div>
-        <div class="form-row"><input type="submit" class="btn btn-success form-control" value="Acepto" /></div>
-    </form>
-
-</div>
-
-<div id="Container_2">
-    <h2>Consentimiento Informado</h2>
-    <p>
-        Esta es una investigación ......
-        etc (...)
-    </p>
+            <div class="form-row"><input type="submit" class="btn btn-success form-control" value="Acepto" /></div>
+        </form>
+    </div>
+    <div id="Container_2" class="col col-md-5">
+        <h2>Consentimiento Informado</h2>
+        <p>
+            Esta es una investigación ......
+            etc (...)
+        </p>
+    </div>
 </div>
 
 @section Scripts{
