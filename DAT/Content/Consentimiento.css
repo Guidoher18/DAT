@@ -2,12 +2,6 @@
     width: 100vw;
 }
 
-body>div{
-    margin-left: 16.66vw;
-    margin-right: 16.66vw;
-    display: inline-block;
-}
-
 .form-control {
     font-family: 'Arial', 'sans-serif';
 }
@@ -23,19 +17,25 @@ input[type="text"], input[type="number"]{
 
 /*Botón Acepto*/
 input[type="submit"]{
-    margin: 0 16.66vw !important;
     font-size:1em;
-}
-
-.col-md-2 {
-    width: 16.66vw !important;
+    border-radius: .25rem;
+    margin-top:.5rem;
 }
 
 .col-md-4 {
     width: 33.33vw !important;
+    max-width:none !important;
 }
 
 .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
+label {
+    margin-bottom: 0 !important;
+    margin-top: .5rem;
+    text-align:center;
+}
+
+
+

@@ -13,10 +13,4 @@
     setTimeout(function () {
         $('#Submit').click();
     }, 900000);
-
-    //Centrar Horizontalmente el body>div 
-    var $Body_ancho = $(window).width();
-    var $Div_ancho = $('body>div').width();
-    var $M_total = ($Body_ancho - $Div_ancho) / 2;
-    $('body>div').css('margin-left', $M_total, 'margin-right', $M_total);
 });
