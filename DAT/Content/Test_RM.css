@@ -29,3 +29,7 @@ td {
 .SinBorde {
     border-bottom-style:none !important;
 }
+
+.col-md-4 {
+    width:25vw !important;
+}

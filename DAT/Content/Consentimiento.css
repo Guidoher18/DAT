@@ -37,10 +37,29 @@ label {
     text-align:center;
 }
 
-#Conteiner_1, #Conteiner_2 {
+#Container_1 {
     margin-left:auto;
-    margin-right:auto;
-    display:inline-block;
 }
 
+#Container_1, #Container_2 {
+    margin-right:auto;
+    vertical-align:middle;
+}
+
+#Container_2 > p, #Container_1 form div p {
+    margin-bottom:8px;
+    font-size: 0.75em;    
+}
+
+#Container_2 > p:last-child, #Container_2>p:nth-child(6) {
+    text-align:center;
+}
+
+h2 {
+    margin-bottom:0px;
+}
+
+body > div > div {
+    margin-top:30px;
+}
 
