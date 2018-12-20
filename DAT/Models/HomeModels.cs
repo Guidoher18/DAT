@@ -16,6 +16,8 @@ namespace DAT.Models
         public int Edad { get; set; }
         public string Carrera { get; set; }
         public string Universidad { get; set; }
+        public string Cuatrimestre { get; set; }
+        public string Año { get; set; }
 
         /* Respuestas de Razonamiento Abstracto */
 

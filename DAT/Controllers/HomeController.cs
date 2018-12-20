@@ -87,7 +87,7 @@ namespace DAT.Controllers
         /// <param name="Edad"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CrearSujeto(string Apellido, string Nombre, string Mail, string Genero, int Edad, string Carrera, string Universidad)
+        public ActionResult CrearSujeto(string Apellido, string Nombre, string Mail, string Genero, int Edad, string Carrera, string Universidad, string Cuatrimestre, string Año)
         {
             HomeManager Manager = new HomeManager();
 
@@ -101,6 +101,8 @@ namespace DAT.Controllers
                 Sujeto.Edad = Edad;
                 Sujeto.Carrera = Carrera;
                 Sujeto.Universidad = Universidad;
+                Sujeto.Cuatrimestre = Cuatrimestre;
+                Sujeto.Año = Año;
 
                 Session["Sujeto"] = Sujeto; 
             
