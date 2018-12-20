@@ -63,3 +63,6 @@ h2 {
     margin-top:3.95vh;
 }
 
+#Aclaraciones > p {
+    font-size: 0.56em !important;
+}

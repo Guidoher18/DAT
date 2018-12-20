@@ -43,9 +43,6 @@ table>tbody>tr:first-child>td:nth-child(2){
   color:red;  
 }
 
-body {
-    margin: 0 !important;
-}
 body > div, table {
     padding:0 !important;
     margin-left:auto;
