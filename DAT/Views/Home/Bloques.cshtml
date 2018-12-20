@@ -8,25 +8,47 @@
 }
 
     <div id="Marco">
-        <div id="Instructivo"></div>
-        <div class="bloques" id="b1"><p>1</p></div>
-        <div class="bloques" id="b2"><p>2</p></div>
-        <div class="bloques" id="b3"><p>3</p></div>
-        <div class="bloques" id="b4"><p>4</p></div>
-        <div class="bloques" id="b5"><p>5</p></div>
-        <div class="bloques" id="b6"><p>6</p></div>
-        <div class="bloques" id="b7"><p>7</p></div>
-        <div class="bloques" id="b8"><p>8</p></div>
-        <div class="bloques" id="b9"><p>9</p></div>
+        <div id="Instructivo" class="col"></div>
+        <div id="Pregunta"><p>?</p></div>
+        <div id="Poligono">
+            <svg id="PA" class="Poligonos" viewBox="5 5 110 100"></svg>
+            <svg id="PB" class="Poligonos" viewBox="5 5 110 100"></svg>
+            <svg id="PC" class="Poligonos" viewBox="5 5 110 100"></svg>
+        </div>
+        <div id="Poligono_Respuesta">
+            <p id="PRp1"></p>
+            <div id="PRA" class="Poligonos"><p></p></div>
+            <div id="PRB" class="Poligonos"><p></p></div>
+            <div id="PRC" class="Poligonos"><p></p></div>
+            <p id="PRp2"></p>
+        </div>
+        <div class="bloques" id="b1"><p></p></div>
+        <div class="bloques" id="b2"><p></p></div>
+        <div class="bloques" id="b3"><p></p></div>
+        <div class="bloques" id="b4"><p></p></div>
+        <div class="bloques" id="b5"><p></p></div>
+        <div class="bloques" id="b6"><p></p></div>
+        <div class="bloques" id="b7"><p></p></div>
+        <div class="bloques" id="b8"><p></p></div>
+        <div class="bloques" id="b9"><p></p></div>
     </div>
-    <input type="text" id="Respuesta"/>
-    <div id="clock" class="clock">loading ...</div>
+    <form action="@Url.Action("______________","________")" method="post">
+        <input type="text" id="Respuesta_CS" name="Respuesta_CS" />
+        <input type="text" id="Puntaje_CS" name="Puntaje_CS" />
+        <input type="text" id="TR_CS" name="TR_CS" />
+
+        <input type="text" id="Respuesta_CI" name="Respuesta_CI" />
+        <input type="text" id="Puntaje_CI" name="Puntaje_CI" />
+        <input type="text" id="TR_CI" name="TR_CI" />
+
+        <input type="submit" id="Submit">
+    </form>
     <audio id="audio">
-        <source type="audio/wav" src="beep2.wav">
+        <source type="audio/wav" src="../../Audio/beep.wav">
     </audio>
 
+
 @section Scripts {
-    <script type="text/javascript" src="../../Scripts/moment.js"></script>
     <script type="text/javascript" src="../../Scripts/Bloques.js"></script>
 }
 

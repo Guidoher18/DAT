@@ -189,7 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Consignas.css" />
-    <Content Include="Content\Corsi_Simple.css" />
+    <Content Include="Content\Bloques.css" />
     <Content Include="Content\General.css" />
     <Content Include="Content\Mobile.css" />
     <Content Include="Content\Test_RA.css" />
@@ -251,7 +251,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Consignas.js" />
-    <Content Include="Scripts\Corsi_Simple.js" />
+    <Content Include="Scripts\Bloques.js" />
     <Content Include="Scripts\Consentimiento.js" />
     <Content Include="Scripts\Mobile.js" />
     <Content Include="Scripts\Moment-Timer.js" />
@@ -260,7 +260,7 @@
     <Content Include="Scripts\Test_RA.js" />
     <Content Include="Scripts\Test_RM.js" />
     <Content Include="Scripts\Test_RV.js" />
-    <None Include="Views\Home\Corsi_Simple.cshtml" />
+    <None Include="Views\Home\Bloques.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

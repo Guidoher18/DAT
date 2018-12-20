@@ -1,9 +1,9 @@
-#Marco
+#Marco 
 {
     width:118.62vh;
     height:98vh;
     position:absolute;
-    top:1vh;
+    top:0.5vh;
     left:calc((100vw - 118.62vh)/2);
     display:inline-block;
     border: 2.14px solid #000;
@@ -20,20 +20,96 @@
     background-color:#FF0000;
 }
 
-.Instruccion {
-    text-align:center;
-    font-size: 32px;
+.azul{
+    background-color:#002060;
 }
-
-#Instruccion {
-    margin-top:calc((98vh - 422px)/2);
-}
-
 
 p{
     text-align:center;
-    vertical-align:middle;
     color:#000;
+    font-size:2rem;
+}
+
+#Instructivo, #Pregunta{
+    width:inherit;
+    height:inherit;
+}
+
+#Pregunta>p{
+    font-size:8rem;
+}
+
+div[class="bloques"]>p, #Instructivo>p, #Pregunta>p, #Poligono_Respuesta>div>p{
+    margin-bottom: 0 !important;
+    width:inherit;
+    height:inherit;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+table{
+    height: 98vh;
+    width: inherit;
+    max-width: calc(118.62vh - 32px);
+}
+
+td{
+    vertical-align: middle;
+}
+
+div[class="bloques"], #Pregunta, #Poligono, #Poligono_Respuesta, body>form>input{
+    display:none;
+}
+
+/* Poligonos */
+
+#PA, #PB, #PC, #PRA, #PRB, #PRC{
+    position: absolute;
+    top: 29.96vh;
+    width: 38.01vh;
+    height: 38.01vh;
+}
+
+#PA, #PRA{
+    left: 0.875vh;
+}
+
+#PB, #PRB{
+    left: 39.95vh;
+}
+
+#PC, #PRC{
+    left: 79.11vh;
+}
+
+#Poligono_Respuesta>div{
+    border: 2px solid #000;
+}
+
+#PRA>p, #PRB>p, #PRC>p{
+    font-size: 4rem;
+}
+
+#PRp1, #PRp2{
+    position:absolute;
+    width: 118.62vh;
+}
+
+#PRp1{
+    top: 20vh;
+}
+
+#PRp2{
+    top: 70vh;
+}
+
+#Poligono_Respuesta:last-child{
+    position: absolute;
+    top: 40vh;
+}
+
+polygon{
+    cursor:pointer;
 }
 
 /*Posición de cada bloque en particular*/
