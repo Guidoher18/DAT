@@ -92,10 +92,19 @@ namespace DAT.Models
         public string RV_16 { get; set; }
         public string RV_17 { get; set; }
 
+        /* Bloques de Corsi */
+        public string Respuesta_CS { get; set; }
+        public string Puntaje_CS { get; set; }
+        public string Respuesta_CI { get; set; }
+        public string Puntaje_CI { get; set; }
+        
+
         /* Tiempos de Reacción */
         public string RA_TR { get; set; }
         public string RM_TR { get; set; }
         public string RV_TR { get; set; }
+        public string CS_TR { get; set; }
+        public string CI_TR { get; set; }
 
         public string Abandono { get; set; }
 

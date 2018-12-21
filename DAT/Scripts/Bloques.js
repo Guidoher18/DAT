@@ -359,8 +359,8 @@ $(document).ready(function(){
         $('#Respuesta_CS').val(Datos_Brutos);
         $('#Puntaje_CS').val(Puntaje);
         TRb = new moment();
-        var Duration = moment.duration(TRb.diff(TRa)).as('milliseconds');
-        $('#TR_CS').val(Duration.toString());
+        var Duration = moment.duration(TRb.diff(TRa)).asMilliseconds();
+        $('#CS_TR').val(Duration);
 
         //Reinicio las Variables 
         Habilitar_Clic = 0;
@@ -428,8 +428,8 @@ $(document).ready(function(){
             $('#Respuesta_CI').val(Datos_Brutos);
             $('#Puntaje_CI').val(Puntaje);
             TRd = new moment();
-            var Duration = moment.duration(TRd.diff(TRc)).as('milliseconds');
-            $('#TR_CI').val(Duration.toString());
+            var Duration = moment.duration(TRd.diff(TRc)).asMilliseconds();
+            $('#CI_TR').val(Duration);
             $('#Submit').click();
     };
 

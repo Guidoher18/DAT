@@ -219,6 +219,43 @@ namespace DAT.Models
             return Sujeto;
         }
 
+        [HttpPost]
+        public Sujeto ActualizarBloques(Sujeto Sujeto)
+        {
+            //Conexion a DAT (BBDD)
+            SqlConnection Conexion = new SqlConnection(ConfigurationManager.AppSettings["ConexionBase"]);
+
+            //Inicio la Conexion
+            Conexion.Open();
+
+            //Creo el Objeto que me permite ingresar la instancia
+            SqlCommand Sentencia = Conexion.CreateCommand();
+
+            //Escribo la Sentencia SQL
+            Sentencia.CommandText = "UPDATE DAT_RA SET Respuesta_CS=@Respuesta_CS, Puntaje_CS=@Puntaje_CS, CS_TR=@CS_TR, Respuesta_CI=@Respuesta_CI, Puntaje_CI=@Puntaje_CI, CI_TR=@CI_TR WHERE ID=@ID;";
+
+            //Convierto Sujeto.ID (string) en Int 
+            var a = Sujeto.ID;
+            var ID = int.Parse(a);
+
+            //Vinculo las variables con los parámetros
+            Sentencia.Parameters.AddWithValue("@ID", ID);
+            Sentencia.Parameters.AddWithValue("@Respuesta_CS", Sujeto.Respuesta_CS);
+            Sentencia.Parameters.AddWithValue("@Puntaje_CS", Sujeto.Puntaje_CS);
+            Sentencia.Parameters.AddWithValue("@CS_TR", Sujeto.CS_TR);
+            Sentencia.Parameters.AddWithValue("@Respuesta_CI", Sujeto.Respuesta_CI);
+            Sentencia.Parameters.AddWithValue("@Puntaje_CI", Sujeto.Puntaje_CI);
+            Sentencia.Parameters.AddWithValue("@CI_TR", Sujeto.CI_TR);
+
+            //Ejecuto
+            Sentencia.ExecuteNonQuery();
+
+            //Cierro la Conexión
+            Conexion.Close();
+
+            return Sujeto;
+        }
+
         /// <summary>
         /// Consulta los registros cargados en la BBDD
         /// </summary>

@@ -296,12 +296,27 @@ namespace DAT.Controllers
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRV(Sujeto);
 
-            return View("~/Views/Home/Final.cshtml");
+            return View("~/Views/Home/Bloques.cshtml");
         }
 
-        public ActionResult Corsi_Simple()
+        [HttpPost]
+        public ActionResult CargarBloques(string Respuesta_CS, string Puntaje_CS, string CS_TR, string Respuesta_CI, string Puntaje_CI, string CI_TR)
         {
-            return View("~/Views/Home/Corsi_Simple.cshtml");
+            Sujeto Sujeto = new Sujeto();
+
+            Sujeto.ID = Session["ID_Sujeto"] as string;
+            Sujeto.Respuesta_CS = Respuesta_CS;
+            Sujeto.Puntaje_CS = Puntaje_CS;
+            Sujeto.CS_TR = CS_TR;
+
+            Sujeto.Respuesta_CI = Respuesta_CI;
+            Sujeto.Puntaje_CI = Puntaje_CI;
+            Sujeto.CI_TR = CI_TR;
+
+            HomeManager Manager = new HomeManager();
+            Manager.ActualizarBloques(Sujeto);
+
+            return View("~/Views/Home/Final.cshtml");
         }
 
         /// <summary>

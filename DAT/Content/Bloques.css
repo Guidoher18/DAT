@@ -57,7 +57,7 @@ td{
     vertical-align: middle;
 }
 
-div[class="bloques"], #Pregunta, #Poligono, #Poligono_Respuesta, body>form>input{
+div[class="bloques"], #Pregunta, #Poligono, #Poligono_Respuesta, #Formulario>input{
     display:none;
 }
 

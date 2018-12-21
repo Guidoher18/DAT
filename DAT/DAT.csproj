@@ -188,6 +188,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Audio\beep.wav" />
     <Content Include="Content\Consignas.css" />
     <Content Include="Content\Bloques.css" />
     <Content Include="Content\General.css" />
