@@ -22,10 +22,10 @@ $(document).ready(function(){
     var Datos_Brutos = "";
 
     //Variables para los Tiempos de Reacción
-    var TRa = null;
-    var TRb = null;
-    var TRc = null;
-    var TRd = null;
+    var TRa = '';
+    var TRb = '';
+    var TRc = '';
+    var TRd = '';
 
     //Variables Específicas de Corsi con Interferencia
     var Combinacion_Poligonos = [] // Array que contiene los nombres de las variables de los tres polìgonos a mostrar
@@ -301,9 +301,17 @@ $(document).ready(function(){
         //b: función a la que redirige el boton
         //c: parámetros de la función anterior                 
         $('div[class="bloques"]').css('display', 'none');
-        $('#Instructivo').html('<table><tr><td><p>'+ Consigna + '</p><p><a class="btn btn-info" id="Entendido">Entendido</a></p></td></tr></table>');
+        $('#Instructivo').html('<table><tr><td><p>'+ Consigna + '</p><p><a class="btn btn-info col-md-4" id="Entendido">Entendido</a></p></td></tr></table>');
         $('#Instructivo').css('display', 'block');
         $('#Entendido').on('click', function(){
+            if (Modalidad == 'rojo' && Numero_de_Tarea == 6)
+            {
+                TRa = new moment();
+            }
+            if( Modalidad == 'azul' && Numero_de_Tarea == 6)
+            {
+                TRc = new moment();
+            }
             Consigna_Secuencia(a, b);
         });
     };
@@ -359,8 +367,9 @@ $(document).ready(function(){
         $('#Respuesta_CS').val(Datos_Brutos);
         $('#Puntaje_CS').val(Puntaje);
         TRb = new moment();
-        var Duration = moment.duration(TRb.diff(TRa)).asMilliseconds();
-        $('#CS_TR').val(Duration);
+        var Duration = moment.duration(TRb.diff(TRa)).as('milliseconds');
+        var w = Duration.toString();
+        $('#CS_TR').val(w);
 
         //Reinicio las Variables 
         Habilitar_Clic = 0;
@@ -428,13 +437,13 @@ $(document).ready(function(){
             $('#Respuesta_CI').val(Datos_Brutos);
             $('#Puntaje_CI').val(Puntaje);
             TRd = new moment();
-            var Duration = moment.duration(TRd.diff(TRc)).asMilliseconds();
-            $('#CI_TR').val(Duration);
+            var Duration = moment.duration(TRd.diff(TRc)).as('milliseconds');
+            var a = Duration.toString();
+            $('#CI_TR').val(a);
             $('#Submit').click();
     };
 
     var Itinerario_CS = function (a){
-        TRa = new moment();
         Modalidad = 'rojo';
         switch (a){
             case 1: Consigna_Boton('A continuación vas a ver unos bloques en los que aparecerán cuadrados rojos, de a uno por vez.<br>Tu objetivo es retener la ubicación de cada cuadrado rojo, en el mismo orden en el que fueron presentados.<br>Luego aparecerá un signo de interrogación y deberás indicar la ubicación de cada cuadrado rojo, en el mismo orden en el que aparecieron.','Vamos a hacer unos ensayos de prueba.', '8,9');
@@ -727,7 +736,6 @@ $(document).ready(function(){
     };
 
     var Itinerario_CI = function(a){
-        TRc = new moment();
         Modalidad = 'azul';
         switch(a){
             case 1: Consigna_Boton('A continuación vas a ver unos bloques en los que aparecerán cuadrados azules, de a uno por vez.<br> Luego aparecerán tres polígonos de diferente complejidad, y vas a tener que decidir cuál es el más complejo (el que tiene más lados). <br> Finalmente vas a ver un signo de pregunta. En ese momento vas a tener que indicar la ubicación de cada cuadrado azul en el mismo orden en el que fueron presentados.','Vamos a hacer unos ensayos de prueba' ,'4,3');

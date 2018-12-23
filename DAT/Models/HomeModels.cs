@@ -107,6 +107,7 @@ namespace DAT.Models
         public string CI_TR { get; set; }
 
         public string Abandono { get; set; }
+        public string FechayHoraSalida { get; set; }
 
     }
 

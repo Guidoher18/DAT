@@ -149,3 +149,8 @@ polygon{
     top:  60.49%;  right: 6.52%; bottom: 23.67%; left: 80.39%; 
     position: absolute; 
 }
+
+#Entendido {
+    color:#FFF;
+    font-size: 2rem;
+}

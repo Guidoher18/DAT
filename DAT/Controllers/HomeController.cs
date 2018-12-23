@@ -94,13 +94,13 @@ namespace DAT.Controllers
             if (Manager.Consultar(Mail) == null) {
                 Sujeto Sujeto = new Sujeto ();
                 Sujeto.FechayHora = DateTime.Now.ToString(); //Fecha y Hora al momento de Aceptar el Concentimiento Informado
-                Sujeto.Apellido = Apellido;
-                Sujeto.Nombre = Nombre;
+                Sujeto.Apellido = Apellido.ToUpper();
+                Sujeto.Nombre = Nombre.ToUpper();
                 Sujeto.Mail = Mail;
-                Sujeto.Genero = Genero;
+                Sujeto.Genero = Genero.ToUpper();
                 Sujeto.Edad = Edad;
-                Sujeto.Carrera = Carrera;
-                Sujeto.Universidad = Universidad;
+                Sujeto.Carrera = Carrera.ToUpper();
+                Sujeto.Universidad = Universidad.ToUpper();
                 Sujeto.Cuatrimestre = Cuatrimestre;
                 Sujeto.Año = Año;
 
@@ -163,6 +163,7 @@ namespace DAT.Controllers
             Sujeto.RA_16 = A16;
             Sujeto.RA_17 = A17;
             Sujeto.RA_TR = RA_TR;
+            Sujeto.FechayHoraSalida = DateTime.Now.ToString(); 
 
             HomeManager Manager = new HomeManager();
             Manager.Insertar(Sujeto);
@@ -235,7 +236,8 @@ namespace DAT.Controllers
             Sujeto.RM_29 = M29;
             Sujeto.RM_30 = M30;
             Sujeto.RM_TR = RM_TR;
-            
+            Sujeto.FechayHoraSalida = DateTime.Now.ToString();
+
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRM(Sujeto);
 
@@ -292,6 +294,7 @@ namespace DAT.Controllers
             Sujeto.RV_16 = V16;
             Sujeto.RV_17 = V17;
             Sujeto.RV_TR = RV_TR;
+            Sujeto.FechayHoraSalida = DateTime.Now.ToString();
 
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRV(Sujeto);
@@ -312,6 +315,8 @@ namespace DAT.Controllers
             Sujeto.Respuesta_CI = Respuesta_CI;
             Sujeto.Puntaje_CI = Puntaje_CI;
             Sujeto.CI_TR = CI_TR;
+
+            Sujeto.FechayHoraSalida = DateTime.Now.ToString();
 
             HomeManager Manager = new HomeManager();
             Manager.ActualizarBloques(Sujeto);
