@@ -363,82 +363,97 @@ namespace DAT.Controllers
                 Libro.SetCellValueNumeric("G" + Fila, Caso.Edad.ToString());
                 Libro.SetCellValue("H" + Fila, Caso.Carrera);
                 Libro.SetCellValue("I" + Fila, Caso.Universidad);
+                Libro.SetCellValue("J" + Fila, Caso.Cuatrimestre);
+                Libro.SetCellValue("K" + Fila, Caso.Año);
 
                 //RAZONAMIENTO ABSTRACTO
-                Libro.SetCellValue("J" + Fila, Caso.RA_1);
-                Libro.SetCellValue("K" + Fila, Caso.RA_2);
-                Libro.SetCellValue("L" + Fila, Caso.RA_3);
-                Libro.SetCellValue("M" + Fila, Caso.RA_4);
-                Libro.SetCellValue("N" + Fila, Caso.RA_5);
-                Libro.SetCellValue("O" + Fila, Caso.RA_6);
-                Libro.SetCellValue("P" + Fila, Caso.RA_7);
-                Libro.SetCellValue("Q" + Fila, Caso.RA_8);
-                Libro.SetCellValue("R" + Fila, Caso.RA_9);
-                Libro.SetCellValue("S" + Fila, Caso.RA_10);
-                Libro.SetCellValue("T" + Fila, Caso.RA_11);
-                Libro.SetCellValue("U" + Fila, Caso.RA_12);
-                Libro.SetCellValue("V" + Fila, Caso.RA_13);
-                Libro.SetCellValue("W" + Fila, Caso.RA_14);
-                Libro.SetCellValue("X" + Fila, Caso.RA_15);
-                Libro.SetCellValue("Y" + Fila, Caso.RA_16);
-                Libro.SetCellValue("Z" + Fila, Caso.RA_17);
 
+                Libro.SetCellValue("L" + Fila, Caso.RA_1);
+                Libro.SetCellValue("M" + Fila, Caso.RA_2);
+                Libro.SetCellValue("N" + Fila, Caso.RA_3);
+                Libro.SetCellValue("O" + Fila, Caso.RA_4);
+                Libro.SetCellValue("P" + Fila, Caso.RA_5);
+                Libro.SetCellValue("Q" + Fila, Caso.RA_6);
+                Libro.SetCellValue("R" + Fila, Caso.RA_7);
+                Libro.SetCellValue("S" + Fila, Caso.RA_8);
+                Libro.SetCellValue("T" + Fila, Caso.RA_9);
+                Libro.SetCellValue("U" + Fila, Caso.RA_10);
+                Libro.SetCellValue("V" + Fila, Caso.RA_11);
+                Libro.SetCellValue("W" + Fila, Caso.RA_12);
+                Libro.SetCellValue("X" + Fila, Caso.RA_13);
+                Libro.SetCellValue("Y" + Fila, Caso.RA_14);
+                Libro.SetCellValue("Z" + Fila, Caso.RA_15);
+                Libro.SetCellValue("AA" + Fila, Caso.RA_16);
+                Libro.SetCellValue("AB" + Fila, Caso.RA_17);
+                
                 //RAZONAMIENTO MECÁNICO
-                Libro.SetCellValue("AA" + Fila, Caso.RM_1);
-                Libro.SetCellValue("AB" + Fila, Caso.RM_2);
-                Libro.SetCellValue("AC" + Fila, Caso.RM_3);
-                Libro.SetCellValue("AD" + Fila, Caso.RM_4);
-                Libro.SetCellValue("AE" + Fila, Caso.RM_5);
-                Libro.SetCellValue("AF" + Fila, Caso.RM_6);
-                Libro.SetCellValue("AG" + Fila, Caso.RM_7);
-                Libro.SetCellValue("AH" + Fila, Caso.RM_8);
-                Libro.SetCellValue("AI" + Fila, Caso.RM_9);
-                Libro.SetCellValue("AJ" + Fila, Caso.RM_10);
-                Libro.SetCellValue("AK" + Fila, Caso.RM_11);
-                Libro.SetCellValue("AL" + Fila, Caso.RM_12);
-                Libro.SetCellValue("AM" + Fila, Caso.RM_13);
-                Libro.SetCellValue("AN" + Fila, Caso.RM_14);
-                Libro.SetCellValue("AO" + Fila, Caso.RM_15);
-                Libro.SetCellValue("AP" + Fila, Caso.RM_16);
-                Libro.SetCellValue("AQ" + Fila, Caso.RM_17);
-                Libro.SetCellValue("AR" + Fila, Caso.RM_18);
-                Libro.SetCellValue("AS" + Fila, Caso.RM_19);
-                Libro.SetCellValue("AT" + Fila, Caso.RM_20);
-                Libro.SetCellValue("AU" + Fila, Caso.RM_21);
-                Libro.SetCellValue("AV" + Fila, Caso.RM_22);
-                Libro.SetCellValue("AW" + Fila, Caso.RM_23);
-                Libro.SetCellValue("AX" + Fila, Caso.RM_24);
-                Libro.SetCellValue("AY" + Fila, Caso.RM_25);
-                Libro.SetCellValue("AZ" + Fila, Caso.RM_26);
-                Libro.SetCellValue("BA" + Fila, Caso.RM_27);
-                Libro.SetCellValue("BB" + Fila, Caso.RM_28);
-                Libro.SetCellValue("BC" + Fila, Caso.RM_29);
-                Libro.SetCellValue("BD" + Fila, Caso.RM_30);
 
+                Libro.SetCellValue("AC" + Fila, Caso.RM_1);
+                Libro.SetCellValue("AD" + Fila, Caso.RM_2);
+                Libro.SetCellValue("AE" + Fila, Caso.RM_3);
+                Libro.SetCellValue("AF" + Fila, Caso.RM_4);
+                Libro.SetCellValue("AG" + Fila, Caso.RM_5);
+                Libro.SetCellValue("AH" + Fila, Caso.RM_6);
+                Libro.SetCellValue("AI" + Fila, Caso.RM_7);
+                Libro.SetCellValue("AJ" + Fila, Caso.RM_8);
+                Libro.SetCellValue("AK" + Fila, Caso.RM_9);
+                Libro.SetCellValue("AL" + Fila, Caso.RM_10);
+                Libro.SetCellValue("AM" + Fila, Caso.RM_11);
+                Libro.SetCellValue("AN" + Fila, Caso.RM_12);
+                Libro.SetCellValue("AO" + Fila, Caso.RM_13);
+                Libro.SetCellValue("AP" + Fila, Caso.RM_14);
+                Libro.SetCellValue("AQ" + Fila, Caso.RM_15);
+                Libro.SetCellValue("AR" + Fila, Caso.RM_16);
+                Libro.SetCellValue("AS" + Fila, Caso.RM_17);
+                Libro.SetCellValue("AT" + Fila, Caso.RM_18);
+                Libro.SetCellValue("AU" + Fila, Caso.RM_19);
+                Libro.SetCellValue("AV" + Fila, Caso.RM_20);
+                Libro.SetCellValue("AW" + Fila, Caso.RM_21);
+                Libro.SetCellValue("AX" + Fila, Caso.RM_22);
+                Libro.SetCellValue("AY" + Fila, Caso.RM_23);
+                Libro.SetCellValue("AZ" + Fila, Caso.RM_24);
+                Libro.SetCellValue("BA" + Fila, Caso.RM_25);
+                Libro.SetCellValue("BB" + Fila, Caso.RM_26);
+                Libro.SetCellValue("BC" + Fila, Caso.RM_27);
+                Libro.SetCellValue("BD" + Fila, Caso.RM_28);
+                Libro.SetCellValue("BE" + Fila, Caso.RM_29);
+                Libro.SetCellValue("BF" + Fila, Caso.RM_30);
+                
                 //RAZONAMIENTO VERBAL
-                Libro.SetCellValue("BE" + Fila, Caso.RV_1);
-                Libro.SetCellValue("BF" + Fila, Caso.RV_2);
-                Libro.SetCellValue("BG" + Fila, Caso.RV_3);
-                Libro.SetCellValue("BH" + Fila, Caso.RV_4);
-                Libro.SetCellValue("BI" + Fila, Caso.RV_5);
-                Libro.SetCellValue("BJ" + Fila, Caso.RV_6);
-                Libro.SetCellValue("BK" + Fila, Caso.RV_7);
-                Libro.SetCellValue("BL" + Fila, Caso.RV_8);
-                Libro.SetCellValue("BM" + Fila, Caso.RV_9);
-                Libro.SetCellValue("BN" + Fila, Caso.RV_10);
-                Libro.SetCellValue("BO" + Fila, Caso.RV_11);
-                Libro.SetCellValue("BP" + Fila, Caso.RV_12);
-                Libro.SetCellValue("BQ" + Fila, Caso.RV_13);
-                Libro.SetCellValue("BR" + Fila, Caso.RV_14);
-                Libro.SetCellValue("BS" + Fila, Caso.RV_15);
-                Libro.SetCellValue("BT" + Fila, Caso.RV_16);
-                Libro.SetCellValue("BU" + Fila, Caso.RV_17);
+
+                Libro.SetCellValue("BG" + Fila, Caso.RV_1);
+                Libro.SetCellValue("BH" + Fila, Caso.RV_2);
+                Libro.SetCellValue("BI" + Fila, Caso.RV_3);
+                Libro.SetCellValue("BJ" + Fila, Caso.RV_4);
+                Libro.SetCellValue("BK" + Fila, Caso.RV_5);
+                Libro.SetCellValue("BL" + Fila, Caso.RV_6);
+                Libro.SetCellValue("BM" + Fila, Caso.RV_7);
+                Libro.SetCellValue("BN" + Fila, Caso.RV_8);
+                Libro.SetCellValue("BO" + Fila, Caso.RV_9);
+                Libro.SetCellValue("BP" + Fila, Caso.RV_10);
+                Libro.SetCellValue("BQ" + Fila, Caso.RV_11);
+                Libro.SetCellValue("BR" + Fila, Caso.RV_12);
+                Libro.SetCellValue("BS" + Fila, Caso.RV_13);
+                Libro.SetCellValue("BT" + Fila, Caso.RV_14);
+                Libro.SetCellValue("BU" + Fila, Caso.RV_15);
+                Libro.SetCellValue("BV" + Fila, Caso.RV_16);
+                Libro.SetCellValue("BW" + Fila, Caso.RV_17);
+
+                Libro.SetCellValue("BX" + Fila, Caso.Respuesta_CS.Trim());
+                Libro.SetCellValue("BY" + Fila, Caso.Respuesta_CI.Trim());
 
                 //TIEMPOS DE REACCIÓN
-                Libro.SetCellValueNumeric("BV" + Fila, Caso.RA_TR.Trim());
-                Libro.SetCellValueNumeric("BW" + Fila, Caso.RM_TR.Trim());
-                Libro.SetCellValueNumeric("BX" + Fila, Caso.RV_TR.Trim());
-                Libro.SetCellValue("BY" + Fila, Caso.Abandono);
+                Libro.SetCellValueNumeric("BZ" + Fila, Caso.RA_TR.Trim());
+                Libro.SetCellValueNumeric("CA" + Fila, Caso.RM_TR.Trim());
+                Libro.SetCellValueNumeric("CB" + Fila, Caso.RV_TR.Trim());
+                Libro.SetCellValueNumeric("CC" + Fila, Caso.CS_TR.Trim());
+                Libro.SetCellValueNumeric("CD" + Fila, Caso.CI_TR.Trim());
+
+                Libro.SetCellValueNumeric("CE" + Fila, Caso.Puntaje_CS);
+                Libro.SetCellValueNumeric("CF" + Fila, Caso.Puntaje_CI);
+
+                Libro.SetCellValue("CG" + Fila, Caso.FechayHoraSalida);
+                Libro.SetCellValue("CH" + Fila, Caso.Abandono);
 
             };
 
@@ -446,48 +461,72 @@ namespace DAT.Controllers
 
             //Corrección (Hoja 2 del xls)
             Libro.SelectWorksheet("Corrección");
-            Libro.InsertRow(4, Cant_Diccionario - 3);
-            Libro.CopyCellFromWorksheet("Original", 2, 1, Cant_Diccionario, 9, 3, 1, 0);    //       Copio A:I
-            Libro.CopyCellFromWorksheet("Original", 2, 74, Cant_Diccionario, 74, 3, 75, 0); //       RA_TR
-            Libro.CopyCellFromWorksheet("Original", 2, 75, Cant_Diccionario, 75, 3, 77, 0); //       RM_TR
-            Libro.CopyCellFromWorksheet("Original", 2, 76, Cant_Diccionario, 76, 3, 79, 0); //       RV_TR
-            Libro.CopyCellFromWorksheet("Original", 2, 77, Cant_Diccionario, 77, 3, 80, 0); //       Abandonó
+            Libro.InsertRow(5, Cant_Diccionario - 3);
+            Libro.CopyRowStyle(4, 5, Cant_Diccionario - 3);
 
+            //                                     Fila, Columna   A4 =  4, 1
+            //                         | Hoja     | Desde|     Hasta          | Destino | Tipo de Pegado    
+
+            Libro.CopyCellFromWorksheet("Original", 2, 1, Cant_Diccionario, 11, 4, 1, 0);    //       Copio A:K
+            Libro.CopyCellFromWorksheet("Original", 2, 76, Cant_Diccionario, 77, 4, 76, 0);  //       Copio Respuesta_CS y Respuesta_CI
+
+            Libro.CopyCellFromWorksheet("Original", 2, 78, Cant_Diccionario, 78, 4, 92, 0);  //       RA_TR
+            Libro.CopyCellFromWorksheet("Original", 2, 79, Cant_Diccionario, 79, 4, 93, 0);  //       RM_TR
+            Libro.CopyCellFromWorksheet("Original", 2, 80, Cant_Diccionario, 80, 4, 94, 0);  //       RV_TR
+            Libro.CopyCellFromWorksheet("Original", 2, 81, Cant_Diccionario, 81, 4, 95, 0);  //       CS_TR
+            Libro.CopyCellFromWorksheet("Original", 2, 82, Cant_Diccionario, 82, 4, 96, 0);  //       CI_TR
+
+            Libro.CopyCellFromWorksheet("Original", 2, 83, Cant_Diccionario, 83, 4, 82, 0);  //       Puntaje_CS
+            Libro.CopyCellFromWorksheet("Original", 2, 84, Cant_Diccionario, 84, 4, 84, 0);  //       Puntaje_CI
+
+            Libro.CopyCellFromWorksheet("Original", 2, 85, Cant_Diccionario, 85, 4, 78, 0);  //       FechayHoraSalida
+            
+            Libro.CopyCellFromWorksheet("Original", 2, 86, Cant_Diccionario, 86, 4, 98, 0);  //       Abandonó
+
+            //POLÍGONOS
+            //Respuesta_CS 4, 76        CI 4,77
+
+            
+            
+            
             //Autocompletar a partir de la fila 3 hasta el final
-            for (int Columna = 10; Columna < 81; Columna++)
+            for (int Columna = 12; Columna < 99; Columna++)
             {
-                if (Columna < 75)
+                if (Columna < 76)
                 {
-                    for (int Fila = 3; Fila < Cant_Diccionario + 1; Fila++)
-                    {
-                        Libro.CopyCell(Fila, Columna, Fila + 1, Columna);
-                    }
+                    Autocompletar(Libro, Columna, Cant_Diccionario);
                 }
-
+                               
                 else
-                { 
-                    if (Columna == 75)
+                {
+                    switch (Columna)
                     {
-                        continue;
+                        case 79:
+                            Autocompletar(Libro, Columna, Cant_Diccionario);
+                            break;
+                        case 80:
+                            Autocompletar(Libro, Columna, Cant_Diccionario);
+                            break;
+                        case 81:
+                            Autocompletar(Libro, Columna, Cant_Diccionario);
+                            break;
+                        case 87:
+                            Autocompletar(Libro, Columna, Cant_Diccionario);
+                            break;
+                        case 91:
+                            Autocompletar(Libro, Columna, Cant_Diccionario);
+                            break;
+                        case 97:
+                            Autocompletar(Libro, Columna, Cant_Diccionario);
+                            break;
+                        default:
+                            break; 
                     }
-
-                    else if (Columna == 77)
-                    {
-                        continue;
-                    }
-
-                    else if (Columna == 79)
-                    {
-                        continue;
-                    }
-
-                    else if (Columna == 80)
-                    {
-                        continue;
-                    }
+                    continue;
                 }
             }
 
+            //Nombre del Archivo y Descarga
             string Fecha = DateTime.Now.ToString();
             Fecha = Fecha.Replace("/", "-");
             Fecha = Fecha.Replace(":", ".");
@@ -497,11 +536,25 @@ namespace DAT.Controllers
             string Nombre_Archivo = "Base_de_Datos_" + Fecha + ".xlsx";
             string Ruta = Server.MapPath("~/Exportar/" + Nombre_Archivo);
              
-
             Libro.SaveAs(Ruta);
 
             ViewBag.Ruta = Ruta;
             ViewBag.Nombre_Archivo = Nombre_Archivo;
         }
+
+        /// <summary>
+        /// Autocompleta las celdas requeridas en Excel desde la Fila 4 hasta el Final 
+        /// </summary>
+        /// <param name="SujetosBase"></param>
+        public void Autocompletar(SLDocument Libro,int Columna, int Cant_Diccionario)
+        {
+            for (int Fila = 4; Fila < Cant_Diccionario + 2; Fila++)
+            {
+                Libro.CopyCell(Fila, Columna, Fila + 1, Columna);
+            }
+        }
     }
 }
+
+
+                    

@@ -290,7 +290,7 @@ namespace DAT.Models
                         "RA_1", "RA_2", "RA_3", "RA_4", "RA_5", "RA_6", "RA_7", "RA_8", "RA_9", "RA_10", "RA_11", "RA_12", "RA_13", "RA_14", "RA_15", "RA_16", "RA_17",
                         "RM_1", "RM_2", "RM_3", "RM_4", "RM_5", "RM_6", "RM_7", "RM_8", "RM_9", "RM_10", "RM_11", "RM_12", "RM_13", "RM_14", "RM_15", "RM_16", "RM_17", "RM_18", "RM_19", "RM_20", "RM_21", "RM_22", "RM_23", "RM_24", "RM_25", "RM_26", "RM_27", "RM_28", "RM_29", "RM_30",
                         "RV_1", "RV_2", "RV_3", "RV_4", "RV_5", "RV_6", "RV_7", "RV_8", "RV_9", "RV_10", "RV_11", "RV_12", "RV_13", "RV_14", "RV_15", "RV_16", "RV_17",
-                        "RA_TR", "RM_TR", "RV_TR", "Abandono"
+                        "Respuesta_CS", "Respuesta_CI", "RA_TR", "RM_TR", "RV_TR", "CS_TR", "CI_TR", "Puntaje_CS", "Puntaje_CI", "FechayHoraSalida", "Abandono"
                     };
 
                     //Reemplaza los Null por "" y los almacena en el diccionario SinNull
@@ -317,6 +317,8 @@ namespace DAT.Models
                     Sujeto.Edad = (int)reader["Edad"];
                     Sujeto.Carrera = (string)reader["Carrera"];
                     Sujeto.Universidad = (string)reader["Universidad"];
+                    Sujeto.Cuatrimestre = (string)reader["Cuatrimestre"];
+                    Sujeto.Año = (string)reader["Año"];
 
                     Sujeto.RA_1 = SinNull["RA_1"];
                     Sujeto.RA_2 = SinNull["RA_2"];
@@ -385,9 +387,18 @@ namespace DAT.Models
                     Sujeto.RV_16 = SinNull["RV_16"];
                     Sujeto.RV_17 = SinNull["RV_17"];
 
+                    Sujeto.Respuesta_CS = SinNull["Respuesta_CS"];
+                    Sujeto.Respuesta_CI = SinNull["Respuesta_CI"];
+
                     Sujeto.RA_TR = SinNull["RA_TR"];
                     Sujeto.RM_TR = SinNull["RM_TR"];
                     Sujeto.RV_TR = SinNull["RV_TR"];
+                    Sujeto.CS_TR = SinNull["CS_TR"];
+                    Sujeto.CI_TR = SinNull["CI_TR"];
+
+                    Sujeto.Puntaje_CS = SinNull["Puntaje_CS"];
+                    Sujeto.Puntaje_CI = SinNull["Puntaje_CI"];
+                    Sujeto.FechayHoraSalida = SinNull["FechayHoraSalida"];
                     Sujeto.Abandono = SinNull["Abandono"];
 
                     Key = Key + 1;
