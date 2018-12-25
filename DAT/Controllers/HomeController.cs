@@ -458,11 +458,13 @@ namespace DAT.Controllers
             };
 
             Libro.DeleteRow(Cant_Diccionario + 1, 2);
+            Libro.CopyCellStyle(2, 8, 2, 9, Cant_Diccionario, 10);
 
             //Corrección (Hoja 2 del xls)
             Libro.SelectWorksheet("Corrección");
             Libro.InsertRow(5, Cant_Diccionario - 3);
             Libro.CopyRowStyle(4, 5, Cant_Diccionario - 3);
+            
 
             //                                     Fila, Columna   A4 =  4, 1
             //                         | Hoja     | Desde|     Hasta          | Destino | Tipo de Pegado    
@@ -484,11 +486,19 @@ namespace DAT.Controllers
             Libro.CopyCellFromWorksheet("Original", 2, 86, Cant_Diccionario, 86, 4, 98, 0);  //       Abandonó
 
             //POLÍGONOS
-            //Respuesta_CS 4, 76        CI 4,77
+            // CI 4,77
 
-            
-            
-            
+            /*Modificar después */
+            string CS = "[Serie 3: 524, 926, 385] [Serie 4: 6666, 6666, 6666]"
+            string CI = "[Serie 2: 86 - P12, 52 - P10, 91 - P12] [Serie 3: 138 - P10, 214 - P8, 756 - P10] [Serie 4: 3782 - P12, 4526 - P10, 9438 - P12] [Serie 5: 92516 - P10, 13587 - P8, 46973 - P10] [Serie 6: 492671 - P8, 531742 - P12, 863941 - P10] [Serie 7: 4187529 - P8, 3975416 - P8, 9356742 - P10] ";
+
+            string[] Lista_CS1 = CS.Split(']');
+
+
+
+
+
+
             //Autocompletar a partir de la fila 3 hasta el final
             for (int Columna = 12; Columna < 99; Columna++)
             {
