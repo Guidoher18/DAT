@@ -359,7 +359,7 @@ $(document).ready(function(){
 
     //Almacena las respuestas de la serie CS
     var Guardar_Datos_Brutos_CS = function(a, b, c){       
-        Datos_Brutos = Datos_Brutos + "[Serie " + a.length + ": " + a + ", "+ b + ", " + c + "] ";    
+        Datos_Brutos = Datos_Brutos + "Serie " + a.length + "," + a + ","+ b + "," + c + ";";    
     };
 
     var SalidaCS = function(){
@@ -429,7 +429,7 @@ $(document).ready(function(){
 
     //Almacena las respuestas de la serie CI
     var Guardar_Datos_Brutos_CI = function(a, pa, b, pb, c, pc){       
-        Datos_Brutos = Datos_Brutos + "[Serie " + a.length + ": " + a + " - " + pa +', '+ b + " - " + pb +', '+ c + " - " + pc +'] ';
+        Datos_Brutos = Datos_Brutos + "Serie " + a.length + "," + a + "," + pa +','+ b + "," + pb +','+ c + "," + pc +';';
     };
 
     var SalidaCI = function(){

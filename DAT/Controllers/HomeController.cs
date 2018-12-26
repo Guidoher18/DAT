@@ -345,6 +345,9 @@ namespace DAT.Controllers
             Libro.SelectWorksheet("Original");
             int Cant_Diccionario = SujetosBase.Count() + 1;
 
+            string Respuesta_CS = "";
+            string Respuesta_CI = "";
+             
             //Setea los datos de cada Sujeto en una fila
             for (int i = 1; i != Cant_Diccionario; i++)
             {
@@ -398,7 +401,7 @@ namespace DAT.Controllers
                 Libro.SetCellValue("AJ" + Fila, Caso.RM_8);
                 Libro.SetCellValue("AK" + Fila, Caso.RM_9);
                 Libro.SetCellValue("AL" + Fila, Caso.RM_10);
-                Libro.SetCellValue("AM" + Fila, Caso.RM_11);
+                Libro.SetCellValue("AM" + Fila, Caso.RM_11); 
                 Libro.SetCellValue("AN" + Fila, Caso.RM_12);
                 Libro.SetCellValue("AO" + Fila, Caso.RM_13);
                 Libro.SetCellValue("AP" + Fila, Caso.RM_14);
@@ -439,9 +442,11 @@ namespace DAT.Controllers
                 Libro.SetCellValue("BV" + Fila, Caso.RV_16);
                 Libro.SetCellValue("BW" + Fila, Caso.RV_17);
 
-                Libro.SetCellValue("BX" + Fila, Caso.Respuesta_CS.Trim());
-                Libro.SetCellValue("BY" + Fila, Caso.Respuesta_CI.Trim());
-
+                Respuesta_CS = Caso.Respuesta_CS.Trim();
+                Respuesta_CI = Caso.Respuesta_CI.Trim();
+                Libro.SetCellValue("BX" + Fila, Respuesta_CS);
+                Libro.SetCellValue("BY" + Fila, Respuesta_CI);
+                
                 //TIEMPOS DE REACCIÓN
                 Libro.SetCellValueNumeric("BZ" + Fila, Caso.RA_TR.Trim());
                 Libro.SetCellValueNumeric("CA" + Fila, Caso.RM_TR.Trim());
@@ -454,7 +459,6 @@ namespace DAT.Controllers
 
                 Libro.SetCellValue("CG" + Fila, Caso.FechayHoraSalida);
                 Libro.SetCellValue("CH" + Fila, Caso.Abandono);
-
             };
 
             Libro.DeleteRow(Cant_Diccionario + 1, 2);
@@ -464,14 +468,9 @@ namespace DAT.Controllers
             Libro.SelectWorksheet("Corrección");
             Libro.InsertRow(5, Cant_Diccionario - 3);
             Libro.CopyRowStyle(4, 5, Cant_Diccionario - 3);
-            
-
-            //                                     Fila, Columna   A4 =  4, 1
-            //                         | Hoja     | Desde|     Hasta          | Destino | Tipo de Pegado    
 
             Libro.CopyCellFromWorksheet("Original", 2, 1, Cant_Diccionario, 11, 4, 1, 0);    //       Copio A:K
             Libro.CopyCellFromWorksheet("Original", 2, 76, Cant_Diccionario, 77, 4, 76, 0);  //       Copio Respuesta_CS y Respuesta_CI
-
             Libro.CopyCellFromWorksheet("Original", 2, 78, Cant_Diccionario, 78, 4, 92, 0);  //       RA_TR
             Libro.CopyCellFromWorksheet("Original", 2, 79, Cant_Diccionario, 79, 4, 93, 0);  //       RM_TR
             Libro.CopyCellFromWorksheet("Original", 2, 80, Cant_Diccionario, 80, 4, 94, 0);  //       RV_TR
@@ -485,19 +484,27 @@ namespace DAT.Controllers
             
             Libro.CopyCellFromWorksheet("Original", 2, 86, Cant_Diccionario, 86, 4, 98, 0);  //       Abandonó
 
-            //POLÍGONOS
-            // CI 4,77
+            for (int A = 4; A < Cant_Diccionario + 3; A++)
+            {
+                Respuesta_CS = Libro.GetCellValueAsString(A, 76);
+                Respuesta_CI = Libro.GetCellValueAsString(A, 77);
+                string[] valores = Verificar_Poligonos(Respuesta_CS, Respuesta_CI);
 
-            /*Modificar después */
-            string CS = "[Serie 3: 524, 926, 385] [Serie 4: 6666, 6666, 6666]"
-            string CI = "[Serie 2: 86 - P12, 52 - P10, 91 - P12] [Serie 3: 138 - P10, 214 - P8, 756 - P10] [Serie 4: 3782 - P12, 4526 - P10, 9438 - P12] [Serie 5: 92516 - P10, 13587 - P8, 46973 - P10] [Serie 6: 492671 - P8, 531742 - P12, 863941 - P10] [Serie 7: 4187529 - P8, 3975416 - P8, 9356742 - P10] ";
+                Libro.SetCellValue("CE" + A, valores[0]); //Serie_CS
+                Libro.SetCellValue("CG" + A, valores[1]); //Serie_CI
+                Libro.SetCellValue("CH" + A, valores[2]); //Total_Series
+                Libro.SetCellValue("CJ" + A, valores[3]); //Aciertos
+                Libro.SetCellValue("CK" + A, valores[4]); //Errores
+                Libro.SetCellValue("CL" + A, valores[5]); //Vacios
+            }
 
-            string[] Lista_CS1 = CS.Split(']');
-
-
-
-
-
+            Libro.CopyCellStyle(4, 83, 5, 83, Cant_Diccionario + 2, 83);
+            Libro.CopyCellStyle(4, 85, 5, 85, Cant_Diccionario + 2, 85);
+            Libro.CopyCellStyle(4, 86, 5, 86, Cant_Diccionario + 2, 86);
+            Libro.CopyCellStyle(4, 88, 5, 88, Cant_Diccionario + 2, 88);
+            Libro.CopyCellStyle(4, 89, 5, 89, Cant_Diccionario + 2, 89);
+            Libro.CopyCellStyle(4, 90, 5, 90, Cant_Diccionario + 2, 90);
+            Libro.CopyCellStyle(4, 91, 5, 91, Cant_Diccionario + 2, 91);
 
             //Autocompletar a partir de la fila 3 hasta el final
             for (int Columna = 12; Columna < 99; Columna++)
@@ -562,6 +569,125 @@ namespace DAT.Controllers
             {
                 Libro.CopyCell(Fila, Columna, Fila + 1, Columna);
             }
+        }
+        
+        /// <summary>
+        /// Analiza las respuestas de los Polígonos en Corsi con Interferencia
+        /// </summary>
+        /// <param name="Respuesta_CS"></param>
+        /// <param name="Respuesta_CI"></param>
+        /// <returns></returns>
+        public string[] Verificar_Poligonos(string Respuesta_CS, string Respuesta_CI)
+        {
+            string Serie_CS = "";
+            string Serie_CI = "";
+
+            //Corsi con Interferencia
+            int Total_Series = 0;
+            int Aciertos = 0;
+            int Errores = 0;
+            int Vacios = 0;
+
+            if (Respuesta_CS != "" && Respuesta_CS != null)
+            {
+                char[] charSeparator = new char[] { ';' };
+                string[] Lista_CS1 = Respuesta_CS.Split(charSeparator, StringSplitOptions.RemoveEmptyEntries);
+                int a = Lista_CS1.Length;
+                string[] Lista_CS2 = Lista_CS1[a - 1].Split(',');
+                Serie_CS = Lista_CS2[0];
+            }
+
+            if (Respuesta_CI != "" && Respuesta_CI != null)
+            {
+                //Corsi con Interferencia - Polígonos
+                char[] charSeparator = new char[] { ';' };
+                string[] Lista_CI1 = Respuesta_CI.Split(charSeparator, StringSplitOptions.RemoveEmptyEntries);
+                int b = Lista_CI1.Length;
+                string[] Lista_CI2 = Lista_CI1[b - 1].Split(',');
+                Serie_CI = Lista_CI2[0];
+
+                switch (Serie_CI)
+                {
+                    case "Serie 2":
+                        Total_Series = 1;
+                        break;
+                    case "Serie 3":
+                        Total_Series = 2;
+                        break;
+                    case "Serie 4":
+                        Total_Series = 3;
+                        break;
+                    case "Serie 5":
+                        Total_Series = 4;
+                        break;
+                    case "Serie 6":
+                        Total_Series = 5;
+                        break;
+                    case "Serie 7":
+                        Total_Series = 6;
+                        break;
+                }
+
+                //Listas con Polígonos Correctos
+                string[] Serie_2 = { "P12", "P10", "P12" };
+                string[] Serie_3 = { "P10", "P8", "P10" };
+                string[] Serie_4 = { "P12", "P10", "P12" };
+                string[] Serie_5 = { "P10", "P8", "P10" };
+                string[] Serie_6 = { "P8", "P12", "P10" };
+                string[] Serie_7 = { "P8", "P8", "P10" };
+
+                foreach (string x in Lista_CI1)         //Analizo cada Serie 2,28,P10,35,P10,45,P12;
+                {
+                    string[] A = x.Split(',');
+
+                    string[] B = { A[2], A[4], A[6] };  // Almaceno en una lista los 3 Polígonos de la Serie
+
+                    string[] C = { };                   // Lista de Respuestas Correctas a comparar
+
+                    switch (A[0])
+                    {
+                        case "Serie 2":
+                            C = Serie_2;
+                            break;
+                        case "Serie 3":
+                            C = Serie_3;
+                            break;
+                        case "Serie 4":
+                            C = Serie_4;
+                            break;
+                        case "Serie 5":
+                            C = Serie_5;
+                            break;
+                        case "Serie 6":
+                            C = Serie_6;
+                            break;
+                        case "Serie 7":
+                            C = Serie_7;
+                            break;
+                    }
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (B[i] != "")
+                        {
+                            if (B[i] == C[i])
+                            {
+                                Aciertos += 1;
+                            }
+                            else
+                            {
+                                Errores += 1;
+                            }
+                        }
+                        else
+                        {
+                            Vacios += 1;
+                        }
+                    }
+                }
+            }
+            string[] valores = { Serie_CS, Serie_CI, Total_Series.ToString(), Aciertos.ToString(), Errores.ToString(), Vacios.ToString()};
+            return valores;
         }
     }
 }
