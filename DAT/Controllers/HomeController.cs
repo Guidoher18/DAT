@@ -336,7 +336,7 @@ namespace DAT.Controllers
         }
 
         /// <summary>
-        /// Toma los datos de la BBDD y los transfiere a un .xls
+        /// Toma los datos de la BBDD y los transfiere a un .xlsx
         /// </summary>
         /// <param name="SujetosBase"></param>
         public void Procesar(Dictionary<int, Sujeto> SujetosBase)
@@ -345,9 +345,6 @@ namespace DAT.Controllers
             Libro.SelectWorksheet("Original");
             int Cant_Diccionario = SujetosBase.Count() + 1;
 
-            string Respuesta_CS = "";
-            string Respuesta_CI = "";
-             
             //Setea los datos de cada Sujeto en una fila
             for (int i = 1; i != Cant_Diccionario; i++)
             {
@@ -367,7 +364,7 @@ namespace DAT.Controllers
                 Libro.SetCellValue("H" + Fila, Caso.Carrera);
                 Libro.SetCellValue("I" + Fila, Caso.Universidad);
                 Libro.SetCellValue("J" + Fila, Caso.Cuatrimestre);
-                Libro.SetCellValue("K" + Fila, Caso.Año);
+                Libro.SetCellValueNumeric("K" + Fila, Caso.Año);
 
                 //RAZONAMIENTO ABSTRACTO
 
@@ -442,10 +439,8 @@ namespace DAT.Controllers
                 Libro.SetCellValue("BV" + Fila, Caso.RV_16);
                 Libro.SetCellValue("BW" + Fila, Caso.RV_17);
 
-                Respuesta_CS = Caso.Respuesta_CS.Trim();
-                Respuesta_CI = Caso.Respuesta_CI.Trim();
-                Libro.SetCellValue("BX" + Fila, Respuesta_CS);
-                Libro.SetCellValue("BY" + Fila, Respuesta_CI);
+                Libro.SetCellValue("BX" + Fila, Caso.Respuesta_CS.Trim());
+                Libro.SetCellValue("BY" + Fila, Caso.Respuesta_CI.Trim());
                 
                 //TIEMPOS DE REACCIÓN
                 Libro.SetCellValueNumeric("BZ" + Fila, Caso.RA_TR.Trim());
@@ -463,7 +458,7 @@ namespace DAT.Controllers
 
             Libro.DeleteRow(Cant_Diccionario + 1, 2);
             Libro.CopyCellStyle(2, 8, 2, 9, Cant_Diccionario, 10);
-
+            
             //Corrección (Hoja 2 del xls)
             Libro.SelectWorksheet("Corrección");
             Libro.InsertRow(5, Cant_Diccionario - 3);
@@ -484,27 +479,37 @@ namespace DAT.Controllers
             
             Libro.CopyCellFromWorksheet("Original", 2, 86, Cant_Diccionario, 86, 4, 98, 0);  //       Abandonó
 
+            //Tiempo Total de la bateria
+            string FechayHoraInicio = "";
+            string FechayHoraSalida = "";
+
+            for (int A = 4; A < Cant_Diccionario + 3; A++)
+            {
+                FechayHoraInicio = Libro.GetCellValueAsString(A, 1);
+                FechayHoraSalida = Libro.GetCellValueAsString(A, 78);
+
+                string[] J = Restar_FechayHora(FechayHoraInicio, FechayHoraSalida, A);
+
+                Libro.SetCellValue(J[0], J[1]);                                              //      Tiempo Total
+            }
+
+            //Completo los Resultados de Polígonos en Corrección
+            string Respuesta_CS = "";
+            string Respuesta_CI = "";
+
             for (int A = 4; A < Cant_Diccionario + 3; A++)
             {
                 Respuesta_CS = Libro.GetCellValueAsString(A, 76);
                 Respuesta_CI = Libro.GetCellValueAsString(A, 77);
                 string[] valores = Verificar_Poligonos(Respuesta_CS, Respuesta_CI);
 
-                Libro.SetCellValue("CE" + A, valores[0]); //Serie_CS
-                Libro.SetCellValue("CG" + A, valores[1]); //Serie_CI
-                Libro.SetCellValue("CH" + A, valores[2]); //Total_Series
-                Libro.SetCellValue("CJ" + A, valores[3]); //Aciertos
-                Libro.SetCellValue("CK" + A, valores[4]); //Errores
-                Libro.SetCellValue("CL" + A, valores[5]); //Vacios
+                Libro.SetCellValue("CE" + A, valores[0]);               //  Serie_CS
+                Libro.SetCellValue("CG" + A, valores[1]);               //  Serie_CI
+                Libro.SetCellValueNumeric("CH" + A, valores[2]);        //  Total_Series
+                Libro.SetCellValueNumeric("CJ" + A, valores[3]);        //  Aciertos
+                Libro.SetCellValueNumeric("CK" + A, valores[4]);        //  Errores
+                Libro.SetCellValueNumeric("CL" + A, valores[5]);        //  Vacios
             }
-
-            Libro.CopyCellStyle(4, 83, 5, 83, Cant_Diccionario + 2, 83);
-            Libro.CopyCellStyle(4, 85, 5, 85, Cant_Diccionario + 2, 85);
-            Libro.CopyCellStyle(4, 86, 5, 86, Cant_Diccionario + 2, 86);
-            Libro.CopyCellStyle(4, 88, 5, 88, Cant_Diccionario + 2, 88);
-            Libro.CopyCellStyle(4, 89, 5, 89, Cant_Diccionario + 2, 89);
-            Libro.CopyCellStyle(4, 90, 5, 90, Cant_Diccionario + 2, 90);
-            Libro.CopyCellStyle(4, 91, 5, 91, Cant_Diccionario + 2, 91);
 
             //Autocompletar a partir de la fila 3 hasta el final
             for (int Columna = 12; Columna < 99; Columna++)
@@ -533,15 +538,34 @@ namespace DAT.Controllers
                         case 91:
                             Autocompletar(Libro, Columna, Cant_Diccionario);
                             break;
-                        case 97:
-                            Autocompletar(Libro, Columna, Cant_Diccionario);
-                            break;
                         default:
                             break; 
                     }
                     continue;
                 }
             }
+
+            //Homogeinizo el Estilo
+            Libro.CopyCellStyle(4, 83, 5, 83, Cant_Diccionario + 2, 83);
+            Libro.CopyCellStyle(4, 85, 5, 85, Cant_Diccionario + 2, 85);
+            Libro.CopyCellStyle(4, 86, 5, 86, Cant_Diccionario + 2, 86);
+            Libro.CopyCellStyle(4, 88, 5, 88, Cant_Diccionario + 2, 88);
+            Libro.CopyCellStyle(4, 89, 5, 89, Cant_Diccionario + 2, 89);
+            Libro.CopyCellStyle(4, 90, 5, 90, Cant_Diccionario + 2, 90);
+
+            //Bordes en Corrección
+            SLStyle style = Libro.CreateStyle();
+            style.Border.RightBorder.BorderStyle = BorderStyleValues.Thick;
+            Libro.SetCellStyle(4, 11, Cant_Diccionario + 2, 11, style);
+            Libro.SetCellStyle(4, 28, Cant_Diccionario + 2, 28, style);
+            Libro.SetCellStyle(4, 58, Cant_Diccionario + 2, 58, style);
+            Libro.SetCellStyle(4, 75, Cant_Diccionario + 2, 75, style);
+            Libro.SetCellStyle(4, 77, Cant_Diccionario + 2, 77, style);
+            Libro.SetCellStyle(4, 78, Cant_Diccionario + 2, 78, style);
+            Libro.SetCellStyle(4, 85, Cant_Diccionario + 2, 85, style);
+            Libro.SetCellStyle(4, 91, Cant_Diccionario + 2, 91, style);
+            Libro.SetCellStyle(4, 96, Cant_Diccionario + 2, 96, style);
+            Libro.SetCellStyle(4, 98, Cant_Diccionario + 2, 98, style);
 
             //Nombre del Archivo y Descarga
             string Fecha = DateTime.Now.ToString();
@@ -688,6 +712,36 @@ namespace DAT.Controllers
             }
             string[] valores = { Serie_CS, Serie_CI, Total_Series.ToString(), Aciertos.ToString(), Errores.ToString(), Vacios.ToString()};
             return valores;
+        }
+
+        /// <summary>
+        /// Obtiene la diferencia entre dos fechas 
+        /// </summary>
+        /// <param name="FechayHoraInicio"></param>
+        /// <param name="FechayHoraSalida"></param>
+        /// <param name="A"></param>
+        /// <returns></returns>
+        public string[] Restar_FechayHora (string FechayHoraInicio, string FechayHoraSalida, int A)
+        {
+            string Dato = "";
+            string Celda = "";
+
+            Celda = "CS" + A.ToString();
+
+            if (FechayHoraInicio != "" && FechayHoraInicio != null && FechayHoraSalida != "" && FechayHoraSalida != null)
+            {
+                DateTime F = DateTime.Parse(FechayHoraInicio);
+                DateTime G = DateTime.Parse(FechayHoraSalida);
+                Dato = (G.Subtract(F)).ToString();
+            }
+            else
+            {
+                Dato = "";
+            }
+
+            string[] J = { Celda, Dato };
+            
+            return J;            
         }
     }
 }
