@@ -191,6 +191,7 @@
     <Content Include="Audio\beep.wav" />
     <Content Include="Content\Consignas.css" />
     <Content Include="Content\Bloques.css" />
+    <Content Include="Content\Error.css" />
     <Content Include="Content\General.css" />
     <Content Include="Content\Mobile.css" />
     <Content Include="Content\Test_RA.css" />

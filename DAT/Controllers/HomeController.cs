@@ -104,14 +104,19 @@ namespace DAT.Controllers
                 Sujeto.Cuatrimestre = Cuatrimestre;
                 Sujeto.Año = Año;
 
-                Session["Sujeto"] = Sujeto; 
-            
-                return View("~/Views/Home/Consigna_RA.cshtml"); 
+                Session["Sujeto"] = Sujeto;
+
+                return RedirectToAction("Consigna_RA", "Home");
             }
             else{
                 MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return View("~/Views/Home/Consentimiento.cshtml"); 
             }
+        }
+
+        public ActionResult Consigna_RA()
+        {
+            return View("~/Views/Home/Consigna_RA.cshtml");
         }
 
         public ActionResult Test_RA()
@@ -170,6 +175,11 @@ namespace DAT.Controllers
 
             Session["ID_Sujeto"] = Sujeto.ID;
 
+            return RedirectToAction("Consigna_RM", "Home");
+        }
+
+        public ActionResult Consigna_RM()
+        {
             return View("~/Views/Home/Consigna_RM.cshtml");
         }
 
@@ -241,6 +251,11 @@ namespace DAT.Controllers
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRM(Sujeto);
 
+            return RedirectToAction("Consigna_RV", "Home");
+        }
+
+        public ActionResult Consigna_RV()
+        {
             return View("~/Views/Home/Consigna_RV.cshtml");
         }
 
@@ -299,9 +314,14 @@ namespace DAT.Controllers
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRV(Sujeto);
 
-            return View("~/Views/Home/Bloques.cshtml");
+            return RedirectToAction("Bloques", "Home");
         }
 
+        public ActionResult Bloques()
+        {
+            return View("~/Views/Home/Bloques.cshtml");
+        }
+        
         [HttpPost]
         public ActionResult CargarBloques(string Respuesta_CS, string Puntaje_CS, string CS_TR, string Respuesta_CI, string Puntaje_CI, string CI_TR)
         {
@@ -321,6 +341,11 @@ namespace DAT.Controllers
             HomeManager Manager = new HomeManager();
             Manager.ActualizarBloques(Sujeto);
 
+            return RedirectToAction("Final", "Home");
+        }
+
+        public ActionResult Final()
+        {
             return View("~/Views/Home/Final.cshtml");
         }
 
