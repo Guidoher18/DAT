@@ -12,3 +12,11 @@ table {
     margin-left:auto;
     margin-right:auto;
 }
+
+#Ej1_RA, #Ej2_RA{
+    height: 135px;
+}
+
+#Ej1_RM, #Ej2_RM {
+    height:200px;
+}
