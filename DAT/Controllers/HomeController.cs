@@ -1,20 +1,14 @@
 ﻿using DAT.Models;
+using DocumentFormat.OpenXml.Spreadsheet;
+using SpreadsheetLight;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
 using System.Windows.Forms;
-using SpreadsheetLight;
-using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Spreadsheet;
-using System.Reflection;
-using System.IO;
-using System.Diagnostics;
 
 namespace DAT.Controllers
 {
@@ -42,8 +36,8 @@ namespace DAT.Controllers
         public ActionResult EnviarMail(string MailMobile)
         {
             string MyName = "Procesos Básicos";
-            string MyMail = "guidoh181193@gmail.com";
-            string MyPassword = "mglmcp1521805187";
+            string MyMail = "procesosbasicos19@gmail.com";
+            string MyPassword = "razonamiento333";
             string TheirMail = MailMobile;
             string Subject = "Investigación sobre Razonamiento Mecánico";
             string Message = "El Link para participar de la Investigación es: https://goo.gl/gdpExZ. Recuerde ingresar desde una Computadora de Escritorio o Portatill. Desde ya, Muchas Gracias.";

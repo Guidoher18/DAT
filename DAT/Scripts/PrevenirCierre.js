@@ -35,10 +35,6 @@ function wireUpEvents() {
     }
     window.onbeforeunload = function () {
         goodbye();
-        //if (confirm('¿Eatá seguro que desea salir?') == true) {
-            //alert('cerrar!!');
-            //$('#Submit').click();
-        //}
     };
 
     // Attach the event keypress to exclude the F5 refresh

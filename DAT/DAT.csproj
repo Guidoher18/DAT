@@ -193,7 +193,6 @@
     <Content Include="Content\Bloques.css" />
     <Content Include="Content\Error.css" />
     <Content Include="Content\General.css" />
-    <Content Include="Content\Mobile.css" />
     <Content Include="Content\Test_RA.css" />
     <Content Include="Content\Consentimiento.css" />
     <Content Include="Content\Test_RM.css" />
@@ -252,10 +251,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Consignas.js" />
     <Content Include="Scripts\Bloques.js" />
-    <Content Include="Scripts\Consentimiento.js" />
-    <Content Include="Scripts\Mobile.js" />
     <Content Include="Scripts\Moment-Timer.js" />
     <Content Include="Scripts\Moment.js" />
     <Content Include="Scripts\PrevenirCierre.js" />
