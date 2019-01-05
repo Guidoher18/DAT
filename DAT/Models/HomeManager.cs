@@ -52,7 +52,7 @@ namespace DAT.Models
             SqlCommand Sentencia = Conexion.CreateCommand();
 
             //Escribo la Sentencia SQL
-            Sentencia.CommandText = "INSERT INTO DAT_RA (FechayHora, Apellido, Nombre, Mail, Genero, Edad, Carrera, Universidad, Cuatrimestre, Año, RA_1, RA_2, RA_3, RA_4, RA_5, RA_6, RA_7, RA_8, RA_9, RA_10, RA_11, RA_12, RA_13, RA_14, RA_15, RA_16, RA_17, RA_TR, FechayHoraSalida) OUTPUT INSERTED.ID VALUES(@FechayHora, @Apellido, @Nombre, @Mail, @Genero, @Edad, @Carrera, @Universidad, @Cuatrimestre, @Año, @RA_1, @RA_2, @RA_3, @RA_4, @RA_5, @RA_6, @RA_7, @RA_8, @RA_9, @RA_10, @RA_11, @RA_12, @RA_13, @RA_14, @RA_15, @RA_16, @RA_17, @RA_TR, @FechayHoraSalida)";
+            Sentencia.CommandText = "INSERT INTO DAT_RA (FechayHora, Apellido, Nombre, Mail, Genero, Edad, Carrera, Universidad, Cuatrimestre, Año, RA_1, RA_2, RA_3, RA_4, RA_5, RA_6, RA_7, RA_8, RA_9, RA_10, RA_11, RA_12, RA_13, RA_14, RA_15, RA_16, RA_17, RA_TR, FechayHoraSalida, Abandono) OUTPUT INSERTED.ID VALUES(@FechayHora, @Apellido, @Nombre, @Mail, @Genero, @Edad, @Carrera, @Universidad, @Cuatrimestre, @Año, @RA_1, @RA_2, @RA_3, @RA_4, @RA_5, @RA_6, @RA_7, @RA_8, @RA_9, @RA_10, @RA_11, @RA_12, @RA_13, @RA_14, @RA_15, @RA_16, @RA_17, @RA_TR, @FechayHoraSalida, @Abandono)";
 
             //Vinculo las variables con los parámetros
             Sentencia.Parameters.AddWithValue("@FechayHora", Sujeto.FechayHora);
@@ -84,6 +84,7 @@ namespace DAT.Models
             Sentencia.Parameters.AddWithValue("@RA_17", Sujeto.RA_17);
             Sentencia.Parameters.AddWithValue("@RA_TR", Sujeto.RA_TR);
             Sentencia.Parameters.AddWithValue("@FechayHoraSalida", Sujeto.FechayHoraSalida);
+            Sentencia.Parameters.AddWithValue("@Abandono", Sujeto.Abandono);
 
             //Ejecuto
             Sujeto.ID = Sentencia.ExecuteScalar().ToString();
@@ -112,7 +113,7 @@ namespace DAT.Models
             SqlCommand Sentencia = Conexion.CreateCommand();
 
             //Escribo la Sentencia SQL
-            Sentencia.CommandText = "UPDATE DAT_RA SET RM_1= @RM_1, RM_2= @RM_2, RM_3=@RM_3, RM_4=@RM_4, RM_5=@RM_5, RM_6=@RM_6, RM_7=@RM_7, RM_8=@RM_8, RM_9=@RM_9, RM_10=@RM_10, RM_11=@RM_11, RM_12=@RM_12, RM_13=@RM_13, RM_14=@RM_14, RM_15=@RM_15, RM_16=@RM_16, RM_17=@RM_17, RM_18=@RM_18, RM_19=@RM_19, RM_20=@RM_20, RM_21=@RM_21, RM_22=@RM_22, RM_23=@RM_23, RM_24=@RM_24, RM_25=@RM_25, RM_26=@RM_26, RM_27=@RM_27, RM_28=@RM_28, RM_29=@RM_29, RM_30=@RM_30, RM_TR=@RM_TR, FechayHoraSalida=@FechayHoraSalida WHERE ID=@ID;";
+            Sentencia.CommandText = "UPDATE DAT_RA SET RM_1= @RM_1, RM_2= @RM_2, RM_3=@RM_3, RM_4=@RM_4, RM_5=@RM_5, RM_6=@RM_6, RM_7=@RM_7, RM_8=@RM_8, RM_9=@RM_9, RM_10=@RM_10, RM_11=@RM_11, RM_12=@RM_12, RM_13=@RM_13, RM_14=@RM_14, RM_15=@RM_15, RM_16=@RM_16, RM_17=@RM_17, RM_18=@RM_18, RM_19=@RM_19, RM_20=@RM_20, RM_21=@RM_21, RM_22=@RM_22, RM_23=@RM_23, RM_24=@RM_24, RM_25=@RM_25, RM_26=@RM_26, RM_27=@RM_27, RM_28=@RM_28, RM_29=@RM_29, RM_30=@RM_30, RM_TR=@RM_TR, FechayHoraSalida=@FechayHoraSalida, Abandono=@Abandono WHERE ID=@ID;";
 
             //Convierto Sujeto.ID (string) en Int 
             var a = Sujeto.ID;
@@ -152,6 +153,7 @@ namespace DAT.Models
             Sentencia.Parameters.AddWithValue("@RM_30", Sujeto.RM_30);
             Sentencia.Parameters.AddWithValue("@RM_TR", Sujeto.RM_TR);
             Sentencia.Parameters.AddWithValue("@FechayHoraSalida", Sujeto.FechayHoraSalida);
+            Sentencia.Parameters.AddWithValue("@Abandono", Sujeto.Abandono);
 
             //Ejecuto
             Sentencia.ExecuteNonQuery();
@@ -180,7 +182,7 @@ namespace DAT.Models
             SqlCommand Sentencia = Conexion.CreateCommand();
 
             //Escribo la Sentencia SQL
-            Sentencia.CommandText = "UPDATE DAT_RA SET RV_1=@RV_1, RV_2=@RV_2, RV_3=@RV_3, RV_4=@RV_4, RV_5=@RV_5, RV_6=@RV_6, RV_7=@RV_7, RV_8=@RV_8, RV_9=@RV_9, RV_10=@RV_10, RV_11=@RV_11, RV_12=@RV_12, RV_13=@RV_13, RV_14=@RV_14, RV_15=@RV_15, RV_16=@RV_16, RV_17=@RV_17, RV_TR=@RV_TR, FechayHoraSalida=@FechayHoraSalida WHERE ID=@ID;";
+            Sentencia.CommandText = "UPDATE DAT_RA SET RV_1=@RV_1, RV_2=@RV_2, RV_3=@RV_3, RV_4=@RV_4, RV_5=@RV_5, RV_6=@RV_6, RV_7=@RV_7, RV_8=@RV_8, RV_9=@RV_9, RV_10=@RV_10, RV_11=@RV_11, RV_12=@RV_12, RV_13=@RV_13, RV_14=@RV_14, RV_15=@RV_15, RV_16=@RV_16, RV_17=@RV_17, RV_TR=@RV_TR, FechayHoraSalida=@FechayHoraSalida, Abandono=@Abandono  WHERE ID=@ID;";
 
             //Convierto Sujeto.ID (string) en Int 
             var a = Sujeto.ID;
@@ -207,6 +209,7 @@ namespace DAT.Models
             Sentencia.Parameters.AddWithValue("@RV_17", Sujeto.RV_17);
             Sentencia.Parameters.AddWithValue("@RV_TR", Sujeto.RV_TR);
             Sentencia.Parameters.AddWithValue("@FechayHoraSalida", Sujeto.FechayHoraSalida);
+            Sentencia.Parameters.AddWithValue("@Abandono", Sujeto.Abandono);
 
             //Ejecuto
             Sentencia.ExecuteNonQuery();
@@ -230,7 +233,7 @@ namespace DAT.Models
             SqlCommand Sentencia = Conexion.CreateCommand();
 
             //Escribo la Sentencia SQL
-            Sentencia.CommandText = "UPDATE DAT_RA SET Respuesta_CS=@Respuesta_CS, Puntaje_CS=@Puntaje_CS, CS_TR=@CS_TR, Respuesta_CI=@Respuesta_CI, Puntaje_CI=@Puntaje_CI, CI_TR=@CI_TR, FechayHoraSalida=@FechayHoraSalida WHERE ID=@ID;";
+            Sentencia.CommandText = "UPDATE DAT_RA SET Respuesta_CS=@Respuesta_CS, Puntaje_CS=@Puntaje_CS, CS_TR=@CS_TR, Respuesta_CI=@Respuesta_CI, Puntaje_CI=@Puntaje_CI, CI_TR=@CI_TR, FechayHoraSalida=@FechayHoraSalida, Abandono=@Abandono WHERE ID=@ID;";
 
             //Convierto Sujeto.ID (string) en Int 
             var a = Sujeto.ID;
@@ -245,6 +248,7 @@ namespace DAT.Models
             Sentencia.Parameters.AddWithValue("@Puntaje_CI", Sujeto.Puntaje_CI);
             Sentencia.Parameters.AddWithValue("@CI_TR", Sujeto.CI_TR);
             Sentencia.Parameters.AddWithValue("@FechayHoraSalida", Sujeto.FechayHoraSalida);
+            Sentencia.Parameters.AddWithValue("@Abandono", Sujeto.Abandono);
 
             //Ejecuto
             Sentencia.ExecuteNonQuery();

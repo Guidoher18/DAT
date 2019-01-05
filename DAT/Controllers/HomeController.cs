@@ -162,7 +162,8 @@ namespace DAT.Controllers
             Sujeto.RA_16 = A16;
             Sujeto.RA_17 = A17;
             Sujeto.RA_TR = RA_TR;
-            Sujeto.FechayHoraSalida = DateTime.Now.ToString(); 
+            Sujeto.FechayHoraSalida = DateTime.Now.ToString();
+            Sujeto.Abandono = "Si_RM";
 
             HomeManager Manager = new HomeManager();
             Manager.Insertar(Sujeto);
@@ -241,6 +242,7 @@ namespace DAT.Controllers
             Sujeto.RM_30 = M30;
             Sujeto.RM_TR = RM_TR;
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
+            Sujeto.Abandono = "Si_RV";
 
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRM(Sujeto);
@@ -304,6 +306,7 @@ namespace DAT.Controllers
             Sujeto.RV_17 = V17;
             Sujeto.RV_TR = RV_TR;
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
+            Sujeto.Abandono = "Si_Bloques";
 
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRV(Sujeto);
@@ -331,6 +334,8 @@ namespace DAT.Controllers
             Sujeto.CI_TR = CI_TR;
 
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
+
+            Sujeto.Abandono = "No";
 
             HomeManager Manager = new HomeManager();
             Manager.ActualizarBloques(Sujeto);
