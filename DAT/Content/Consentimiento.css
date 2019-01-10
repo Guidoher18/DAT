@@ -46,6 +46,11 @@ label {
     vertical-align:middle;
 }
 
+#MensajeError {
+    font-size: 0.5em !important;
+    color: #FF0000;
+}
+
 #Container_2 > p, #Container_1 form div p {
     margin-bottom:8px;
     font-size: 0.75em;    

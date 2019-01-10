@@ -61,12 +61,11 @@ namespace DAT.Controllers
 
                 smtp.Send(message);
                 //Si todo sale bien configuro un mensaje
-                MessageBox.Show("Email has been sent successfully.");
-                
+                //MessageBox.Show("Email has been sent successfully.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR: " + ex.Message);
+                //MessageBox.Show("ERROR: " + ex.Message);
             }
             return Redirect("http://www.google.com"); 
         }
@@ -103,7 +102,8 @@ namespace DAT.Controllers
                 return RedirectToAction("Consigna_RA", "Home");
             }
             else{
-                MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                ViewBag.Error = "El Mail ingresado ya existe. Ingrese otra dirección de correo electrónico.";
                 return View("~/Views/Home/Consentimiento.cshtml"); 
             }
         }

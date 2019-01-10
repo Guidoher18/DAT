@@ -63,5 +63,9 @@ function wireUpEvents() {
 
 // Wire up the events as soon as the DOM tree is ready
 $(document).ready(function () {
+    //---Elimina la publicidad agregada por el servidor
+    $('center').remove();
+    $('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert4.js"]').remove();
+    //---
     wireUpEvents();
 });

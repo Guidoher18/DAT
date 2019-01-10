@@ -21,7 +21,14 @@
                     <input type="text" class="form-control" name="Nombre" required />
                 </div>
             </div>
-            <label>Mail</label>
+            <div class="form-row">
+                <div class="col">
+                    <label>Mail</label>
+                </div>
+                <div class="col">
+                    <p id="MensajeError">@ViewBag.Error</p>
+                </div>
+            </div>
             <input type="email" class="form-control" name="Mail" placeholder="mail@hotmail.com" required />
             <div class="form-row">
                 <div class="col">
