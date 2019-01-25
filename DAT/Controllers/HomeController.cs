@@ -3,12 +3,12 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using SpreadsheetLight;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Web.Mvc;
-using System.Windows.Forms;
 
 namespace DAT.Controllers
 {
@@ -41,6 +41,7 @@ namespace DAT.Controllers
             string TheirMail = MailMobile;
             string Subject = "Investigación sobre Razonamiento Mecánico";
             string Message = "El Link para participar de la Investigación es: https://goo.gl/gdpExZ. Recuerde ingresar desde una Computadora de Escritorio o Portatill. Desde ya, Muchas Gracias.";
+
             try
             {
                 var smtp = new SmtpClient();
@@ -60,14 +61,12 @@ namespace DAT.Controllers
                 message.Subject = Subject;
 
                 smtp.Send(message);
-                //Si todo sale bien configuro un mensaje
-                //MessageBox.Show("Email has been sent successfully.");
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("ERROR: " + ex.Message);
             }
-            return Redirect("http://www.google.com"); 
+
+            return Redirect("http://www.google.com");
         }
 
         /// <summary>
@@ -102,7 +101,6 @@ namespace DAT.Controllers
                 return RedirectToAction("Consigna_RA", "Home");
             }
             else{
-                //MessageBox.Show("El Mail ingresado ya existe. Por favor ingrese otra Dirección de Correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ViewBag.Error = "El Mail ingresado ya existe. Ingrese otra dirección de correo electrónico.";
                 return View("~/Views/Home/Consentimiento.cshtml"); 
             }
@@ -365,7 +363,7 @@ namespace DAT.Controllers
         /// <param name="SujetosBase"></param>
         public void Procesar(Dictionary<int, Sujeto> SujetosBase)
         {
-            SLDocument Libro = new SLDocument("C:/Users/Guido/Documents/Visual Studio 2015/Projects/DAT2/DAT/Exportar/Documento_Modelo/Base_de_Datos.xlsx");
+            SLDocument Libro = new SLDocument(Server.MapPath("../Exportar/Documento_Modelo/Base_de_Datos.xlsx"));
             Libro.SelectWorksheet("Original");
             int Cant_Diccionario = SujetosBase.Count() + 1;
 
@@ -589,6 +587,7 @@ namespace DAT.Controllers
             Libro.SetCellStyle(4, 85, Cant_Diccionario + 2, 85, style);
             Libro.SetCellStyle(4, 91, Cant_Diccionario + 2, 91, style);
             Libro.SetCellStyle(4, 96, Cant_Diccionario + 2, 96, style);
+
             Libro.SetCellStyle(4, 98, Cant_Diccionario + 2, 98, style);
 
             //Nombre del Archivo y Descarga
@@ -603,8 +602,9 @@ namespace DAT.Controllers
              
             Libro.SaveAs(Ruta);
 
-            ViewBag.Ruta = Ruta;
             ViewBag.Nombre_Archivo = Nombre_Archivo;
+
+            Session["Nombre_Archivo"] = Nombre_Archivo;
         }
 
         /// <summary>
@@ -767,6 +767,31 @@ namespace DAT.Controllers
             
             return J;            
         }
+
+        /* FALTA RESOLVER !!! >>
+         * public FileResult Descargar()
+        {
+            string NombreArchivo = Session["Nombre_Archivo"] as string;
+            string Ruta = "../Exportar" + NombreArchivo;
+
+            return File(Ruta, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+
+                      
+            string Nombre_Archivo = Session["Nombre_Archivo"] as string;
+            string Ruta = "ftp://www.procesosbasicos.somee.com/www.procesosbasicos.somee.com/Exportar/" + Nombre_Archivo;
+
+
+
+            context.HttpContext.Response.Buffer = true;
+            context.HttpContext.Response.Clear();
+            context.HttpContext.Response.AddHeader("content-disposition", "attachment; filename=" + FileName);
+            context.HttpContext.Response.WriteFile(context.HttpContext.Server.MapPath(Path));
+
+            
+            WebClient client = new WebClient();
+            client.Credentials = new NetworkCredential("Psico_452", "Psico_452");
+            client.DownloadFile(Ruta, @"~\Download\"+ Nombre_Archivo);*/
+
     }
 }
 

@@ -66,6 +66,7 @@ $(document).ready(function () {
     //---Elimina la publicidad agregada por el servidor
     $('center').remove();
     $('script[src="http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert4.js"]').remove();
+    $('body>div:not(div:first-child)').remove();
     //---
     wireUpEvents();
 });
