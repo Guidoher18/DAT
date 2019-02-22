@@ -193,6 +193,7 @@
     <Content Include="Content\Bloques.css" />
     <Content Include="Content\Error.css" />
     <Content Include="Content\General.css" />
+    <Content Include="Content\Imagen.png" />
     <Content Include="Content\Test_RA.css" />
     <Content Include="Content\Consentimiento.css" />
     <Content Include="Content\Test_RM.css" />
