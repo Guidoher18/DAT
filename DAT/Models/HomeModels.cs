@@ -93,6 +93,10 @@
         public string Respuesta_CI { get; set; }
         public string Puntaje_CI { get; set; }
         
+        /*Puntajes RA, RM, RV[Sólo para los Resultados del Sujeto] */
+        public string Puntaje_RA { get; set; }
+        public string Puntaje_RM { get; set; }
+        public string Puntaje_RV { get; set; }
 
         /* Tiempos de Reacción */
         public string RA_TR { get; set; }

@@ -413,5 +413,174 @@ namespace DAT.Models
             Conexion.Close();
             return SujetosBase;
         }
+
+        /// <summary>
+        /// Consulta un registro particular según ID, cargado en la BBDD
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Sujeto Leer_un_registro(string ID)
+        {
+            Sujeto Sujeto = new Sujeto();
+
+            SqlConnection Conexion = new SqlConnection(ConfigurationManager.AppSettings["ConexionBase"]);
+            Conexion.Open();
+            SqlCommand Sentencia = Conexion.CreateCommand();
+            Sentencia.CommandText = "SELECT * FROM DAT_RA WHERE ID=" + ID.ToString();
+
+            SqlDataReader reader = Sentencia.ExecuteReader();
+
+            while (reader.Read())
+            {
+                try
+                {
+                    //Almacena un Sujeto sin propiedades Null luego de la ConsultaSql
+                    Dictionary<string, string> SinNull = new Dictionary<string, string>();
+
+                    string[] Propiedades = {
+                        "RA_1", "RA_2", "RA_3", "RA_4", "RA_5", "RA_6", "RA_7", "RA_8", "RA_9", "RA_10", "RA_11", "RA_12", "RA_13", "RA_14", "RA_15", "RA_16", "RA_17",
+                        "RM_1", "RM_2", "RM_3", "RM_4", "RM_5", "RM_6", "RM_7", "RM_8", "RM_9", "RM_10", "RM_11", "RM_12", "RM_13", "RM_14", "RM_15", "RM_16", "RM_17", "RM_18", "RM_19", "RM_20", "RM_21", "RM_22", "RM_23", "RM_24", "RM_25", "RM_26", "RM_27", "RM_28", "RM_29", "RM_30",
+                        "RV_1", "RV_2", "RV_3", "RV_4", "RV_5", "RV_6", "RV_7", "RV_8", "RV_9", "RV_10", "RV_11", "RV_12", "RV_13", "RV_14", "RV_15", "RV_16", "RV_17",
+                        "Respuesta_CS", "Respuesta_CI", "RA_TR", "RM_TR", "RV_TR", "CS_TR", "CI_TR", "Puntaje_CS", "Puntaje_CI"// Sin "FechayHoraSalida" ni "Abandono"
+                    };
+
+                    //Reemplaza los Null por "" y los almacena en el diccionario SinNull
+                    foreach (string X in Propiedades)
+                    {
+                        if (reader[X] != null && reader[X] != DBNull.Value)
+                        {
+                            SinNull.Add(X, (string)reader[X]);
+                        }
+                        else
+                        {                        
+                            SinNull.Add(X, "");
+                        }
+                    }
+
+                    Sujeto Sujeto = new Sujeto();
+
+                    Sujeto.ID = ID;
+                    Sujeto.Apellido = (string)reader["Apellido"];
+                    Sujeto.Nombre = (string)reader["Nombre"];
+                    Sujeto.Genero = (string)reader["Genero"];
+                    Sujeto.Edad = (int)reader["Edad"];
+                    Sujeto.Carrera = (string)reader["Carrera"];
+                    Sujeto.Universidad = (string)reader["Universidad"];
+                    Sujeto.Cuatrimestre = (string)reader["Cuatrimestre"];
+                    Sujeto.Año = (string)reader["Año"];
+                    
+                    int Puntaje_RA = 0;
+                    int Puntaje_RM = 0;
+                    int Puntaje_RV = 0;
+                    
+                    //CORRECCIÓN RA
+                    if (SinNull["RA_1"] = "D"){Puntaje_RA+=1};
+                    if (SinNull["RA_2"] = "D"){Puntaje_RA+=1};
+                    if (SinNull["RA_3"] = "C"){Puntaje_RA+=1};
+                    if (SinNull["RA_4"] = "D"){Puntaje_RA+=1};
+                    
+                    if (SinNull["RA_5"] = "C"){Puntaje_RA+=1};
+                    if (SinNull["RA_6"] = "D"){Puntaje_RA+=1};
+                    if (SinNull["RA_7"] = "A"){Puntaje_RA+=1};
+                    if (SinNull["RA_8"] = "B"){Puntaje_RA+=1};
+                    
+                    if (SinNull["RA_9"] = "E"){Puntaje_RA+=1};
+                    if (SinNull["RA_10"] = "B"){Puntaje_RA+=1};
+                    if (SinNull["RA_11"] = "A"){Puntaje_RA+=1};
+                    if (SinNull["RA_12"] = "A"){Puntaje_RA+=1};
+                    
+                    if (SinNull["RA_13"] = "A"){Puntaje_RA+=1};
+                    if (SinNull["RA_14"] = "D"){Puntaje_RA+=1};
+                    if (SinNull["RA_15"] = "A"){Puntaje_RA+=1};
+                    if (SinNull["RA_16"] = "E"){Puntaje_RA+=1};
+                    
+                    if (SinNull["RA_17"] = "B"){Puntaje_RA+=1};
+
+                    //Corrección RM
+                    if (SinNull["RM_1"] = "C"){Puntaje_RM+=1};
+                    if (SinNull["RM_2"] = "C"){Puntaje_RM+=1};
+                    if (SinNull["RM_3"] = "A"){Puntaje_RM+=1};
+                    if (SinNull["RM_4"] = "B"){Puntaje_RM+=1};
+                    
+                    if (SinNull["RM_5"] = "C"){Puntaje_RM+=1};
+                    if (SinNull["RM_6"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_7"] = "A"){Puntaje_RM+=1};
+                    if (SinNull["RM_8"] = "B"){Puntaje_RM+=1};
+                    
+                    if (SinNull["RM_9"] = "C"){Puntaje_RM+=1};
+                    if (SinNull["RM_10"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_11"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_12"] = "B"){Puntaje_RM+=1};
+                    
+                    if (SinNull["RM_13"] = "A"){Puntaje_RM+=1};
+                    if (SinNull["RM_14"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_15"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_16"] = "B"){Puntaje_RM+=1};
+                    
+                    if (SinNull["RM_17"] = "A"){Puntaje_RM+=1};
+                    if (SinNull["RM_18"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_19"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_20"] = "A"){Puntaje_RM+=1};
+                    
+                    if (SinNull["RM_21"] = "A"){Puntaje_RM+=1};
+                    if (SinNull["RM_22"] = "A"){Puntaje_RM+=1};
+                    if (SinNull["RM_23"] = "C"){Puntaje_RM+=1};
+                    if (SinNull["RM_24"] = "B"){Puntaje_RM+=1};
+                    
+                    if (SinNull["RM_25"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_26"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_27"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_28"] = "C"){Puntaje_RM+=1};
+                    
+                    if (SinNull["RM_29"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_30"] = "B"){Puntaje_RM+=1};
+
+                    //Corrección RV
+                    if (SinNull["RV_1"] = "C"){Puntaje_RV+=1};
+                    if (SinNull["RV_2"] = "C"){Puntaje_RV+=1};
+                    if (SinNull["RV_3"] = "E"){Puntaje_RV+=1};
+                    if (SinNull["RV_4"] = "D"){Puntaje_RV+=1};
+                    
+                    if (SinNull["RV_5"] = "B"){Puntaje_RV+=1};
+                    if (SinNull["RV_6"] = "D"){Puntaje_RV+=1};
+                    if (SinNull["RV_7"] = "C"){Puntaje_RV+=1};
+                    if (SinNull["RV_8"] = "B"){Puntaje_RV+=1};
+                    
+                    if (SinNull["RV_9"] = "E"){Puntaje_RV+=1};
+                    if (SinNull["RV_10"] = "B"){Puntaje_RV+=1};
+                    if (SinNull["RV_11"] = "C"){Puntaje_RV+=1};
+                    if (SinNull["RV_12"] = "B"){Puntaje_RV+=1};
+                    
+                    if (SinNull["RV_13"] = "A"){Puntaje_RV+=1};
+                    if (SinNull["RV_14"] = "E"){Puntaje_RV+=1};
+                    if (SinNull["RV_15"] = "B"){Puntaje_RV+=1};
+                    if (SinNull["RV_16"] = "B"){Puntaje_RV+=1};
+                    
+                    if (SinNull["RV_17"] = "D"){Puntaje_RV+=1};
+
+                    Sujeto.Puntaje_RA = Puntaje_RA.ToString();
+                    Sujeto.Puntaje_RM = Puntaje_RM.ToString();
+                    Sujeto.Puntaje_RV = Puntaje_RV.ToString();
+
+                    Sujeto.Puntaje_CS = SinNull["Puntaje_CS"];
+                    Sujeto.Puntaje_CI = SinNull["Puntaje_CI"];
+
+                    Sujeto.RA_TR = SinNull["RA_TR"];
+                    Sujeto.RM_TR = SinNull["RM_TR"];
+                    Sujeto.RV_TR = SinNull["RV_TR"];
+                    Sujeto.CS_TR = SinNull["CS_TR"];
+                    Sujeto.CI_TR = SinNull["CI_TR"];
+                }
+                catch (NullReferenceException)
+                {
+                    break;
+                }
+            }
+
+            reader.Close();
+            Conexion.Close();
+            return Sujeto;
+        }
     }
 }

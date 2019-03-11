@@ -768,6 +768,68 @@ namespace DAT.Controllers
             return J;            
         }
 
+        public ActionResult Resultados()
+        {
+            HomeManager Leer = new HomeManager();
+            Sujeto Sujeto = Leer.Leer_un_registro(Session["ID_Sujeto"]); 
+                        
+            ViewBag.Fecha = "";//COMPLETAR!!
+            Sujeto.ID = ID;
+            ViewBag.ApellidoyNombre = Sujeto.Apellido + " "+ Sujeto.Nombre;
+            ViewBag.Genero = Sujeto.Genero;
+            ViewBag.Edad = Sujeto.Edad;
+            ViewBag.Carrera = Sujeto.Carrera;
+            ViewBag.Universidad = Sujeto.Universidad;
+            ViewBag.Ingreso = Sujeto.Cuatrimestre + " " + Sujeto.Año;
+            
+            Float RA = (Sujeto.Puntaje_RA.TryParse())/17*100; 
+            RA = Math.Round(RA, 1);
+            ViewBag.Aciertos_RA = RA;
+            
+            Float RM = (Sujeto.Puntaje_RM.TryParse())/30*100; 
+            RM = Math.Round(RM, 1);
+            ViewBag.Aciertos_RM = RM;
+            
+            Float RV = (Sujeto.Puntaje_RV.TryParse())/17*100; 
+            RV = Math.Round(RV, 1);
+            ViewBag.Aciertos_RV = RV;
+
+            Float CS = (Sujeto.Puntaje_CS.TryParse())/21*100; 
+            CS = Math.Round(CS, 1);             
+            ViewBag.Aciertos_CS = CS; 
+
+            Float CI = (Sujeto.Puntaje_CI.TryParse())/18*100; 
+            CI = Math.Round(CI, 1);             
+            ViewBag.Aciertos_CI = CI;
+            
+            ViewBag.D_RA = AnalisisCualitativo(RA);
+            ViewBag.D_RM = AnalisisCualitativo(RM);
+            ViewBag.D_RV = AnalisisCualitativo(RV);
+            ViewBag.D_CS = AnalisisCualitativo(CS);
+            ViewBag.D_CI = AnalisisCualitativo(CI);
+
+            ViewBag.TR_RA = Sujeto.RA_TR; 
+            ViewBag.TR_RM = Sujeto.RM_TR; 
+            ViewBag.TR_RV = Sujeto.RV_TR; 
+            ViewBag.TR_CS = Sujeto.CS_TR; 
+            ViewBag.TR_CI = Sujeto.CI_TR; 
+        }
+
+        public string AnalisisCualitativo(int A)
+        {
+            if (A<60)
+            {
+                if(A<20){return "Malo"}
+                else if(A<40){return "Regular"}
+                else {return "Bueno"}
+            }
+            else
+            {
+                if(A<80){return "Muy Bueno"}
+                else {return "Sobresaliente"}
+            }
+        }
+
         /* FALTA RESOLVER !!! >>
          * public FileResult Descargar()
         {
