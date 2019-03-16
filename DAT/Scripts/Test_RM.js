@@ -9,8 +9,8 @@
         $('#RM_TR').val(tiempo);
     });
 
-    // Límite de Tiempo 15 min = 900000ms
+    // Límite de Tiempo 9 min = 540000ms
     setTimeout(function () {
         $('#Submit').click();
-    }, 900000);
+    }, 540000);
 });

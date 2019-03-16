@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
-    // Límite de Tiempo 10 min = 600000ms
+    // Límite de Tiempo 6 min = 360000ms
     setTimeout(function () {
         $('#Submit').click();
-    }, 600000);
+    }, 360000);
 
     //Registrar el TR de RA
     var x = new moment();
