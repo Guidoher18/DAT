@@ -303,13 +303,13 @@ namespace DAT.Models
                     Sujeto.RA_8 = SinNull["RA_8"];
                     Sujeto.RA_9 = SinNull["RA_9"];
                     Sujeto.RA_10 = SinNull["RA_10"];
-                    Sujeto.RA_11 = SinNull["RA_11"];
+                    /*Sujeto.RA_11 = SinNull["RA_11"];
                     Sujeto.RA_12 = SinNull["RA_12"];
                     Sujeto.RA_13 = SinNull["RA_13"];
-                    Sujeto.RA_14 = SinNull["RA_14"];
+                    Sujeto.RA_14 = SinNull["RA_14"];  ARREglaR
                     Sujeto.RA_15 = SinNull["RA_15"];
                     Sujeto.RA_16 = SinNull["RA_16"];
-                    Sujeto.RA_17 = SinNull["RA_17"];
+                    Sujeto.RA_17 = SinNull["RA_17"];*/
 
                     Sujeto.RM_1 = SinNull["RM_1"];
                     Sujeto.RM_2 = SinNull["RM_2"];
@@ -329,18 +329,18 @@ namespace DAT.Models
                     Sujeto.RM_16 = SinNull["RM_16"];
                     Sujeto.RM_17 = SinNull["RM_17"];
                     Sujeto.RM_18 = SinNull["RM_18"];
-                    Sujeto.RM_19 = SinNull["RM_19"];
+                   /* Sujeto.RM_19 = SinNull["RM_19"];
                     Sujeto.RM_20 = SinNull["RM_20"];
                     Sujeto.RM_21 = SinNull["RM_21"];
                     Sujeto.RM_22 = SinNull["RM_22"];
                     Sujeto.RM_23 = SinNull["RM_23"];
                     Sujeto.RM_24 = SinNull["RM_24"];
                     Sujeto.RM_25 = SinNull["RM_25"];
-                    Sujeto.RM_26 = SinNull["RM_26"];
+                    Sujeto.RM_26 = SinNull["RM_26"];      ARREGLAR
                     Sujeto.RM_27 = SinNull["RM_27"];
                     Sujeto.RM_28 = SinNull["RM_28"];
                     Sujeto.RM_29 = SinNull["RM_29"];
-                    Sujeto.RM_30 = SinNull["RM_30"];
+                    Sujeto.RM_30 = SinNull["RM_30"]; */
 
                     Sujeto.RV_1 = SinNull["RV_1"];
                     Sujeto.RV_2 = SinNull["RV_2"];
@@ -352,13 +352,13 @@ namespace DAT.Models
                     Sujeto.RV_8 = SinNull["RV_8"];
                     Sujeto.RV_9 = SinNull["RV_9"];
                     Sujeto.RV_10 = SinNull["RV_10"];
-                    Sujeto.RV_11 = SinNull["RV_11"];
+                   /* Sujeto.RV_11 = SinNull["RV_11"];
                     Sujeto.RV_12 = SinNull["RV_12"];
                     Sujeto.RV_13 = SinNull["RV_13"];
-                    Sujeto.RV_14 = SinNull["RV_14"];
+                    Sujeto.RV_14 = SinNull["RV_14"];    ARREGLAR
                     Sujeto.RV_15 = SinNull["RV_15"];
                     Sujeto.RV_16 = SinNull["RV_16"];
-                    Sujeto.RV_17 = SinNull["RV_17"];
+                    Sujeto.RV_17 = SinNull["RV_17"]; */
 
                     Sujeto.Respuesta_CS = SinNull["Respuesta_CS"];
                     Sujeto.Respuesta_CI = SinNull["Respuesta_CI"];
@@ -432,8 +432,6 @@ namespace DAT.Models
                         }
                     }
 
-                    Sujeto Sujeto = new Sujeto();
-
                     Sujeto.ID = ID;
                     Sujeto.Apellido = (string)reader["Apellido"];
                     Sujeto.Nombre = (string)reader["Nombre"];
@@ -449,89 +447,89 @@ namespace DAT.Models
                     int Puntaje_RV = 0;
                     
                     //CORRECCIÓN RA
-                    if (SinNull["RA_1"] = "D"){Puntaje_RA+=1};
-                    if (SinNull["RA_2"] = "D"){Puntaje_RA+=1};
-                    if (SinNull["RA_3"] = "C"){Puntaje_RA+=1};
-                    if (SinNull["RA_4"] = "D"){Puntaje_RA+=1};
+                    if (SinNull["RA_1"] == "D"){Puntaje_RA+=1;}
+                    if (SinNull["RA_2"] == "D"){Puntaje_RA+=1;}
+                    if (SinNull["RA_3"] == "C"){Puntaje_RA+=1;}
+                    if (SinNull["RA_4"] == "D"){Puntaje_RA+=1;}
                     
-                    if (SinNull["RA_5"] = "C"){Puntaje_RA+=1};
-                    if (SinNull["RA_6"] = "D"){Puntaje_RA+=1};
-                    if (SinNull["RA_7"] = "A"){Puntaje_RA+=1};
-                    if (SinNull["RA_8"] = "B"){Puntaje_RA+=1};
+                    if (SinNull["RA_5"] == "C"){Puntaje_RA+=1;}
+                    if (SinNull["RA_6"] == "D"){Puntaje_RA+=1;}
+                    if (SinNull["RA_7"] == "A"){Puntaje_RA+=1;}
+                    if (SinNull["RA_8"] == "B"){Puntaje_RA+=1;}
                     
-                    if (SinNull["RA_9"] = "E"){Puntaje_RA+=1};
-                    if (SinNull["RA_10"] = "B"){Puntaje_RA+=1};
-                    if (SinNull["RA_11"] = "A"){Puntaje_RA+=1};
-                    if (SinNull["RA_12"] = "A"){Puntaje_RA+=1};
+                    if (SinNull["RA_9"] == "E"){Puntaje_RA+=1;}
+                    if (SinNull["RA_10"] == "B"){Puntaje_RA+=1;}
+                    if (SinNull["RA_11"] == "A"){Puntaje_RA+=1;}
+                    if (SinNull["RA_12"] == "A"){Puntaje_RA+=1;}
                     
-                    if (SinNull["RA_13"] = "A"){Puntaje_RA+=1};
-                    if (SinNull["RA_14"] = "D"){Puntaje_RA+=1};
-                    if (SinNull["RA_15"] = "A"){Puntaje_RA+=1};
-                    if (SinNull["RA_16"] = "E"){Puntaje_RA+=1};
+                    if (SinNull["RA_13"] == "A"){Puntaje_RA+=1;}
+                    if (SinNull["RA_14"] == "D"){Puntaje_RA+=1;}
+                    if (SinNull["RA_15"] == "A"){Puntaje_RA+=1;}
+                    if (SinNull["RA_16"] == "E"){Puntaje_RA+=1;}
                     
-                    if (SinNull["RA_17"] = "B"){Puntaje_RA+=1};
+                    if (SinNull["RA_17"] == "B"){Puntaje_RA+=1;}
 
                     //Corrección RM
-                    if (SinNull["RM_1"] = "C"){Puntaje_RM+=1};
-                    if (SinNull["RM_2"] = "C"){Puntaje_RM+=1};
-                    if (SinNull["RM_3"] = "A"){Puntaje_RM+=1};
-                    if (SinNull["RM_4"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_1"] == "C"){Puntaje_RM+=1;}
+                    if (SinNull["RM_2"] == "C"){Puntaje_RM+=1;}
+                    if (SinNull["RM_3"] == "A"){Puntaje_RM+=1;}
+                    if (SinNull["RM_4"] == "B"){Puntaje_RM+=1;}
                     
-                    if (SinNull["RM_5"] = "C"){Puntaje_RM+=1};
-                    if (SinNull["RM_6"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_7"] = "A"){Puntaje_RM+=1};
-                    if (SinNull["RM_8"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_5"] == "C"){Puntaje_RM+=1;}
+                    if (SinNull["RM_6"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_7"] == "A"){Puntaje_RM+=1;}
+                    if (SinNull["RM_8"] == "B"){Puntaje_RM+=1;}
                     
-                    if (SinNull["RM_9"] = "C"){Puntaje_RM+=1};
-                    if (SinNull["RM_10"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_11"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_12"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_9"] == "C"){Puntaje_RM+=1;}
+                    if (SinNull["RM_10"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_11"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_12"] == "B"){Puntaje_RM+=1;}
                     
-                    if (SinNull["RM_13"] = "A"){Puntaje_RM+=1};
-                    if (SinNull["RM_14"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_15"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_16"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_13"] == "A"){Puntaje_RM+=1;}
+                    if (SinNull["RM_14"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_15"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_16"] == "B"){Puntaje_RM+=1;}
                     
-                    if (SinNull["RM_17"] = "A"){Puntaje_RM+=1};
-                    if (SinNull["RM_18"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_19"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_20"] = "A"){Puntaje_RM+=1};
+                    if (SinNull["RM_17"] == "A"){Puntaje_RM+=1;}
+                    if (SinNull["RM_18"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_19"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_20"] == "A"){Puntaje_RM+=1;}
                     
-                    if (SinNull["RM_21"] = "A"){Puntaje_RM+=1};
-                    if (SinNull["RM_22"] = "A"){Puntaje_RM+=1};
-                    if (SinNull["RM_23"] = "C"){Puntaje_RM+=1};
-                    if (SinNull["RM_24"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_21"] == "A"){Puntaje_RM+=1;}
+                    if (SinNull["RM_22"] == "A"){Puntaje_RM+=1;}
+                    if (SinNull["RM_23"] == "C"){Puntaje_RM+=1;}
+                    if (SinNull["RM_24"] == "B"){Puntaje_RM+=1;}
                     
-                    if (SinNull["RM_25"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_26"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_27"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_28"] = "C"){Puntaje_RM+=1};
+                    if (SinNull["RM_25"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_26"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_27"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_28"] == "C"){Puntaje_RM+=1;}
                     
-                    if (SinNull["RM_29"] = "B"){Puntaje_RM+=1};
-                    if (SinNull["RM_30"] = "B"){Puntaje_RM+=1};
+                    if (SinNull["RM_29"] == "B"){Puntaje_RM+=1;}
+                    if (SinNull["RM_30"] == "B"){Puntaje_RM+=1;}
 
                     //Corrección RV
-                    if (SinNull["RV_1"] = "C"){Puntaje_RV+=1};
-                    if (SinNull["RV_2"] = "C"){Puntaje_RV+=1};
-                    if (SinNull["RV_3"] = "E"){Puntaje_RV+=1};
-                    if (SinNull["RV_4"] = "D"){Puntaje_RV+=1};
+                    if (SinNull["RV_1"] == "C"){Puntaje_RV+=1;}
+                    if (SinNull["RV_2"] == "C"){Puntaje_RV+=1;}
+                    if (SinNull["RV_3"] == "E"){Puntaje_RV+=1;}
+                    if (SinNull["RV_4"] == "D"){Puntaje_RV+=1;}
                     
-                    if (SinNull["RV_5"] = "B"){Puntaje_RV+=1};
-                    if (SinNull["RV_6"] = "D"){Puntaje_RV+=1};
-                    if (SinNull["RV_7"] = "C"){Puntaje_RV+=1};
-                    if (SinNull["RV_8"] = "B"){Puntaje_RV+=1};
+                    if (SinNull["RV_5"] == "B"){Puntaje_RV+=1;}
+                    if (SinNull["RV_6"] == "D"){Puntaje_RV+=1;}
+                    if (SinNull["RV_7"] == "C"){Puntaje_RV+=1;}
+                    if (SinNull["RV_8"] == "B"){Puntaje_RV+=1;}
                     
-                    if (SinNull["RV_9"] = "E"){Puntaje_RV+=1};
-                    if (SinNull["RV_10"] = "B"){Puntaje_RV+=1};
-                    if (SinNull["RV_11"] = "C"){Puntaje_RV+=1};
-                    if (SinNull["RV_12"] = "B"){Puntaje_RV+=1};
+                    if (SinNull["RV_9"] == "E"){Puntaje_RV+=1;}
+                    if (SinNull["RV_10"] == "B"){Puntaje_RV+=1;}
+                    if (SinNull["RV_11"] == "C"){Puntaje_RV+=1;}
+                    if (SinNull["RV_12"] == "B"){Puntaje_RV+=1;}
                     
-                    if (SinNull["RV_13"] = "A"){Puntaje_RV+=1};
-                    if (SinNull["RV_14"] = "E"){Puntaje_RV+=1};
-                    if (SinNull["RV_15"] = "B"){Puntaje_RV+=1};
-                    if (SinNull["RV_16"] = "B"){Puntaje_RV+=1};
+                    if (SinNull["RV_13"] == "A"){Puntaje_RV+=1;}
+                    if (SinNull["RV_14"] == "E"){Puntaje_RV+=1;}
+                    if (SinNull["RV_15"] == "B"){Puntaje_RV+=1;}
+                    if (SinNull["RV_16"] == "B"){Puntaje_RV+=1;}
                     
-                    if (SinNull["RV_17"] = "D"){Puntaje_RV+=1};
+                    if (SinNull["RV_17"] == "D"){Puntaje_RV+=1;}
 
                     Sujeto.Puntaje_RA = Puntaje_RA.ToString();
                     Sujeto.Puntaje_RM = Puntaje_RM.ToString();

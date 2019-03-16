@@ -361,13 +361,13 @@ namespace DAT.Controllers
                 Libro.SetCellValue("S" + Fila, Caso.RA_8);
                 Libro.SetCellValue("T" + Fila, Caso.RA_9);
                 Libro.SetCellValue("U" + Fila, Caso.RA_10);
-                Libro.SetCellValue("V" + Fila, Caso.RA_11);
-                Libro.SetCellValue("W" + Fila, Caso.RA_12);
-                Libro.SetCellValue("X" + Fila, Caso.RA_13);
-                Libro.SetCellValue("Y" + Fila, Caso.RA_14);
-                Libro.SetCellValue("Z" + Fila, Caso.RA_15);
-                Libro.SetCellValue("AA" + Fila, Caso.RA_16);
-                Libro.SetCellValue("AB" + Fila, Caso.RA_17);
+                //Libro.SetCellValue("V" + Fila, Caso.RA_11);  ARREGLAR!!!
+                //Libro.SetCellValue("W" + Fila, Caso.RA_12);
+                //Libro.SetCellValue("X" + Fila, Caso.RA_13);
+                //Libro.SetCellValue("Y" + Fila, Caso.RA_14);
+                //Libro.SetCellValue("Z" + Fila, Caso.RA_15);
+                //Libro.SetCellValue("AA" + Fila, Caso.RA_16);
+                //Libro.SetCellValue("AB" + Fila, Caso.RA_17); ARREGLAR !!!
                 
                 //RAZONAMIENTO MECÁNICO
 
@@ -389,19 +389,19 @@ namespace DAT.Controllers
                 Libro.SetCellValue("AR" + Fila, Caso.RM_16);
                 Libro.SetCellValue("AS" + Fila, Caso.RM_17);
                 Libro.SetCellValue("AT" + Fila, Caso.RM_18);
-                Libro.SetCellValue("AU" + Fila, Caso.RM_19);
-                Libro.SetCellValue("AV" + Fila, Caso.RM_20);
-                Libro.SetCellValue("AW" + Fila, Caso.RM_21);
-                Libro.SetCellValue("AX" + Fila, Caso.RM_22);
-                Libro.SetCellValue("AY" + Fila, Caso.RM_23);
-                Libro.SetCellValue("AZ" + Fila, Caso.RM_24);
-                Libro.SetCellValue("BA" + Fila, Caso.RM_25);
-                Libro.SetCellValue("BB" + Fila, Caso.RM_26);
-                Libro.SetCellValue("BC" + Fila, Caso.RM_27);
-                Libro.SetCellValue("BD" + Fila, Caso.RM_28);
-                Libro.SetCellValue("BE" + Fila, Caso.RM_29);
-                Libro.SetCellValue("BF" + Fila, Caso.RM_30);
-                
+                //Libro.SetCellValue("AU" + Fila, Caso.RM_19);  ARREGLAR !!!
+                //Libro.SetCellValue("AV" + Fila, Caso.RM_20);
+                //Libro.SetCellValue("AW" + Fila, Caso.RM_21);
+                //Libro.SetCellValue("AX" + Fila, Caso.RM_22);
+                //Libro.SetCellValue("AY" + Fila, Caso.RM_23);
+                //Libro.SetCellValue("AZ" + Fila, Caso.RM_24);
+                //Libro.SetCellValue("BA" + Fila, Caso.RM_25);
+                //Libro.SetCellValue("BB" + Fila, Caso.RM_26);
+                //Libro.SetCellValue("BC" + Fila, Caso.RM_27);
+                //Libro.SetCellValue("BD" + Fila, Caso.RM_28);
+                //Libro.SetCellValue("BE" + Fila, Caso.RM_29);
+                //Libro.SetCellValue("BF" + Fila, Caso.RM_30);    ARREGLAR !!!
+
                 //RAZONAMIENTO VERBAL
 
                 Libro.SetCellValue("BG" + Fila, Caso.RV_1);
@@ -414,13 +414,13 @@ namespace DAT.Controllers
                 Libro.SetCellValue("BN" + Fila, Caso.RV_8);
                 Libro.SetCellValue("BO" + Fila, Caso.RV_9);
                 Libro.SetCellValue("BP" + Fila, Caso.RV_10);
-                Libro.SetCellValue("BQ" + Fila, Caso.RV_11);
-                Libro.SetCellValue("BR" + Fila, Caso.RV_12);
-                Libro.SetCellValue("BS" + Fila, Caso.RV_13);
-                Libro.SetCellValue("BT" + Fila, Caso.RV_14);
-                Libro.SetCellValue("BU" + Fila, Caso.RV_15);
-                Libro.SetCellValue("BV" + Fila, Caso.RV_16);
-                Libro.SetCellValue("BW" + Fila, Caso.RV_17);
+                //Libro.SetCellValue("BQ" + Fila, Caso.RV_11);      ARREGLAR !!!
+                //Libro.SetCellValue("BR" + Fila, Caso.RV_12);
+                //Libro.SetCellValue("BS" + Fila, Caso.RV_13);
+                //Libro.SetCellValue("BT" + Fila, Caso.RV_14);
+                //Libro.SetCellValue("BU" + Fila, Caso.RV_15);
+                //Libro.SetCellValue("BV" + Fila, Caso.RV_16);
+                //Libro.SetCellValue("BW" + Fila, Caso.RV_17);      ARREGLAR !!!!
 
                 Libro.SetCellValue("BX" + Fila, Caso.Respuesta_CS.Trim());
                 Libro.SetCellValue("BY" + Fila, Caso.Respuesta_CI.Trim());
@@ -729,13 +729,16 @@ namespace DAT.Controllers
             return J;            
         }
 
+        /// <summary>
+        /// Muestra el desempeño obtenido en las pruebas
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Resultados()
         {
             HomeManager Leer = new HomeManager();
-            Sujeto Sujeto = Leer.Leer_un_registro(Session["ID_Sujeto"]); 
-                        
-            ViewBag.Fecha = "";//COMPLETAR!!
-            Sujeto.ID = ID;
+            Sujeto Sujeto = Leer.Leer_un_registro(Session["ID_Sujeto"].ToString());
+
+            ViewBag.Fecha = DateTime.Today.ToString("d");
             ViewBag.ApellidoyNombre = Sujeto.Apellido + " "+ Sujeto.Nombre;
             ViewBag.Genero = Sujeto.Genero;
             ViewBag.Edad = Sujeto.Edad;
@@ -743,23 +746,23 @@ namespace DAT.Controllers
             ViewBag.Universidad = Sujeto.Universidad;
             ViewBag.Ingreso = Sujeto.Cuatrimestre + " " + Sujeto.Año;
             
-            Float RA = (Sujeto.Puntaje_RA.TryParse())/17*100; 
+            Decimal RA = int.Parse(Sujeto.Puntaje_RA)/10*100; 
             RA = Math.Round(RA, 1);
             ViewBag.Aciertos_RA = RA;
             
-            Float RM = (Sujeto.Puntaje_RM.TryParse())/30*100; 
+            Decimal RM = int.Parse(Sujeto.Puntaje_RM)/18*100; 
             RM = Math.Round(RM, 1);
             ViewBag.Aciertos_RM = RM;
             
-            Float RV = (Sujeto.Puntaje_RV.TryParse())/17*100; 
+            Decimal RV = int.Parse(Sujeto.Puntaje_RV)/10*100; 
             RV = Math.Round(RV, 1);
             ViewBag.Aciertos_RV = RV;
 
-            Float CS = (Sujeto.Puntaje_CS.TryParse())/21*100; 
+            Decimal CS = int.Parse(Sujeto.Puntaje_CS)/21*100; 
             CS = Math.Round(CS, 1);             
             ViewBag.Aciertos_CS = CS; 
 
-            Float CI = (Sujeto.Puntaje_CI.TryParse())/18*100; 
+            Decimal CI = int.Parse(Sujeto.Puntaje_CI)/18*100; 
             CI = Math.Round(CI, 1);             
             ViewBag.Aciertos_CI = CI;
             
@@ -773,21 +776,28 @@ namespace DAT.Controllers
             ViewBag.TR_RM = Sujeto.RM_TR; 
             ViewBag.TR_RV = Sujeto.RV_TR; 
             ViewBag.TR_CS = Sujeto.CS_TR; 
-            ViewBag.TR_CI = Sujeto.CI_TR; 
+            ViewBag.TR_CI = Sujeto.CI_TR;
+
+            return View("../Views/Home/Resultados.cshtml");
         }
 
-        public string AnalisisCualitativo(int A)
+        /// <summary>
+        /// Devuelve las calificaciones cualitativas respecto de los desempeños en las pruebas
+        /// </summary>
+        /// <param name="A"></param>
+        /// <returns></returns>
+        public string AnalisisCualitativo(Decimal A)
         {
             if (A<60)
             {
-                if(A<20){return "Malo"}
-                else if(A<40){return "Regular"}
-                else {return "Bueno"}
+                if(A<20){ return "Regular"; }
+                else if(A<40){ return "Bueno"; }
+                else { return "Muy Bueno"; }
             }
             else
             {
-                if(A<80){return "Muy Bueno"}
-                else {return "Sobresaliente"}
+                if(A<80){ return "Excelente"; }
+                else { return "Sobresaliente"; }
             }
         }
 
