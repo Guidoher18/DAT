@@ -129,16 +129,9 @@ namespace DAT.Controllers
         /// <param name="A08"></param>
         /// <param name="A09"></param>
         /// <param name="A10"></param>
-        /// <param name="A11"></param>
-        /// <param name="A12"></param>
-        /// <param name="A13"></param>
-        /// <param name="A14"></param>
-        /// <param name="A15"></param>
-        /// <param name="A16"></param>
-        /// <param name="A17"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas_RA(string A01, string A02, string A03, string A04, string A05, string A06, string A07, string A08, string A09, string A10, string A11, string A12, string A13, string A14, string A15, string A16, string A17, string RA_TR)
+        public ActionResult CargarRespuestas_RA(string A01, string A02, string A03, string A04, string A05, string A06, string A07, string A08, string A09, string A10, string RA_TR)
         {
             var Sujeto = Session["Sujeto"] as Sujeto;
 
@@ -152,13 +145,6 @@ namespace DAT.Controllers
             Sujeto.RA_8 = A08;
             Sujeto.RA_9 = A09;
             Sujeto.RA_10 = A10;
-            Sujeto.RA_11 = A11;
-            Sujeto.RA_12 = A12;
-            Sujeto.RA_13 = A13;
-            Sujeto.RA_14 = A14;
-            Sujeto.RA_15 = A15;
-            Sujeto.RA_16 = A16;
-            Sujeto.RA_17 = A17;
             Sujeto.RA_TR = RA_TR;
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
             Sujeto.Abandono = "Si_RM";
@@ -201,9 +187,10 @@ namespace DAT.Controllers
         /// <param name="M15"></param>
         /// <param name="M16"></param>
         /// <param name="M17"></param>
+        /// <param name="M18"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas_RM(string M01, string M02, string M03, string M04, string M05, string M06, string M07, string M08, string M09, string M10, string M11, string M12, string M13, string M14, string M15, string M16, string M17, string M18, string M19, string M20, string M21, string M22, string M23, string M24, string M25, string M26, string M27, string M28, string M29, string M30, string RM_TR)
+        public ActionResult CargarRespuestas_RM(string M01, string M02, string M03, string M04, string M05, string M06, string M07, string M08, string M09, string M10, string M11, string M12, string M13, string M14, string M15, string M16, string M17, string M18, string RM_TR)
         {
             Sujeto Sujeto = new Sujeto();
 
@@ -226,18 +213,6 @@ namespace DAT.Controllers
             Sujeto.RM_16 = M16;
             Sujeto.RM_17 = M17;
             Sujeto.RM_18 = M18;
-            Sujeto.RM_19 = M19;
-            Sujeto.RM_20 = M20;
-            Sujeto.RM_21 = M21;
-            Sujeto.RM_22 = M22;
-            Sujeto.RM_23 = M23;
-            Sujeto.RM_24 = M24;
-            Sujeto.RM_25 = M25;
-            Sujeto.RM_26 = M26;
-            Sujeto.RM_27 = M27;
-            Sujeto.RM_28 = M28;
-            Sujeto.RM_29 = M29;
-            Sujeto.RM_30 = M30;
             Sujeto.RM_TR = RM_TR;
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
             Sujeto.Abandono = "Si_RV";
@@ -271,16 +246,9 @@ namespace DAT.Controllers
         /// <param name="V08"></param>
         /// <param name="V09"></param>
         /// <param name="V10"></param>
-        /// <param name="V11"></param>
-        /// <param name="V12"></param>
-        /// <param name="V13"></param>
-        /// <param name="V14"></param>
-        /// <param name="V15"></param>
-        /// <param name="V16"></param>
-        /// <param name="V17"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas_RV(string V01, string V02, string V03, string V04, string V05, string V06, string V07, string V08, string V09, string V10, string V11, string V12, string V13, string V14, string V15, string V16, string V17, string RV_TR)
+        public ActionResult CargarRespuestas_RV(string V01, string V02, string V03, string V04, string V05, string V06, string V07, string V08, string V09, string V10, string RV_TR)
         {
             Sujeto Sujeto = new Sujeto();
 
@@ -295,13 +263,6 @@ namespace DAT.Controllers
             Sujeto.RV_8 = V08;
             Sujeto.RV_9 = V09;
             Sujeto.RV_10 = V10;
-            Sujeto.RV_11 = V11;
-            Sujeto.RV_12 = V12;
-            Sujeto.RV_13 = V13;
-            Sujeto.RV_14 = V14;
-            Sujeto.RV_15 = V15;
-            Sujeto.RV_16 = V16;
-            Sujeto.RV_17 = V17;
             Sujeto.RV_TR = RV_TR;
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
             Sujeto.Abandono = "Si_Bloques";
