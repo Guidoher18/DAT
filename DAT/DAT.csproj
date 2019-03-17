@@ -275,8 +275,8 @@
     <Content Include="Views\Home\Consentimiento.cshtml" />
     <Content Include="Views\Home\Consigna_RA.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
-    <Content Include="Views\Home\Final_R.cshtml" />
     <Content Include="Views\Home\Resultados.cshtml" />
+    <Content Include="Views\Home\Intermedio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -98,7 +98,7 @@ namespace DAT.Controllers
 
                 Session["Sujeto"] = Sujeto;
 
-                return RedirectToAction("Consigna_RA", "Home");
+                return RedirectToAction("Bloques", "Home");
             }
             else{
                 ViewBag.Error = "El Mail ingresado ya existe. Ingrese otra dirección de correo electrónico.";
@@ -106,53 +106,30 @@ namespace DAT.Controllers
             }
         }
 
-        public ActionResult Consigna_RA()
+        public ActionResult Bloques()
         {
-            return View("~/Views/Home/Consigna_RA.cshtml");
+            return View("~/Views/Home/Bloques.cshtml");
         }
 
-        public ActionResult Test_RA()
-        {
-            return View("~/Views/Home/Test_RA.cshtml");
-        }
-
-        /// <summary>
-        /// Toma las Respuestas de RA con los Datos del sujeto almacenados en session y los pasa por el Método Insertar [en BBDD]
-        /// </summary>
-        /// <param name="A01"></param>
-        /// <param name="A02"></param>
-        /// <param name="A03"></param>
-        /// <param name="A04"></param>
-        /// <param name="A05"></param>
-        /// <param name="A06"></param>
-        /// <param name="A07"></param>
-        /// <param name="A08"></param>
-        /// <param name="A09"></param>
-        /// <param name="A10"></param>
-        /// <returns></returns>
         [HttpPost]
-        public ActionResult CargarRespuestas_RA(string A01, string A02, string A03, string A04, string A05, string A06, string A07, string A08, string A09, string A10, string RA_TR)
+        public ActionResult CargarBloques(string Respuesta_CS, string Puntaje_CS, string CS_TR, string Respuesta_CI, string Puntaje_CI, string CI_TR)
         {
             var Sujeto = Session["Sujeto"] as Sujeto;
 
-            Sujeto.RA_1 = A01;
-            Sujeto.RA_2 = A02;
-            Sujeto.RA_3 = A03;
-            Sujeto.RA_4 = A04;
-            Sujeto.RA_5 = A05;
-            Sujeto.RA_6 = A06;
-            Sujeto.RA_7 = A07;
-            Sujeto.RA_8 = A08;
-            Sujeto.RA_9 = A09;
-            Sujeto.RA_10 = A10;
-            Sujeto.RA_TR = RA_TR;
+            Sujeto.Respuesta_CS = Respuesta_CS;
+            Sujeto.Puntaje_CS = Puntaje_CS;
+            Sujeto.CS_TR = CS_TR;
+
+            Sujeto.Respuesta_CI = Respuesta_CI;
+            Sujeto.Puntaje_CI = Puntaje_CI;
+            Sujeto.CI_TR = CI_TR;
+
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
+
             Sujeto.Abandono = "Si_RM";
 
             HomeManager Manager = new HomeManager();
-            Manager.Insertar(Sujeto);
-
-            Session["ID_Sujeto"] = Sujeto.ID;
+            Session["ID_Sujeto"] = Manager.Insertar(Sujeto);
 
             return RedirectToAction("Consigna_RM", "Home");
         }
@@ -215,11 +192,66 @@ namespace DAT.Controllers
             Sujeto.RM_18 = M18;
             Sujeto.RM_TR = RM_TR;
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
-            Sujeto.Abandono = "Si_RV";
+            Sujeto.Abandono = "Si_RA";
 
             HomeManager Manager = new HomeManager();
             Manager.ActualizarRM(Sujeto);
 
+            return RedirectToAction("Intermedio", "Home");
+        }
+
+        public ActionResult Intermedio()
+        {
+            return View("~/Views/Home/Intermedio.cshtml");
+        }
+
+        public ActionResult Consigna_RA()
+        {
+            return View("~/Views/Home/Consigna_RA.cshtml");
+        }
+
+        public ActionResult Test_RA()
+        {
+            return View("~/Views/Home/Test_RA.cshtml");
+        }
+
+        /// <summary>
+        /// Toma las Respuestas de RA con los Datos del sujeto almacenados en session y los pasa por el Método Insertar [en BBDD]
+        /// </summary>
+        /// <param name="A01"></param>
+        /// <param name="A02"></param>
+        /// <param name="A03"></param>
+        /// <param name="A04"></param>
+        /// <param name="A05"></param>
+        /// <param name="A06"></param>
+        /// <param name="A07"></param>
+        /// <param name="A08"></param>
+        /// <param name="A09"></param>
+        /// <param name="A10"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CargarRespuestas_RA(string A01, string A02, string A03, string A04, string A05, string A06, string A07, string A08, string A09, string A10, string RA_TR)
+        {
+            Sujeto Sujeto = new Sujeto();
+
+            Sujeto.ID = Session["ID_Sujeto"] as string;
+            Sujeto.RA_1 = A01;
+            Sujeto.RA_2 = A02;
+            Sujeto.RA_3 = A03;
+            Sujeto.RA_4 = A04;
+            Sujeto.RA_5 = A05;
+            Sujeto.RA_6 = A06;
+            Sujeto.RA_7 = A07;
+            Sujeto.RA_8 = A08;
+            Sujeto.RA_9 = A09;
+            Sujeto.RA_10 = A10;
+            Sujeto.RA_TR = RA_TR;
+            Sujeto.FechayHoraSalida = DateTime.Now.ToString();
+            Sujeto.Abandono = "Si_RV";
+
+            HomeManager Manager = new HomeManager();
+            Manager.ActualizarRA(Sujeto);
+                       
             return RedirectToAction("Consigna_RV", "Home");
         }
 
@@ -265,39 +297,10 @@ namespace DAT.Controllers
             Sujeto.RV_10 = V10;
             Sujeto.RV_TR = RV_TR;
             Sujeto.FechayHoraSalida = DateTime.Now.ToString();
-            Sujeto.Abandono = "Si_Bloques";
-
-            HomeManager Manager = new HomeManager();
-            Manager.ActualizarRV(Sujeto);
-
-            return RedirectToAction("Bloques", "Home");
-        }
-
-        public ActionResult Bloques()
-        {
-            return View("~/Views/Home/Bloques.cshtml");
-        }
-        
-        [HttpPost]
-        public ActionResult CargarBloques(string Respuesta_CS, string Puntaje_CS, string CS_TR, string Respuesta_CI, string Puntaje_CI, string CI_TR)
-        {
-            Sujeto Sujeto = new Sujeto();
-
-            Sujeto.ID = Session["ID_Sujeto"] as string;
-            Sujeto.Respuesta_CS = Respuesta_CS;
-            Sujeto.Puntaje_CS = Puntaje_CS;
-            Sujeto.CS_TR = CS_TR;
-
-            Sujeto.Respuesta_CI = Respuesta_CI;
-            Sujeto.Puntaje_CI = Puntaje_CI;
-            Sujeto.CI_TR = CI_TR;
-
-            Sujeto.FechayHoraSalida = DateTime.Now.ToString();
-
             Sujeto.Abandono = "No";
 
             HomeManager Manager = new HomeManager();
-            Manager.ActualizarBloques(Sujeto);
+            Manager.ActualizarRV(Sujeto);
 
             return RedirectToAction("Final", "Home");
         }
@@ -306,6 +309,81 @@ namespace DAT.Controllers
         {
             return View("~/Views/Home/Final.cshtml");
         }
+
+        /// <summary>
+        /// Muestra el desempeño obtenido en las pruebas
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Resultados()
+        {
+            HomeManager Leer = new HomeManager();
+            Sujeto Sujeto = Leer.Leer_un_registro(Session["ID_Sujeto"].ToString());
+
+            ViewBag.Fecha = DateTime.Today.ToString("d");
+            ViewBag.ApellidoyNombre = Sujeto.Apellido + " " + Sujeto.Nombre;
+            ViewBag.Genero = Sujeto.Genero;
+            ViewBag.Edad = Sujeto.Edad;
+            ViewBag.Carrera = Sujeto.Carrera;
+            ViewBag.Universidad = Sujeto.Universidad;
+            ViewBag.Ingreso = Sujeto.Cuatrimestre + " " + Sujeto.Año;
+
+            Decimal RA = int.Parse(Sujeto.Puntaje_RA) / 10 * 100;
+            RA = Math.Round(RA, 1);
+            ViewBag.Aciertos_RA = RA;
+
+            Decimal RM = int.Parse(Sujeto.Puntaje_RM) / 18 * 100;
+            RM = Math.Round(RM, 1);
+            ViewBag.Aciertos_RM = RM;
+
+            Decimal RV = int.Parse(Sujeto.Puntaje_RV) / 10 * 100;
+            RV = Math.Round(RV, 1);
+            ViewBag.Aciertos_RV = RV;
+
+            Decimal CS = int.Parse(Sujeto.Puntaje_CS) / 21 * 100;
+            CS = Math.Round(CS, 1);
+            ViewBag.Aciertos_CS = CS;
+
+            Decimal CI = int.Parse(Sujeto.Puntaje_CI) / 18 * 100;
+            CI = Math.Round(CI, 1);
+            ViewBag.Aciertos_CI = CI;
+
+            ViewBag.D_RA = AnalisisCualitativo(RA);
+            ViewBag.D_RM = AnalisisCualitativo(RM);
+            ViewBag.D_RV = AnalisisCualitativo(RV);
+            ViewBag.D_CS = AnalisisCualitativo(CS);
+            ViewBag.D_CI = AnalisisCualitativo(CI);
+
+            ViewBag.TR_RA = Sujeto.RA_TR;
+            ViewBag.TR_RM = Sujeto.RM_TR;
+            ViewBag.TR_RV = Sujeto.RV_TR;
+            ViewBag.TR_CS = Sujeto.CS_TR;
+            ViewBag.TR_CI = Sujeto.CI_TR;
+
+            return View("~/Views/Home/Resultados.cshtml");
+        }
+
+        /// <summary>
+        /// Devuelve las calificaciones cualitativas respecto de los desempeños en las pruebas
+        /// </summary>
+        /// <param name="A"></param>
+        /// <returns></returns>
+        public string AnalisisCualitativo(Decimal A)
+        {
+            if (A < 60)
+            {
+                if (A < 20) { return "Regular"; }
+                else if (A < 40) { return "Bueno"; }
+                else { return "Muy Bueno"; }
+            }
+            else
+            {
+                if (A < 80) { return "Excelente"; }
+                else { return "Sobresaliente"; }
+            }
+        }
+
+
+
 
         /// <summary>
         /// Permite Exportar los datos cargados en la BBDD
@@ -729,77 +807,7 @@ namespace DAT.Controllers
             return J;            
         }
 
-        /// <summary>
-        /// Muestra el desempeño obtenido en las pruebas
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Resultados()
-        {
-            HomeManager Leer = new HomeManager();
-            Sujeto Sujeto = Leer.Leer_un_registro(Session["ID_Sujeto"].ToString());
 
-            ViewBag.Fecha = DateTime.Today.ToString("d");
-            ViewBag.ApellidoyNombre = Sujeto.Apellido + " "+ Sujeto.Nombre;
-            ViewBag.Genero = Sujeto.Genero;
-            ViewBag.Edad = Sujeto.Edad;
-            ViewBag.Carrera = Sujeto.Carrera;
-            ViewBag.Universidad = Sujeto.Universidad;
-            ViewBag.Ingreso = Sujeto.Cuatrimestre + " " + Sujeto.Año;
-            
-            Decimal RA = int.Parse(Sujeto.Puntaje_RA)/10*100; 
-            RA = Math.Round(RA, 1);
-            ViewBag.Aciertos_RA = RA;
-            
-            Decimal RM = int.Parse(Sujeto.Puntaje_RM)/18*100; 
-            RM = Math.Round(RM, 1);
-            ViewBag.Aciertos_RM = RM;
-            
-            Decimal RV = int.Parse(Sujeto.Puntaje_RV)/10*100; 
-            RV = Math.Round(RV, 1);
-            ViewBag.Aciertos_RV = RV;
-
-            Decimal CS = int.Parse(Sujeto.Puntaje_CS)/21*100; 
-            CS = Math.Round(CS, 1);             
-            ViewBag.Aciertos_CS = CS; 
-
-            Decimal CI = int.Parse(Sujeto.Puntaje_CI)/18*100; 
-            CI = Math.Round(CI, 1);             
-            ViewBag.Aciertos_CI = CI;
-            
-            ViewBag.D_RA = AnalisisCualitativo(RA);
-            ViewBag.D_RM = AnalisisCualitativo(RM);
-            ViewBag.D_RV = AnalisisCualitativo(RV);
-            ViewBag.D_CS = AnalisisCualitativo(CS);
-            ViewBag.D_CI = AnalisisCualitativo(CI);
-
-            ViewBag.TR_RA = Sujeto.RA_TR; 
-            ViewBag.TR_RM = Sujeto.RM_TR; 
-            ViewBag.TR_RV = Sujeto.RV_TR; 
-            ViewBag.TR_CS = Sujeto.CS_TR; 
-            ViewBag.TR_CI = Sujeto.CI_TR;
-
-            return View("../Views/Home/Resultados.cshtml");
-        }
-
-        /// <summary>
-        /// Devuelve las calificaciones cualitativas respecto de los desempeños en las pruebas
-        /// </summary>
-        /// <param name="A"></param>
-        /// <returns></returns>
-        public string AnalisisCualitativo(Decimal A)
-        {
-            if (A<60)
-            {
-                if(A<20){ return "Regular"; }
-                else if(A<40){ return "Bueno"; }
-                else { return "Muy Bueno"; }
-            }
-            else
-            {
-                if(A<80){ return "Excelente"; }
-                else { return "Sobresaliente"; }
-            }
-        }
 
         /* FALTA RESOLVER !!! >>
          * public FileResult Descargar()

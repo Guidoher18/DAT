@@ -284,7 +284,7 @@ $(document).ready(function(){
                     Conteo_de_Clic_en_Bloque = 0;
                     Habilitar_Clic = 1;
                 },1000);
-            },19000);
+            },4000);
         }
     };
     
