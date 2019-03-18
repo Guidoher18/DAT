@@ -305,28 +305,28 @@ namespace DAT.Models
                     if (SinNull["RA_9"] == "D") { Puntaje_RA += 1; }
                     if (SinNull["RA_10"] == "E") { Puntaje_RA += 1; }
 
-                    //Corrección RM   /* ARREGLAR!!!!!!!!!!!!! */
+                    //Corrección RM   
                     if (SinNull["RM_1"] == "C") { Puntaje_RM += 1; }
                     if (SinNull["RM_2"] == "C") { Puntaje_RM += 1; }
                     if (SinNull["RM_3"] == "A") { Puntaje_RM += 1; }
-                    if (SinNull["RM_4"] == "B") { Puntaje_RM += 1; }
+                    if (SinNull["RM_4"] == "C") { Puntaje_RM += 1; }
 
-                    if (SinNull["RM_5"] == "C") { Puntaje_RM += 1; }
-                    if (SinNull["RM_6"] == "B") { Puntaje_RM += 1; }
-                    if (SinNull["RM_7"] == "A") { Puntaje_RM += 1; }
+                    if (SinNull["RM_5"] == "A") { Puntaje_RM += 1; }
+                    if (SinNull["RM_6"] == "C") { Puntaje_RM += 1; }
+                    if (SinNull["RM_7"] == "B") { Puntaje_RM += 1; }
                     if (SinNull["RM_8"] == "B") { Puntaje_RM += 1; }
 
-                    if (SinNull["RM_9"] == "C") { Puntaje_RM += 1; }
+                    if (SinNull["RM_9"] == "A") { Puntaje_RM += 1; }
                     if (SinNull["RM_10"] == "B") { Puntaje_RM += 1; }
-                    if (SinNull["RM_11"] == "B") { Puntaje_RM += 1; }
+                    if (SinNull["RM_11"] == "A") { Puntaje_RM += 1; }
                     if (SinNull["RM_12"] == "B") { Puntaje_RM += 1; }
 
                     if (SinNull["RM_13"] == "A") { Puntaje_RM += 1; }
-                    if (SinNull["RM_14"] == "B") { Puntaje_RM += 1; }
-                    if (SinNull["RM_15"] == "B") { Puntaje_RM += 1; }
+                    if (SinNull["RM_14"] == "A") { Puntaje_RM += 1; }
+                    if (SinNull["RM_15"] == "C") { Puntaje_RM += 1; }
                     if (SinNull["RM_16"] == "B") { Puntaje_RM += 1; }
 
-                    if (SinNull["RM_17"] == "A") { Puntaje_RM += 1; }
+                    if (SinNull["RM_17"] == "B") { Puntaje_RM += 1; }
                     if (SinNull["RM_18"] == "B") { Puntaje_RM += 1; }
 
                     //Corrección RV
