@@ -394,9 +394,9 @@ namespace DAT.Models
                     Dictionary<string, string> SinNull = new Dictionary<string, string>();
 
                     string[] Propiedades = {
-                        "RA_1", "RA_2", "RA_3", "RA_4", "RA_5", "RA_6", "RA_7", "RA_8", "RA_9", "RA_10", "RA_11", "RA_12", "RA_13", "RA_14", "RA_15", "RA_16", "RA_17",
-                        "RM_1", "RM_2", "RM_3", "RM_4", "RM_5", "RM_6", "RM_7", "RM_8", "RM_9", "RM_10", "RM_11", "RM_12", "RM_13", "RM_14", "RM_15", "RM_16", "RM_17", "RM_18", "RM_19", "RM_20", "RM_21", "RM_22", "RM_23", "RM_24", "RM_25", "RM_26", "RM_27", "RM_28", "RM_29", "RM_30",
-                        "RV_1", "RV_2", "RV_3", "RV_4", "RV_5", "RV_6", "RV_7", "RV_8", "RV_9", "RV_10", "RV_11", "RV_12", "RV_13", "RV_14", "RV_15", "RV_16", "RV_17",
+                        "RA_1", "RA_2", "RA_3", "RA_4", "RA_5", "RA_6", "RA_7", "RA_8", "RA_9", "RA_10",
+                        "RM_1", "RM_2", "RM_3", "RM_4", "RM_5", "RM_6", "RM_7", "RM_8", "RM_9", "RM_10", "RM_11", "RM_12", "RM_13", "RM_14", "RM_15", "RM_16", "RM_17", "RM_18",
+                        "RV_1", "RV_2", "RV_3", "RV_4", "RV_5", "RV_6", "RV_7", "RV_8", "RV_9", "RV_10",
                         "Respuesta_CS", "Respuesta_CI", "RA_TR", "RM_TR", "RV_TR", "CS_TR", "CI_TR", "Puntaje_CS", "Puntaje_CI", "FechayHoraSalida", "Abandono"
                     };
 
@@ -437,13 +437,6 @@ namespace DAT.Models
                     Sujeto.RA_8 = SinNull["RA_8"];
                     Sujeto.RA_9 = SinNull["RA_9"];
                     Sujeto.RA_10 = SinNull["RA_10"];
-                    /*Sujeto.RA_11 = SinNull["RA_11"];
-                    Sujeto.RA_12 = SinNull["RA_12"];
-                    Sujeto.RA_13 = SinNull["RA_13"];
-                    Sujeto.RA_14 = SinNull["RA_14"];  ARREglaR
-                    Sujeto.RA_15 = SinNull["RA_15"];
-                    Sujeto.RA_16 = SinNull["RA_16"];
-                    Sujeto.RA_17 = SinNull["RA_17"];*/
 
                     Sujeto.RM_1 = SinNull["RM_1"];
                     Sujeto.RM_2 = SinNull["RM_2"];
@@ -463,18 +456,6 @@ namespace DAT.Models
                     Sujeto.RM_16 = SinNull["RM_16"];
                     Sujeto.RM_17 = SinNull["RM_17"];
                     Sujeto.RM_18 = SinNull["RM_18"];
-                   /* Sujeto.RM_19 = SinNull["RM_19"];
-                    Sujeto.RM_20 = SinNull["RM_20"];
-                    Sujeto.RM_21 = SinNull["RM_21"];
-                    Sujeto.RM_22 = SinNull["RM_22"];
-                    Sujeto.RM_23 = SinNull["RM_23"];
-                    Sujeto.RM_24 = SinNull["RM_24"];
-                    Sujeto.RM_25 = SinNull["RM_25"];
-                    Sujeto.RM_26 = SinNull["RM_26"];      ARREGLAR
-                    Sujeto.RM_27 = SinNull["RM_27"];
-                    Sujeto.RM_28 = SinNull["RM_28"];
-                    Sujeto.RM_29 = SinNull["RM_29"];
-                    Sujeto.RM_30 = SinNull["RM_30"]; */
 
                     Sujeto.RV_1 = SinNull["RV_1"];
                     Sujeto.RV_2 = SinNull["RV_2"];
@@ -486,13 +467,6 @@ namespace DAT.Models
                     Sujeto.RV_8 = SinNull["RV_8"];
                     Sujeto.RV_9 = SinNull["RV_9"];
                     Sujeto.RV_10 = SinNull["RV_10"];
-                   /* Sujeto.RV_11 = SinNull["RV_11"];
-                    Sujeto.RV_12 = SinNull["RV_12"];
-                    Sujeto.RV_13 = SinNull["RV_13"];
-                    Sujeto.RV_14 = SinNull["RV_14"];    ARREGLAR
-                    Sujeto.RV_15 = SinNull["RV_15"];
-                    Sujeto.RV_16 = SinNull["RV_16"];
-                    Sujeto.RV_17 = SinNull["RV_17"]; */
 
                     Sujeto.Respuesta_CS = SinNull["Respuesta_CS"];
                     Sujeto.Respuesta_CI = SinNull["Respuesta_CI"];
@@ -521,7 +495,5 @@ namespace DAT.Models
             Conexion.Close();
             return SujetosBase;
         }
-
-
     }
 }
