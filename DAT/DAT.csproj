@@ -194,7 +194,11 @@
     <Content Include="Content\Bloques.css" />
     <Content Include="Content\Error.css" />
     <Content Include="Content\General.css" />
-    <Content Include="Content\Imagen.png" />
+    <Content Include="Content\img\Ejemplo_CI.JPG" />
+    <Content Include="Content\img\Ejemplo_CS.JPG" />
+    <Content Include="Content\img\Ejemplo_RV.JPG" />
+    <Content Include="Content\img\Imagen.png" />
+    <Content Include="Content\img\Memoria.jpg" />
     <Content Include="Content\Test_RA.css" />
     <Content Include="Content\Consentimiento.css" />
     <Content Include="Content\Test_RM.css" />
@@ -257,6 +261,7 @@
     <Content Include="Scripts\Moment-Timer.js" />
     <Content Include="Scripts\Moment.js" />
     <Content Include="Scripts\PrevenirCierre.js" />
+    <Content Include="Scripts\Resultados.js" />
     <Content Include="Scripts\Test_RA.js" />
     <Content Include="Scripts\Test_RM.js" />
     <Content Include="Scripts\Test_RV.js" />
@@ -275,8 +280,8 @@
     <Content Include="Views\Home\Consentimiento.cshtml" />
     <Content Include="Views\Home\Consigna_RA.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
-    <Content Include="Views\Home\Resultados.cshtml" />
     <Content Include="Views\Home\Intermedio.cshtml" />
+    <Content Include="Views\Home\Resultados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

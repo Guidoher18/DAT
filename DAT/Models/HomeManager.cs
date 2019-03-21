@@ -341,20 +341,20 @@ namespace DAT.Models
                     if (SinNull["RV_8"] == "B") { Puntaje_RV += 1; }
 
                     if (SinNull["RV_9"] == "E") { Puntaje_RV += 1; }
-                    if (SinNull["RV_10"] == "B") { Puntaje_RV += 1; } 
+                    if (SinNull["RV_10"] == "B") { Puntaje_RV += 1; }
 
-                    Sujeto.Puntaje_RA = Puntaje_RA.ToString();
-                    Sujeto.Puntaje_RM = Puntaje_RM.ToString();
-                    Sujeto.Puntaje_RV = Puntaje_RV.ToString();
+                    Sujeto.Puntaje_RA = Puntaje_RA;
+                    Sujeto.Puntaje_RM = Puntaje_RM;
+                    Sujeto.Puntaje_RV = Puntaje_RV;
 
-                    Sujeto.Puntaje_CS = SinNull["Puntaje_CS"];
-                    Sujeto.Puntaje_CI = SinNull["Puntaje_CI"];
+                    Sujeto.Puntaje_CS = Quitar_Vacio(SinNull["Puntaje_CS"]);
+                    Sujeto.Puntaje_CI = Quitar_Vacio(SinNull["Puntaje_CI"]);
 
-                    Sujeto.RA_TR = SinNull["RA_TR"];
-                    Sujeto.RM_TR = SinNull["RM_TR"];
-                    Sujeto.RV_TR = SinNull["RV_TR"];
-                    Sujeto.CS_TR = SinNull["CS_TR"];
-                    Sujeto.CI_TR = SinNull["CI_TR"];
+                    Sujeto.RA_TR = Quitar_Vacio(SinNull["RA_TR"]);
+                    Sujeto.RM_TR = Quitar_Vacio(SinNull["RM_TR"]);
+                    Sujeto.RV_TR = Quitar_Vacio(SinNull["RV_TR"]);
+                    Sujeto.CS_TR = Quitar_Vacio(SinNull["CS_TR"]);
+                    Sujeto.CI_TR = Quitar_Vacio(SinNull["CI_TR"]);
                 }
                 catch (NullReferenceException)
                 {
@@ -365,6 +365,20 @@ namespace DAT.Models
             reader.Close();
             Conexion.Close();
             return Sujeto;
+        }
+
+        /// <summary>
+        /// Si el parámetro es un string vacío "", lo transforma en "0"
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public string Quitar_Vacio(string a)
+        {
+            if (a == "")
+            {
+                a = "0";
+            }
+            return a;
         }
 
         /// <summary>

@@ -327,47 +327,40 @@ namespace DAT.Controllers
             ViewBag.Universidad = Sujeto.Universidad;
             ViewBag.Ingreso = Sujeto.Cuatrimestre + " " + Sujeto.Año;
 
-            Decimal RA = int.Parse(Sujeto.Puntaje_RA) / 10 * 100;
-            RA = Math.Round(RA, 1);
-            ViewBag.Aciertos_RA = RA;
+            ViewBag.Aciertos_RA = Porcentaje(Sujeto.Puntaje_RA, 10);
+            ViewBag.Aciertos_RM = Porcentaje(Sujeto.Puntaje_RM, 18);
+            ViewBag.Aciertos_RV = Porcentaje(Sujeto.Puntaje_RV, 10);
+            ViewBag.Aciertos_CS = Porcentaje(int.Parse(Sujeto.Puntaje_CS), 21);
+            ViewBag.Aciertos_CI = Porcentaje(int.Parse(Sujeto.Puntaje_CI), 18);
 
-            Decimal RM = int.Parse(Sujeto.Puntaje_RM) / 18 * 100;
-            RM = Math.Round(RM, 1);
-            ViewBag.Aciertos_RM = RM;
+            ViewBag.D_RA = AnalisisCualitativo(ViewBag.Aciertos_RA);
+            ViewBag.D_RM = AnalisisCualitativo(ViewBag.Aciertos_RM);
+            ViewBag.D_RV = AnalisisCualitativo(ViewBag.Aciertos_RV);
+            ViewBag.D_CS = AnalisisCualitativo(ViewBag.Aciertos_CS);
+            ViewBag.D_CI = AnalisisCualitativo(ViewBag.Aciertos_CI);
 
-            Decimal RV = int.Parse(Sujeto.Puntaje_RV) / 10 * 100;
-            RV = Math.Round(RV, 1);
-            ViewBag.Aciertos_RV = RV;
+            ViewBag.TR_RA = Sujeto.RA_TR.Trim();
+            ViewBag.TR_RM = Sujeto.RM_TR.Trim();
+            ViewBag.TR_RV = Sujeto.RV_TR.Trim();
+            ViewBag.TR_CS = Sujeto.CS_TR.Trim();
+            ViewBag.TR_CI = Sujeto.CI_TR.Trim();
 
-            Decimal CS = int.Parse(Sujeto.Puntaje_CS) / 21 * 100;
-            CS = Math.Round(CS, 1);
-            ViewBag.Aciertos_CS = CS;
-
-            Decimal CI = int.Parse(Sujeto.Puntaje_CI) / 18 * 100;
-            CI = Math.Round(CI, 1);
-            ViewBag.Aciertos_CI = CI;
-
-            ViewBag.D_RA = AnalisisCualitativo(RA);
-            ViewBag.D_RM = AnalisisCualitativo(RM);
-            ViewBag.D_RV = AnalisisCualitativo(RV);
-            ViewBag.D_CS = AnalisisCualitativo(CS);
-            ViewBag.D_CI = AnalisisCualitativo(CI);
-
-            ViewBag.TR_RA = Sujeto.RA_TR;
-            ViewBag.TR_RM = Sujeto.RM_TR;
-            ViewBag.TR_RV = Sujeto.RV_TR;
-            ViewBag.TR_CS = Sujeto.CS_TR;
-            ViewBag.TR_CI = Sujeto.CI_TR;
-
-            return View("~/Views/Home/Resultados.cshtml");
+            return View("~/Views/Home/Resultados.cshtml");  
+    }
+        public Double Porcentaje(int Puntaje, int Divisor)
+        {
+            Double a = (Double)Puntaje/(Double)Divisor * 100;
+            a = Math.Round(a,2);
+            return a;
         }
 
+
         /// <summary>
-        /// Devuelve las calificaciones cualitativas respecto de los desempeños en las pruebas
-        /// </summary>
-        /// <param name="A"></param>
-        /// <returns></returns>
-        public string AnalisisCualitativo(Decimal A)
+    /// Devuelve las calificaciones cualitativas respecto de los desempeños en las pruebas
+    /// </summary>
+    /// <param name="A"></param>
+    /// <returns></returns>
+        public string AnalisisCualitativo(Double A)
         {
             if (A < 60)
             {
