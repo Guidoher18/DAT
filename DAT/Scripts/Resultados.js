@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    var a = 0;
 
     $('#RA').hover(function () {
         $('#RA>font').toggle();

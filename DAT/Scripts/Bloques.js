@@ -301,7 +301,7 @@ $(document).ready(function(){
         //b: función a la que redirige el boton
         //c: parámetros de la función anterior                 
         $('div[class="bloques"]').css('display', 'none');
-        $('#Instructivo').html('<table><tr><td><p>'+ Consigna + '</p><p><a class="btn btn-info col-md-4" id="Entendido">Entendido</a></p></td></tr></table>');
+        $('#Instructivo').html('<table><tr><td><p>'+ Consigna + '</p><p><a class="btn btn-success col-md-4" id="Entendido">Entendido</a></p></td></tr></table>');
         $('#Instructivo').css('display', 'block');
         $('#Entendido').on('click', function(){
             if (Modalidad == 'rojo' && Numero_de_Tarea == 6)

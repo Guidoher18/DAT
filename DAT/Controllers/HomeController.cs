@@ -347,13 +347,13 @@ namespace DAT.Controllers
 
             return View("~/Views/Home/Resultados.cshtml");  
     }
+
         public Double Porcentaje(int Puntaje, int Divisor)
         {
             Double a = (Double)Puntaje/(Double)Divisor * 100;
             a = Math.Round(a,2);
             return a;
         }
-
 
         /// <summary>
     /// Devuelve las calificaciones cualitativas respecto de los desempeños en las pruebas
@@ -771,8 +771,7 @@ namespace DAT.Controllers
                 Libro.CopyCell(Fila, Columna, Fila + 1, Columna);
             }
         }
-
-
+        
         /* FALTA RESOLVER !!! >>
          * public FileResult Descargar()
         {
