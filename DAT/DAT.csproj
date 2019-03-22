@@ -265,6 +265,7 @@
     <Content Include="Scripts\Test_RA.js" />
     <Content Include="Scripts\Test_RM.js" />
     <Content Include="Scripts\Test_RV.js" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Views\Home\Bloques.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
