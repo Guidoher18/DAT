@@ -379,11 +379,13 @@ namespace DAT.Controllers
         /// Permite Exportar los datos cargados en la BBDD
         /// </summary>
         /// <returns></returns>
-        public ActionResult Exportar()
+        public FileResult Exportar()
         {
+            Borrar_Archivos();
             HomeManager Leer = new HomeManager();
             Procesar(Leer.LeerRegistros());
-            return View("~/Views/Home/Descarga.cshtml");
+            //return View("~/Views/Home/Descarga.cshtml");
+            return File((string)Session["Ruta"], "Application/xlsx", (string)Session["Nombre_Archivo"]);
         }
 
         /// <summary>
@@ -602,13 +604,14 @@ namespace DAT.Controllers
             Fecha = Fecha.Replace(" ", "_");
 
             string Nombre_Archivo = "Base_de_Datos_" + Fecha + ".xlsx";
-            string Ruta = Server.MapPath("~/Exportar/" + Nombre_Archivo);
+            string Ruta = Server.MapPath("../Exportar/" + Nombre_Archivo);
              
             Libro.SaveAs(Ruta);
 
-            ViewBag.Nombre_Archivo = Nombre_Archivo;
+            //ViewBag.Nombre_Archivo = Nombre_Archivo;
 
             Session["Nombre_Archivo"] = Nombre_Archivo;
+            Session["Ruta"] = Ruta;
         }
                        
         /// <summary>
@@ -771,33 +774,28 @@ namespace DAT.Controllers
                 Libro.CopyCell(Fila, Columna, Fila + 1, Columna);
             }
         }
-        
-        /* FALTA RESOLVER !!! >>
-         * public FileResult Descargar()
+
+        public FileResult Descargar()
         {
             string NombreArchivo = Session["Nombre_Archivo"] as string;
-            string Ruta = "../Exportar" + NombreArchivo;
+            string Ruta = Server.MapPath("../Exportar/" + NombreArchivo);
 
-            return File(Ruta, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            return File(Ruta, "application/xlsx", NombreArchivo);
+        }
 
-                      
-            string Nombre_Archivo = Session["Nombre_Archivo"] as string;
-            string Ruta = "ftp://www.procesosbasicos.somee.com/www.procesosbasicos.somee.com/Exportar/" + Nombre_Archivo;
+        public void Borrar_Archivos()
+        {
+            try
+            {
+                string[] Archivos = Directory.GetFiles(Server.MapPath("../Exportar/"));
 
-
-
-            context.HttpContext.Response.Buffer = true;
-            context.HttpContext.Response.Clear();
-            context.HttpContext.Response.AddHeader("content-disposition", "attachment; filename=" + FileName);
-            context.HttpContext.Response.WriteFile(context.HttpContext.Server.MapPath(Path));
-
-            
-            WebClient client = new WebClient();
-            client.Credentials = new NetworkCredential("Psico_452", "Psico_452");
-            client.DownloadFile(Ruta, @"~\Download\"+ Nombre_Archivo);*/
-
+                foreach (string Z in Archivos)
+                {
+                    System.IO.File.Delete(Z);
+                }
+            }
+            catch {
+            }
+        }
     }
 }
-
-
-                    
