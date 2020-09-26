@@ -37,7 +37,7 @@ namespace DAT.Controllers
         {
             string MyName = "Procesos Básicos";
             string MyMail = "procesosbasicos19@gmail.com";
-            string MyPassword = "razonamiento333";
+            string MyPassword = "Razonamiento.1515";
             string TheirMail = MailMobile;
             string Subject = "Investigación sobre Razonamiento Mecánico";
             string Message = "El Link para participar de la Investigación es: https://goo.gl/gdpExZ. Recuerde ingresar desde una Computadora de Escritorio o Portatill. Desde ya, Muchas Gracias.";
